@@ -1,0 +1,7 @@
+# Search engines may crawl everything; pages that should stay out of results carry
+# <meta name="robots" content="noindex"> (the university previews and the forms).
+# Cloudflare adds its own content signals above this file.
+User-agent: *
+Allow: /
+
+Sitemap: https://cc.braunf.com/sitemap.xml

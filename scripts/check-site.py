@@ -30,6 +30,8 @@ for page in pages:
             bad.append(f"{page.relative_to(root)}: missing {ref}")
     # third-party resources: any external URL in a tag that loads something
     for tag in re.findall(r"<(?:script|link|img|iframe|source|video|audio|embed|object)\b[^>]*>", text):
+        if re.search(r'rel="(?:canonical|alternate)"', tag):
+            continue  # a canonical or alternate link names the page's address; it loads nothing
         for url in re.findall(r'(?:src|href|srcset|data)="(https?://[^"]+)"', tag):
             bad.append(f"{page.relative_to(root)}: external resource {url}")
 
