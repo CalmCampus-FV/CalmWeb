@@ -2,8 +2,8 @@
 // Cache storage is shared by the whole origin, so every university folder owns a prefix
 // and only ever deletes its own old caches.
 const PREFIX = "calmcampus-epfl-";
-const CACHE = `${PREFIX}7e34b5e477`;
-const SHELL = ["./","app.js","config/universities/default.json","config/universities/epfl.json","fonts/caprasimo-latin-400-normal.woff2","fonts/figtree-latin-wght-normal.woff2","i18n/en.json","i18n/fr.json","icons/apple-touch-icon.png","icons/icon-192.png","icons/icon-512.png","icons/icon-maskable-512.png","index.html","lib/config.js","lib/demo.js","lib/i18n.js","lib/icons.js","lib/scoring.js","lib/store.js","lib/week.js","manifest.webmanifest","styles.css"];
+const CACHE = `${PREFIX}748dfcfc4f`;
+const SHELL = ["./","app.js","config/universities/default.json","config/universities/epfl.json","fonts/caprasimo-latin-400-normal.woff2","fonts/figtree-latin-wght-normal.woff2","i18n/en.json","i18n/fr.json","icons/apple-touch-icon.png","icons/icon-192.png","icons/icon-512.png","icons/icon-maskable-512.png","index.html","lib/config.js","lib/demo.js","lib/i18n.js","lib/icons.js","lib/scoring.js","lib/signals.js","lib/store.js","lib/week.js","manifest.webmanifest","styles.css"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
