@@ -55,6 +55,15 @@ function platform() {
   if (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return "ios";
   return /Android/.test(ua) ? "android" : "desktop";
 }
+/**
+ * Opened inside another app's own browser (an iOS WKWebView has no "Safari/" in its
+ * user agent; an Android WebView has "; wv)"). There is nothing to install there:
+ * the student opens CalmCampus from that app again next week.
+ */
+function inAppBrowser() {
+  const ua = navigator.userAgent;
+  return /; wv\)/.test(ua) || (platform() === "ios" && !/Safari\//.test(ua));
+}
 
 /* ---------- Shell ---------- */
 
@@ -65,9 +74,14 @@ function renderShell() {
     : c.logo?.text ? `<span class="uni-chip${Lt(c.logo.text).length > 10 ? " long" : ""}">${esc(Lt(c.logo.text))}</span>` : "";
   // The language switch stays in the header: one button per other language
   // (with two languages, a single button with the languages icon, as before).
-  const others = c.languages.filter((l) => l !== app.lang);
-  const langBtn = (l) => `<button class="lang" data-hlang="${l}" lang="${l}" aria-label="${esc(app.ui.lang.names?.[l] ?? l)}">${others.length === 1 ? icon("languages", 18) : ""}${esc(l.toUpperCase())}</button>`;
-  const switcher = others.length ? `<div class="langs" role="group" aria-label="${esc(t("more.languageHeading"))}">${others.map(langBtn).join("")}</div>` : "";
+  // With `languageSwitch: "all"` in the config, every language is shown and the active one is marked.
+  const all = c.languageSwitch === "all";
+  const shown = all ? c.languages : c.languages.filter((l) => l !== app.lang);
+  const langBtn = (l) => {
+    const on = l === app.lang;
+    return `<button class="lang${on ? " on" : ""}" data-hlang="${l}" lang="${l}" aria-label="${esc(app.ui.lang.names?.[l] ?? l)}"${all ? ` aria-pressed="${on}"` : ""}>${!all && shown.length === 1 ? icon("languages", 18) : ""}${esc(l.toUpperCase())}</button>`;
+  };
+  const switcher = c.languages.length > 1 ? `<div class="langs" role="group" aria-label="${esc(t("more.languageHeading"))}">${shown.map(langBtn).join("")}</div>` : "";
   // A longer co-brand ("for … students") sits as a small line under the name, so the
   // header fits the smallest phones next to the language buttons.
   $("top").innerHTML = `<div class="brand${chip.includes(" long") ? " stacked" : ""}"><a class="wordmark" href="#/">CalmCampus</a>${chip}</div>${switcher}`;
@@ -148,7 +162,7 @@ function langButtons(keep) {
  * computer (where the email is often opened first) a QR code to the phone link.
  */
 function installTip() {
-  if (isInstalled()) return "";
+  if (isInstalled() || inAppBrowser()) return "";
   const p = platform();
   if (p === "desktop") {
     const url = app.config.publicUrl;
@@ -280,7 +294,9 @@ function phoneSection(scenarioId) {
 
 function viewWelcome() {
   const icons = ["check", "smartphone", "shield-check"];
-  const points = app.ui.welcome.points.map((p, i) => `<li><span class="dot">${icon(icons[i] ?? "check", 20)}</span><span>${esc(typo(p.replace(/\{name\}/g, uniName())))}</span></li>`).join("");
+  const texts = app.ui.welcome.points.map((p) => typo(p.replace(/\{name\}/g, uniName())));
+  if (app.base.privacyNote) texts[2] = Lt(app.base.privacyNote);
+  const points = texts.map((p, i) => `<li><span class="dot">${icon(icons[i] ?? "check", 20)}</span><span>${esc(p)}</span></li>`).join("");
   return `<div class="stack welcome">
     <h1>${esc(t("welcome.title"))}</h1>
     <p class="lead">${esc(t("welcome.lead"))}</p>
@@ -349,7 +365,8 @@ function serviceCard(id, { actions = true } = {}) {
   const link = L(c.link), hours = Lt(c.hours), note = Lt(s.note);
   const btns = [];
   if (c.email) btns.push({ href: `mailto:${c.email}`, label: t("service.email"), ic: "mail", ext: false });
-  if (link) btns.push({ href: link, label: t("service.website"), ic: "external-link", ext: true });
+  const linkNote = c.linkNote?.[app.lang];
+  if (link) btns.push({ href: link, label: linkNote ? `${t("service.website")} ${typo(linkNote)}` : t("service.website"), ic: "external-link", ext: true });
   if (c.phone) btns.push({ href: `tel:${c.phone.replace(/\s/g, "")}`, label: `${t("service.call")} ${c.phone}`, ic: "phone", ext: false });
   const buttons = actions && btns.length
     ? `<div class="actions">${btns.map((b, i) => `<a class="btn ${i ? "ghost" : ""}" href="${esc(b.href)}" ${b.ext ? 'target="_blank" rel="noopener noreferrer"' : ""}>${icon(b.ic, 20)}${esc(b.label)}</a>`).join("")}</div>`
@@ -532,7 +549,8 @@ function viewPrivacy() {
   const pts = app.ui.privacy.points.map((p) => `<div><dt>${esc(typo(p.h))}</dt><dd>${esc(typo(p.p.replace(/\{name\}/g, uniName())))}</dd></div>`).join("");
   return `<div class="stack privacy"><div>${backLink("#/about", t("checkin.back"))}</div>
     <h1>${esc(t("privacy.title"))}</h1><p class="lead">${esc(t("privacy.intro"))}</p>
-    <div class="card"><dl>${pts}</dl></div><p class="small">${esc(t("privacy.principles"))}</p></div>`;
+    ${app.base.privacyNote ? `<div class="hint"><p>${esc(Lt(app.base.privacyNote))}</p></div>` : ""}
+    <div class="card"><dl>${pts}</dl></div><p class="small">${esc(app.base.privacyPrinciples ? Lt(app.base.privacyPrinciples) : t("privacy.principles"))}</p></div>`;
 }
 
 /** "Which university are you at?": once, and again from About to change it. */
@@ -565,17 +583,63 @@ function block(b) {
   if (b.items) return `<ol class="timeline">${b.items.map((it) => `<li><strong>${esc(Lt(it.h))}</strong><span>${esc(Lt(it.p))}</span></li>`).join("")}</ol>`;
   if (b.box) return `<div class="card stack box">${b.box.map(block).join("")}</div>`;
   if (b.links) return pageLinks(b.links);
+  if (b.concept) return conceptMock(b.concept);
   if (b.table) {
     const tb = b.table;
     const head = L(tb.head) ?? [], rows = L(tb.rows) ?? [];
-    // Made-up numbers always carry the Example label.
+    // Made-up numbers always carry the Example label ("info" tables hold no numbers).
     const tag = tb.label === "example" ? `<span class="pill demo">${esc(t("demo.label"))}</span>` : "";
     return `<div class="card stack table-card"><div class="row wrap"><h3 class="grow">${esc(Lt(tb.caption))}</h3>${tag}</div>
       ${tb.note ? `<p class="small">${esc(Lt(tb.note))}</p>` : ""}
       <div class="table-wrap"><table><thead><tr>${head.map((h) => `<th scope="col">${esc(typo(h))}</th>`).join("")}</tr></thead>
-      <tbody>${rows.map((r) => `<tr>${r.map((cell, i) => (i ? `<td>${esc(typo(cell))}</td>` : `<th scope="row">${esc(typo(cell))}</th>`)).join("")}</tr>`).join("")}</tbody></table></div></div>`;
+      <tbody>${rows.map((r) => `<tr>${r.map((cell, i) => (i ? `<td data-label="${esc(typo(head[i] ?? ""))}">${esc(typo(cell))}</td>` : `<th scope="row">${esc(typo(cell))}</th>`)).join("")}</tr>`).join("")}</tbody></table></div></div>`;
   }
   return "";
+}
+
+/**
+ * A concept mockup (a page block `concept`): an interactive phone with a few screens of
+ * something that is not built, labelled as such on every screen. It only uses example
+ * data, keeps its state in memory, and reads no sensor.
+ */
+const conceptState = () => (app.concept ??= { step: 0, answered: false, q: 0, perms: {} });
+
+function conceptMock(cn) {
+  const st = conceptState();
+  const step = Math.min(st.step, cn.screens.length - 1);
+  const sc = cn.screens[step];
+  const qStep = cn.screens.findIndex((x) => x.type === "questions");
+  const tabs = `<div class="concept-tabs" role="tablist" aria-label="${esc(Lt(cn.tabsLabel))}">${cn.screens.map((x, i) =>
+    `<button class="btn ${i === step ? "sage" : "ghost"} sm" role="tab" aria-selected="${i === step}" data-concept-step="${i}">${esc(Lt(x.tab))}</button>`).join("")}</div>`;
+  let body = "";
+  if (sc.type === "banner") {
+    body = `${st.answered ? "" : `<div class="concept-banner"><span>${esc(Lt(sc.banner))}</span>${qStep > -1 ? `<button class="btn sm" data-concept-step="${qStep}">${esc(Lt(sc.button))}</button>` : ""}</div>`}
+      <div class="mock-bars" aria-hidden="true"><i></i><i></i><i class="short"></i><i></i></div>`;
+  } else if (sc.type === "questions") {
+    const qs = app.config.questions;
+    body = st.q < qs.length
+      ? `<p class="small">${esc(t("checkin.progress", { n: st.q + 1, total: qs.length }))}</p><p class="concept-q">${esc(Lt(qs[st.q].text))}</p>
+        <div class="concept-answers"><button class="btn sm" data-concept-answer="yes">${esc(t("checkin.yes"))}</button><button class="btn sm ghost" data-concept-answer="no">${esc(t("checkin.no"))}</button></div>`
+      : `<p class="concept-q">${esc(Lt(sc.done))}</p><button class="btn sm ghost" data-concept-restart>${esc(Lt(sc.again))}</button>`;
+  } else if (sc.type === "overview") {
+    const weeks = demoEntries(app.config).map((e) => resultFor(app.config, e.answers));
+    body = `<div class="row wrap"><strong class="grow">${esc(Lt(sc.heading))}</strong><span class="pill demo">${esc(t("demo.label"))}</span></div>
+      <div class="concept-chart" role="img" aria-label="${esc(t("history.chartLabel"))}">${weeks.map((r) => `<i class="l-${esc(r.level.id)}" style="height:${Math.max(8, (r.yes / r.total) * 100)}%"></i>`).join("")}</div>
+      <p class="small">${esc(Lt(sc.text))}</p>`;
+  } else if (sc.type === "permissions") {
+    body = `<p class="small">${esc(Lt(sc.intro))}</p><ul class="perm-list">${sc.items.map((it) => {
+      const on = st.perms[it.id] === true;
+      return `<li><span class="grow">${esc(Lt(it.label))}</span><button class="switch" role="switch" aria-checked="${on}" aria-label="${esc(Lt(it.label))}" data-concept-perm="${esc(it.id)}"><i></i></button></li>`;
+    }).join("")}</ul><p class="small"><strong>${esc(Lt(sc.note))}</strong></p>`;
+  }
+  const weekToggle = sc.type === "banner" && sc.weekLabel
+    ? `<div class="seg" role="group" aria-label="${esc(Lt(sc.weekLabel))}"><button class="btn ${st.answered ? "ghost" : "sage"} sm" aria-pressed="${!st.answered}" data-concept-answered="no">${esc(Lt(sc.notAnswered))}</button><button class="btn ${st.answered ? "sage" : "ghost"} sm" aria-pressed="${st.answered}" data-concept-answered="yes">${esc(Lt(sc.answered))}</button></div>`
+    : "";
+  return `<div class="concept stack" data-keep="concept">${tabs}
+    <figure class="mock"><figcaption class="mock-label concept-label">${esc(Lt(cn.label))}</figcaption>
+      <div class="mock-phone"><div class="mock-screen"><div class="mock-app">${esc(Lt(cn.app))}</div><p class="concept-title">${esc(Lt(sc.title))}</p>${body}</div></div></figure>
+    ${weekToggle}
+    ${sc.caption ? `<p class="small">${esc(Lt(sc.caption))}</p>` : ""}</div>`;
 }
 
 /** A plainly generic phone with one CalmCampus card: how a partner app could show it. */
@@ -585,8 +649,9 @@ function frameMock(f) {
     <div class="mock-phone"><div class="mock-screen">
       <div class="mock-app">${esc(Lt(f.app))}</div>
       <div class="mock-bars" aria-hidden="true"><i></i><i></i><i class="short"></i></div>
-      <div class="mock-card"><p class="mock-kicker">CalmCampus</p><p>${esc(Lt(f.card.text))}</p>
-        <a class="btn sm" href="#/" data-track="frame">${esc(Lt(f.card.button))}${icon("arrow-right", 18)}</a></div>
+      <a class="mock-card" href="#/" data-track="frame" aria-label="CalmCampus. ${esc(Lt(f.card.text))} ${esc(Lt(f.card.button))}">
+        <span class="mock-kicker">CalmCampus</span><span>${esc(Lt(f.card.text))}</span>
+        <span class="btn sm" aria-hidden="true">${esc(Lt(f.card.button))}${icon("arrow-right", 18)}</span></a>
       <div class="mock-bars" aria-hidden="true"><i></i><i class="short"></i></div>
     </div></div></figure>`;
 }
@@ -695,6 +760,19 @@ function route(opts) {
 function onClick(ev) {
   const track = ev.target.closest("[data-track]")?.dataset.track;
   if (track) app.store.markTried(track);
+  const cEl = ev.target.closest("[data-concept-step],[data-concept-answer],[data-concept-perm],[data-concept-answered],[data-concept-restart]");
+  if (cEl) {
+    const st = conceptState();
+    const d = cEl.dataset;
+    if (d.conceptStep !== undefined) st.step = Number(d.conceptStep);
+    if (d.conceptAnswer) { st.q += 1; if (st.q >= app.config.questions.length) st.answered = true; }
+    if (d.conceptRestart !== undefined) { st.q = 0; st.answered = false; }
+    if (d.conceptAnswered) st.answered = d.conceptAnswered === "yes";
+    if (d.conceptPerm) st.perms[d.conceptPerm] = !st.perms[d.conceptPerm];
+    const sel = d.conceptPerm ? `[data-concept-perm="${d.conceptPerm}"]` : d.conceptStep !== undefined ? `[data-concept-step="${d.conceptStep}"]` : d.conceptAnswered ? `[data-concept-answered="${d.conceptAnswered}"]` : null;
+    refresh(cEl, sel);
+    return;
+  }
   const el = ev.target.closest("[data-answer],[data-lang],[data-hlang],[data-uni],[data-demo],[data-delete],[data-reset],[data-scenario],[data-welcome],[data-replace]");
   if (!el) return;
   if (el.dataset.reset !== undefined) { app.answers = {}; return; }
@@ -705,7 +783,7 @@ function onClick(ev) {
     location.replace(el.getAttribute("href"));
     return;
   }
-  if (el.dataset.hlang) { setLang(el.dataset.hlang); return; }
+  if (el.dataset.hlang) { if (el.dataset.hlang !== app.lang) setLang(el.dataset.hlang); return; }
   if (el.dataset.uni) {
     if (!institutionsOf(app.base).some((i) => i.id === el.dataset.uni)) return;
     app.store.setUni(el.dataset.uni);
@@ -811,7 +889,9 @@ async function init() {
   const id = resolveUniversityId(location.search, document.querySelector('meta[name="cc-university"]')?.content);
   const { config, fellBack } = await loadConfig(id);
   app.base = config; app.fellBack = fellBack;
-  app.store = createStore(window.localStorage, config.id);
+  let storage = null;
+  try { storage = window.localStorage; } catch { storage = null; }
+  app.store = createStore(storage, config.id);
   applyUni();
   app.lang = pickLanguage(config, { search: location.search, stored: app.store.getLang(), browser: navigator.languages || [navigator.language] });
   app.ui = await loadUi(app.lang);
@@ -826,7 +906,8 @@ async function init() {
   window.addEventListener("hashchange", route);
   new ResizeObserver(syncDock).observe($("dock"));
   route();
-  if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+  // In-app browsers often have no service worker: the app then simply works online.
+  if (navigator.serviceWorker && (location.protocol === "https:" || location.hostname === "localhost")) {
     watchForUpdates();
   }
 }

@@ -26,6 +26,13 @@
     "en",
     "fr"
   ],
+  "languageFromBrowser": false,
+  "languageSwitch": "all",
+  "privacyNote": {
+    "nl": "Je antwoorden blijven op je telefoon. Het enige wat ooit zou kunnen vertrekken, is een vrijwillige, anonieme tik op ‘tel mij mee’ (één getal, geen antwoorden), en dat is een voorstel, nog niet gebouwd.",
+    "en": "Your answers stay on your phone. The only thing that could ever leave is an optional, anonymous ‘count me in’ tap (a single number, no answers), and that is a proposal, not built yet.",
+    "fr": "Tes réponses restent sur ton téléphone. La seule chose qui pourrait un jour en sortir est une touche facultative et anonyme « compte-moi » (un seul nombre, aucune réponse), et c'est une proposition, pas encore développée."
+  },
   "publicUrl": "https://cc.braunf.com/quivr/",
   "qr": "config/qr/quivr.svg",
   "feedback": {
@@ -52,6 +59,7 @@
     },
     "ids": [
       "quivr-view",
+      "quivr-phases",
       "quivr-gets",
       "quivr-engagement",
       "quivr-test",
@@ -142,6 +150,23 @@
         "nl": "De diensten en noodnummers die een student zou zien.",
         "en": "The services and emergency numbers a student would see.",
         "fr": "Les services et les numéros d'urgence qu'un·e étudiant·e verrait."
+      }
+    },
+    {
+      "id": "phases",
+      "href": "#/quivr-phases",
+      "marks": [
+        "page:quivr-phases"
+      ],
+      "h": {
+        "nl": "Bekijk fase 1 en fase 2",
+        "en": "See Phase 1 and Phase 2",
+        "fr": "Vois la phase 1 et la phase 2"
+      },
+      "p": {
+        "nl": "Nu zonder ontwikkelwerk, later in Quivr zelf: een concept om door te tikken.",
+        "en": "Now with no development, later inside Quivr: a concept you can tap through.",
+        "fr": "Maintenant sans développement, plus tard dans Quivr : un concept à parcourir."
       }
     },
     {
@@ -786,7 +811,10 @@
             "link": {
               "nl": "https://www.vub.be/nl/contact/organisatie/studentenpsychologen",
               "en": "https://www.vub.be/en/studying-vub/praktisch/welzijn-aan-de-vub/contact-student-psychologists",
-              "fr": "https://www.vub.be/en/studying-vub/praktisch/welzijn-aan-de-vub/contact-student-psychologists"
+              "fr": "https://www.vub.be/nl/contact/organisatie/studentenpsychologen"
+            },
+            "linkNote": {
+              "fr": "(en néerlandais)"
             },
             "email": "begeleiding@vub.be",
             "phone": "+32 2 629 23 06",
@@ -817,15 +845,22 @@
           },
           "contact": {
             "link": {
-              "nl": "https://www.vub.be/en/news/brucc-vub-offers-psychological-support",
+              "nl": "https://www.vub.be/nl/nieuws/brucc-vub-voor-psychologische-hulp",
               "en": "https://www.vub.be/en/news/brucc-vub-offers-psychological-support",
-              "fr": "https://www.vub.be/en/news/brucc-vub-offers-psychological-support"
+              "fr": "https://www.vub.be/nl/nieuws/brucc-vub-voor-psychologische-hulp"
+            },
+            "linkNote": {
+              "fr": "(en néerlandais)"
             },
             "email": null,
             "phone": null,
             "hours": null
           },
           "source": "https://www.vub.be/en/news/brucc-vub-offers-psychological-support",
+          "sources": [
+            "https://www.vub.be/en/news/brucc-vub-offers-psychological-support",
+            "https://www.vub.be/nl/nieuws/brucc-vub-voor-psychologische-hulp"
+          ],
           "verified": "2026-11-14",
           "notPublished": [
             "email, phone and hours: not on vub.be (registration is on brucc.be, outside the university's own pages)"
@@ -1016,8 +1051,8 @@
       "services": {},
       "advice": {
         "nl": "De studentendienst van je eigen instelling (vaak studentenvoorzieningen of Stuvo genoemd) kan je zeggen bij wie je terechtkunt. De nummers hieronder zijn er voor iedereen in België.",
-        "en": "Your own institution's student services (often called studentenvoorzieningen or Stuvo) can tell you who to talk to. The numbers below are open to everyone in Belgium.",
-        "fr": "Le service aux étudiant·es de ton établissement (souvent appelé studentenvoorzieningen ou Stuvo) peut te dire à qui t'adresser. Les numéros ci-dessous sont ouverts à tout le monde en Belgique."
+        "en": "Your institution's student services can tell you who to talk to. The numbers below are open to everyone in Belgium.",
+        "fr": "Les services aux étudiant·es de ton établissement peuvent te dire à qui t'adresser. Les numéros ci-dessous sont ouverts à tout le monde en Belgique."
       }
     }
   ],
@@ -1040,9 +1075,9 @@
         "fr": "Voir à quoi cela pourrait ressembler dans Quivr"
       },
       "lead": {
-        "nl": "Geen ontwikkelwerk aan de kant van Quivr: één kaart met een link, en de rest doen wij.",
-        "en": "No development work on Quivr's side: one card with a link, and we do the rest.",
-        "fr": "Aucun développement du côté de Quivr : une carte avec un lien, et nous faisons le reste."
+        "nl": "Geen download voor studenten en geen ontwikkelwerk voor Quivr: Quivr voegt één kaart of link toe in de app, en CalmCampus opent in de eigen browser van de Quivr-app.",
+        "en": "No download for students and no development for Quivr: Quivr adds one card or link in its app, and CalmCampus opens inside the Quivr app's own browser.",
+        "fr": "Aucun téléchargement pour les étudiant·es et aucun développement pour Quivr : Quivr ajoute une carte ou un lien dans son app, et CalmCampus s'ouvre dans le navigateur intégré de l'app Quivr."
       },
       "frame": {
         "label": {
@@ -1110,17 +1145,17 @@
                 "nl": [
                   "Hosten en onderhouden.",
                   "De hulplinks van elke universiteit actueel houden.",
-                  "Privacy: alles blijft op de telefoon van de student."
+                  "Privacy: de antwoorden blijven op de telefoon van de student."
                 ],
                 "en": [
                   "Host and maintain it.",
                   "Keep every university's support links up to date.",
-                  "Privacy: everything stays on the student's phone."
+                  "Privacy: answers stay on the student's phone."
                 ],
                 "fr": [
                   "L'héberger et l'entretenir.",
                   "Tenir à jour les liens de soutien de chaque université.",
-                  "La confidentialité : tout reste sur le téléphone de l'étudiant·e."
+                  "La confidentialité : les réponses restent sur le téléphone de l'étudiant·e."
                 ]
               }
             },
@@ -1151,6 +1186,13 @@
               }
             }
           ]
+        },
+        {
+          "note": {
+            "nl": "Je antwoorden blijven op je telefoon. Het enige wat ooit zou kunnen vertrekken, is een vrijwillige, anonieme tik op ‘tel mij mee’ (één getal, geen antwoorden), en dat is een voorstel, nog niet gebouwd.",
+            "en": "Your answers stay on your phone. The only thing that could ever leave is an optional, anonymous ‘count me in’ tap (a single number, no answers), and that is a proposal, not built yet.",
+            "fr": "Tes réponses restent sur ton téléphone. La seule chose qui pourrait un jour en sortir est une touche facultative et anonyme « compte-moi » (un seul nombre, aucune réponse), et c'est une proposition, pas encore développée."
+          }
         },
         {
           "h": {
@@ -1187,10 +1229,330 @@
         },
         {
           "links": [
+            "quivr-phases",
             "quivr-gets",
             "quivr-engagement",
             "quivr-test",
             "quivr-measure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quivr-phases",
+      "eyebrow": {
+        "nl": "Voor Quivr",
+        "en": "For Quivr",
+        "fr": "Pour Quivr"
+      },
+      "title": {
+        "nl": "Fase 1 en fase 2",
+        "en": "Phase 1 and Phase 2",
+        "fr": "Phase 1 et phase 2"
+      },
+      "linkLabel": {
+        "nl": "Fase 1 → fase 2",
+        "en": "Phase 1 → Phase 2",
+        "fr": "Phase 1 → phase 2"
+      },
+      "blocks": [
+        {
+          "h": {
+            "nl": "Fase 1. Nu: geen ontwikkelwerk voor Quivr",
+            "en": "Phase 1. Now: zero development for Quivr",
+            "fr": "Phase 1. Maintenant : aucun développement pour Quivr"
+          }
+        },
+        {
+          "list": {
+            "nl": [
+              "De kaart of link in Quivr opent CalmCampus in de eigen browser van de Quivr-app.",
+              "Als Quivr dat wil: één wekelijkse pushmelding of banner, met de middelen die Quivr al heeft.",
+              "De test van drie weken.",
+              "De antwoorden blijven op de telefoon. Geen download voor studenten."
+            ],
+            "en": [
+              "The card or link in Quivr opens CalmCampus inside the Quivr app's own browser.",
+              "Optional: one weekly push or banner that Quivr sends with the tools it already has.",
+              "The three-week test.",
+              "Answers stay on the phone. No download for students."
+            ],
+            "fr": [
+              "La carte ou le lien dans Quivr ouvre CalmCampus dans le navigateur intégré de l'app Quivr.",
+              "En option : une notification ou une bannière par semaine, que Quivr envoie avec les outils qu'il a déjà.",
+              "Le test de trois semaines.",
+              "Les réponses restent sur le téléphone. Aucun téléchargement pour les étudiant·es."
+            ]
+          }
+        },
+        {
+          "links": [
+            "quivr-view",
+            "quivr-test"
+          ]
+        },
+        {
+          "h": {
+            "nl": "Fase 2. Later, alleen als de test werkt: in de Quivr-app",
+            "en": "Phase 2. Later, only if the test works: inside the Quivr app",
+            "fr": "Phase 2. Plus tard, seulement si le test fonctionne : dans l'app Quivr"
+          }
+        },
+        {
+          "p": {
+            "nl": "Als de test van drie weken werkt, kan CalmCampus een deel van de Quivr-app zelf worden. Tik hieronder door het concept: het is niet gebouwd.",
+            "en": "If the three-week test works, CalmCampus could become part of the Quivr app itself. Tap through the concept below: it is not built.",
+            "fr": "Si le test de trois semaines fonctionne, CalmCampus pourrait faire partie de l'app Quivr elle-même. Parcours le concept ci-dessous : il n'est pas développé."
+          }
+        },
+        {
+          "concept": {
+            "label": {
+              "nl": "Concept: niet gebouwd",
+              "en": "Concept: not built",
+              "fr": "Concept : pas développé"
+            },
+            "app": {
+              "nl": "Quivr",
+              "en": "Quivr",
+              "fr": "Quivr"
+            },
+            "tabsLabel": {
+              "nl": "Schermen van het concept",
+              "en": "Concept screens",
+              "fr": "Écrans du concept"
+            },
+            "screens": [
+              {
+                "type": "banner",
+                "tab": {
+                  "nl": "Banner",
+                  "en": "Banner",
+                  "fr": "Bannière"
+                },
+                "title": {
+                  "nl": "Startscherm van Quivr",
+                  "en": "Quivr home",
+                  "fr": "Accueil de Quivr"
+                },
+                "banner": {
+                  "nl": "Je wekelijkse check-in: 4 vragen, minder dan een minuut",
+                  "en": "Your weekly check-in: 4 questions, less than a minute",
+                  "fr": "Ton check-in hebdomadaire : 4 questions, moins d'une minute"
+                },
+                "button": {
+                  "nl": "Start",
+                  "en": "Start",
+                  "fr": "Commencer"
+                },
+                "weekLabel": {
+                  "nl": "Deze week in het concept",
+                  "en": "This week in the concept",
+                  "fr": "Cette semaine dans le concept"
+                },
+                "notAnswered": {
+                  "nl": "Nog niet beantwoord",
+                  "en": "Not answered yet",
+                  "fr": "Pas encore répondu"
+                },
+                "answered": {
+                  "nl": "Beantwoord",
+                  "en": "Answered",
+                  "fr": "Répondu"
+                },
+                "caption": {
+                  "nl": "Een kleine banner bovenaan het startscherm van Quivr. Hij komt alleen terug in een week die nog niet beantwoord is.",
+                  "en": "A small banner at the top of Quivr's home. It comes back only in a week that has not been answered yet.",
+                  "fr": "Une petite bannière en haut de l'accueil de Quivr. Elle ne revient que pendant une semaine sans réponse."
+                }
+              },
+              {
+                "type": "questions",
+                "tab": {
+                  "nl": "Vragen",
+                  "en": "Questions",
+                  "fr": "Questions"
+                },
+                "title": {
+                  "nl": "Wekelijkse check-in",
+                  "en": "Weekly check-in",
+                  "fr": "Check-in hebdomadaire"
+                },
+                "done": {
+                  "nl": "Klaar voor deze week. De banner blijft weg tot volgende week.",
+                  "en": "Done for this week. The banner stays away until next week.",
+                  "fr": "C'est fait pour cette semaine. La bannière ne revient pas avant la semaine prochaine."
+                },
+                "again": {
+                  "nl": "Opnieuw",
+                  "en": "Start again",
+                  "fr": "Recommencer"
+                },
+                "caption": {
+                  "nl": "Dezelfde vier vragen, in Quivr.",
+                  "en": "The same four questions, inside Quivr.",
+                  "fr": "Les mêmes quatre questions, dans Quivr."
+                }
+              },
+              {
+                "type": "overview",
+                "tab": {
+                  "nl": "Overzicht",
+                  "en": "Overview",
+                  "fr": "Aperçu"
+                },
+                "title": {
+                  "nl": "Jouw weken",
+                  "en": "Your weeks",
+                  "fr": "Tes semaines"
+                },
+                "heading": {
+                  "nl": "Signalen per week",
+                  "en": "Signs each week",
+                  "fr": "Signes par semaine"
+                },
+                "text": {
+                  "nl": "Voorbeeldweken, zodat het concept iets toont.",
+                  "en": "Example weeks, so the concept has something to show.",
+                  "fr": "Des semaines d'exemple, pour que le concept montre quelque chose."
+                },
+                "caption": {
+                  "nl": "Het wekelijkse overzicht, in Quivr.",
+                  "en": "The weekly overview, inside Quivr.",
+                  "fr": "L'aperçu de la semaine, dans Quivr."
+                }
+              },
+              {
+                "type": "permissions",
+                "tab": {
+                  "nl": "Toestemming",
+                  "en": "Permissions",
+                  "fr": "Autorisations"
+                },
+                "title": {
+                  "nl": "Telefoongegevens (optioneel)",
+                  "en": "Phone data (optional)",
+                  "fr": "Données du téléphone (facultatif)"
+                },
+                "intro": {
+                  "nl": "CalmCampus kan naar slaap, stappen en schermtijd kijken om te kiezen welke vraag eerst komt. Elk staat uit tot jij het aanzet.",
+                  "en": "CalmCampus can look at sleep, steps and screen time to choose which question comes first. Each one is off until you switch it on.",
+                  "fr": "CalmCampus peut regarder le sommeil, les pas et le temps d'écran pour choisir quelle question vient en premier. Chacun reste désactivé jusqu'à ce que tu l'actives."
+                },
+                "items": [
+                  {
+                    "id": "sleep",
+                    "label": {
+                      "nl": "Slaap (Apple Gezondheid / Health Connect)",
+                      "en": "Sleep (Apple Health / Health Connect)",
+                      "fr": "Sommeil (Apple Santé / Health Connect)"
+                    }
+                  },
+                  {
+                    "id": "steps",
+                    "label": {
+                      "nl": "Stappen (Apple Gezondheid / Health Connect)",
+                      "en": "Steps (Apple Health / Health Connect)",
+                      "fr": "Pas (Apple Santé / Health Connect)"
+                    }
+                  },
+                  {
+                    "id": "screen",
+                    "label": {
+                      "nl": "Schermtijd",
+                      "en": "Screen time",
+                      "fr": "Temps d'écran"
+                    }
+                  }
+                ],
+                "note": {
+                  "nl": "Alle gegevens blijven op je telefoon en worden nooit naar Quivr of CalmCampus gestuurd.",
+                  "en": "All data stays on your phone and is never sent to Quivr or CalmCampus.",
+                  "fr": "Toutes les données restent sur ton téléphone et ne sont jamais envoyées à Quivr ni à CalmCampus."
+                },
+                "caption": {
+                  "nl": "Vrijwillig, standaard uit, elk apart aan te zetten. In dit concept wordt niets gelezen: de schakelaars tonen alleen het idee.",
+                  "en": "Opt-in, off by default, each switched on its own. In this concept nothing is read: the switches only show the idea.",
+                  "fr": "Facultatif, désactivé par défaut, chacun activable séparément. Dans ce concept, rien n'est lu : les boutons ne montrent que l'idée."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "h": {
+            "nl": "Wie doet wat in fase 2",
+            "en": "Who does what in Phase 2",
+            "fr": "Qui fait quoi en phase 2"
+          }
+        },
+        {
+          "table": {
+            "label": "info",
+            "caption": {
+              "nl": "Taken in fase 2",
+              "en": "Tasks in Phase 2",
+              "fr": "Tâches en phase 2"
+            },
+            "head": {
+              "nl": [
+                "Wie",
+                "Wat"
+              ],
+              "en": [
+                "Who",
+                "What"
+              ],
+              "fr": [
+                "Qui",
+                "Quoi"
+              ]
+            },
+            "rows": {
+              "nl": [
+                [
+                  "CalmCampus",
+                  "Bouwt en onderhoudt de module (iOS, Android, of React Native of Flutter, afhankelijk van de technologie van Quivr), met tests en documentatie."
+                ],
+                [
+                  "Quivr",
+                  "Integreert de module, brengt de app-update uit en keurt de teksten goed."
+                ]
+              ],
+              "en": [
+                [
+                  "CalmCampus",
+                  "Builds and maintains the module (iOS, Android, or React Native or Flutter, depending on Quivr's stack), with its tests and documentation."
+                ],
+                [
+                  "Quivr",
+                  "Integrates it, ships the app update and approves the wording."
+                ]
+              ],
+              "fr": [
+                [
+                  "CalmCampus",
+                  "Développe et entretient le module (iOS, Android, ou React Native ou Flutter, selon la technologie de Quivr), avec ses tests et sa documentation."
+                ],
+                [
+                  "Quivr",
+                  "L'intègre, publie la mise à jour de l'app et valide les textes."
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "note": {
+            "nl": "Weinig werk voor Quivr, maar niet nul: één integratie en een app-release.",
+            "en": "Low effort for Quivr, not zero: one integration and an app release.",
+            "fr": "Peu d'effort pour Quivr, mais pas zéro : une intégration et une nouvelle version de l'app."
+          }
+        },
+        {
+          "links": [
+            "quivr-test",
+            "quivr-view"
           ]
         }
       ]
@@ -1208,6 +1570,13 @@
         "fr": "Ce que Quivr y gagne"
       },
       "blocks": [
+        {
+          "note": {
+            "nl": "Geen download voor studenten en geen ontwikkelwerk voor Quivr: Quivr voegt één kaart of link toe in de app, en CalmCampus opent in de eigen browser van de Quivr-app.",
+            "en": "No download for students and no development for Quivr: Quivr adds one card or link in its app, and CalmCampus opens inside the Quivr app's own browser.",
+            "fr": "Aucun téléchargement pour les étudiant·es et aucun développement pour Quivr : Quivr ajoute une carte ou un lien dans son app, et CalmCampus s'ouvre dans le navigateur intégré de l'app Quivr."
+          }
+        },
         {
           "list": {
             "nl": [
@@ -1239,6 +1608,7 @@
         },
         {
           "links": [
+            "quivr-phases",
             "quivr-test",
             "quivr-engagement"
           ]
@@ -1273,7 +1643,7 @@
             "nl": [
               "Een check-in die minder dan een minuut duurt.",
               "Iets wat de student elke week voor zichzelf gebruikt, geen eenmalige campagne.",
-              "Standaard privé: niets verlaat de telefoon, dus er is geen reden om iets achter te houden.",
+              "Standaard privé: de antwoorden blijven op de telefoon, dus er is geen reden om iets achter te houden.",
               "De kaart staat waar studenten al kijken: bij het lessenrooster of op het startscherm.",
               "Timing voor en tijdens de examenperiode, niet in de eerste weken.",
               "Hoogstens één vriendelijke herinnering per week, alleen via een kanaal dat Quivr al heeft, als Quivr dat wil.",
@@ -1284,7 +1654,7 @@
             "en": [
               "A check-in that takes less than a minute.",
               "Something students use for themselves every week, not a one-off campaign.",
-              "Private by default: nothing leaves the phone, so there is no reason to hold back.",
+              "Private by default: answers stay on the phone, so there is no reason to hold back.",
               "The card placed where students already look: the schedule or the home screen.",
               "Timing before and during the exam period, not in the first weeks.",
               "At most one gentle weekly reminder, only through a channel Quivr already has, if Quivr wants.",
@@ -1295,7 +1665,7 @@
             "fr": [
               "Un check-in qui prend moins d'une minute.",
               "Quelque chose que l'étudiant·e utilise pour soi chaque semaine, pas une campagne ponctuelle.",
-              "Privé par défaut : rien ne quitte le téléphone, donc aucune raison de se retenir.",
+              "Privé par défaut : les réponses restent sur le téléphone, donc aucune raison de se retenir.",
               "La carte placée là où les étudiant·es regardent déjà : l'horaire ou l'écran d'accueil.",
               "Un calendrier avant et pendant la période d'examens, pas dans les premières semaines.",
               "Au plus un rappel discret par semaine, seulement par un canal que Quivr a déjà, si Quivr le souhaite.",
@@ -1522,17 +1892,24 @@
           }
         },
         {
+          "note": {
+            "nl": "Je antwoorden blijven op je telefoon. Het enige wat ooit zou kunnen vertrekken, is een vrijwillige, anonieme tik op ‘tel mij mee’ (één getal, geen antwoorden), en dat is een voorstel, nog niet gebouwd.",
+            "en": "Your answers stay on your phone. The only thing that could ever leave is an optional, anonymous ‘count me in’ tap (a single number, no answers), and that is a proposal, not built yet.",
+            "fr": "Tes réponses restent sur ton téléphone. La seule chose qui pourrait un jour en sortir est une touche facultative et anonyme « compte-moi » (un seul nombre, aucune réponse), et c'est une proposition, pas encore développée."
+          }
+        },
+        {
           "list": {
             "nl": [
               "Quivr deelt zijn eigen totaal aan tikken op de kaart.",
               "De app toont de student zijn eigen aantal check-ins, alleen op de telefoon.",
-              "Op het einde een vrijwillige, anonieme tik op 'tel mij mee': die stuurt één getal, zonder ID, zonder antwoorden en zonder toestelgegevens. Standaard uit, en niet in deze preview.",
+              "Op het einde een vrijwillige, anonieme tik op ‘tel mij mee’: die stuurt één getal, zonder ID, zonder antwoorden en zonder toestelgegevens. Standaard uit, en niet in deze preview.",
               "We delen alleen totalen, nooit individuele antwoorden."
             ],
             "en": [
               "Quivr reports its own card-tap total.",
               "The app shows students their own count, on the phone only.",
-              "At the end, an optional anonymous 'count me in' tap sends a single number, with no ID, no answers and no device data. Opt-in, off by default, and not in this preview.",
+              "At the end, an optional anonymous ‘count me in’ tap sends a single number, with no ID, no answers and no device data. Opt-in, off by default, and not in this preview.",
               "We share totals only, never individual answers."
             ],
             "fr": [

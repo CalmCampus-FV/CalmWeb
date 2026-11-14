@@ -194,7 +194,7 @@
         "p": "It uses no real student data. The earlier weeks and the phone data you see are made up and labelled Example. This web version cannot read Apple Health or Screen Time; the full app is designed to, on the phone only."
       }
     ],
-    "principles": "We follow the design principles of the Swiss nLPD and the GDPR: data minimisation, purpose limitation, transparency and user control. This is a statement of how the app is designed. It is not a certification or an audit."
+    "principles": "We follow the design principles of the GDPR: data minimisation, purpose limitation, transparency and user control. This is a statement of how the app is designed. It is not a certification or an audit."
   },
   "errors": {
     "config": "This university could not be loaded. Showing the default setup instead."

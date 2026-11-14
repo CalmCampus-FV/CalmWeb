@@ -18,6 +18,8 @@ export function pickLanguage(config, { search = "", stored = null, browser = [] 
   const fromUrl = new URLSearchParams(search).get("lang");
   if (ok(fromUrl)) return fromUrl;
   if (ok(stored)) return stored;
+  // `languageFromBrowser: false`: the first visit always opens in the default language.
+  if (config.languageFromBrowser === false) return config.defaultLanguage;
   for (const tag of browser) {
     const base = String(tag).toLowerCase().split("-")[0];
     if (ok(base)) return base;

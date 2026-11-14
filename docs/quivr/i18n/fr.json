@@ -194,7 +194,7 @@
         "p": "Elle n'utilise aucune donnée réelle d'étudiant·e. Les semaines précédentes et les données du téléphone affichées sont inventées et marquées Exemple. Cette version web ne peut pas lire Santé ni Temps d'écran ; l'application complète est conçue pour le faire, uniquement sur le téléphone."
       }
     ],
-    "principles": "Nous suivons les principes de conception de la nLPD suisse et du RGPD : minimisation des données, limitation des finalités, transparence et maîtrise par l'utilisateur. C'est une déclaration sur la conception de l'application. Ce n'est ni une certification ni un audit."
+    "principles": "Nous suivons les principes de conception du RGPD : minimisation des données, limitation des finalités, transparence et maîtrise par l'utilisateur. C'est une déclaration sur la conception de l'application. Ce n'est ni une certification ni un audit."
   },
   "errors": {
     "config": "Cette université n'a pas pu être chargée. La configuration par défaut est affichée."

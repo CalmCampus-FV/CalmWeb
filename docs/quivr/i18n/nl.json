@@ -194,7 +194,7 @@
         "p": "Ze gebruikt geen echte studentengegevens. De eerdere weken en de telefoongegevens die je ziet zijn verzonnen en gemarkeerd als Voorbeeld. Deze webversie kan Apple Gezondheid of Schermtijd niet lezen; de volledige app is daarvoor ontworpen, alleen op de telefoon."
       }
     ],
-    "principles": "We volgen de ontwerpprincipes van de Zwitserse nLPD en de AVG: dataminimalisatie, doelbinding, transparantie en controle voor de gebruiker. Dit beschrijft hoe de app ontworpen is. Het is geen certificering of audit."
+    "principles": "We volgen de ontwerpprincipes van de AVG (GDPR): dataminimalisatie, doelbinding, transparantie en controle voor de gebruiker. Dit beschrijft hoe de app ontworpen is. Het is geen certificering of audit."
   },
   "errors": {
     "config": "Deze universiteit kon niet geladen worden. Je ziet de standaardversie."
