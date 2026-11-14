@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Public pages for search engines. The previews (/epfl/ …) and the forms (/f/) are noindex on purpose. -->
+<!-- Public pages for search engines. The previews (/demo/, /epfl/ …) and the forms (/f/) are noindex on purpose; the home page links to the demo. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://cc.braunf.com/</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://cc.braunf.com/report.html</loc><lastmod>2026-10-30</lastmod></url>

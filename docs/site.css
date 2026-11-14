@@ -308,3 +308,6 @@ p { text-wrap: pretty; }
 }
 
 .panel li > span, .bullets li > span, .steps li > div { min-width: 0; overflow-wrap: anywhere; }
+
+/* Link to the web demo under the app steps */
+.demo-note { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; font-size: 15px; color: var(--neutral-800); }

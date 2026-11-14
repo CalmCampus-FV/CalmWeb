@@ -16,6 +16,7 @@
 | Path | What it is |
 |---|---|
 | [`docs/`](docs/) | The site. Plain HTML/CSS/JS, no build step: `index.html` (pitch), `report.html` (impact report), `CalmCampus-One-Pager.pdf`, shared `tokens.css`, and the public form pages (`f/`, `forms/`) |
+| [`docs/demo/`](docs/demo/) | The general preview of the app, linked from the home page as "Try the demo", live at [cc.braunf.com/demo](https://cc.braunf.com/demo/). Build output of [`web/`](https://github.com/lumenworksco/CalmCampus/tree/main/web) on `main` in the CalmCampus repo: change it there, then copy `web/dist/` here. Do not edit it in this repo |
 | [`docs/epfl/`](docs/epfl/) | The EPFL reviewer preview of the app, live at [cc.braunf.com/epfl](https://cc.braunf.com/epfl/). Build output of [`web/`](https://github.com/lumenworksco/CalmCampus/tree/epfl-web-demo/web) in the CalmCampus repo: change it there, then copy `web/dist/epfl/` here. Do not edit it in this repo |
 | [`admin/`](admin/) | The private forms admin: builder, settings, sharing, results. Served from its own origin |
 | [`worker/`](worker/) | Cloudflare Worker that receives form submissions, so respondents never talk to the database directly |
