@@ -169,10 +169,10 @@ function installTip() {
     if (!url) return "";
     const shown = url.replace(/^https:\/\//, "").replace(/\/$/, "");
     const qr = app.config.qr ? `<img class="qr" src="${esc(app.config.qr)}" width="132" height="132" alt="${esc(t("install.qrAlt", { url: shown }))}">` : "";
-    return `<div class="card install desktop">${qr}<div class="grow"><h3>${esc(t("install.desktopTitle"))}</h3><p>${esc(t("install.desktopBody", { url: shown }))}</p></div></div>`;
+    return `<div class="card install desktop">${qr}<div class="grow"><h2 class="h3">${esc(t("install.desktopTitle"))}</h2><p>${esc(t("install.desktopBody", { url: shown }))}</p></div></div>`;
   }
   const steps = app.ui.install[p].map((s) => `<li>${esc(typo(s))}</li>`).join("");
-  return `<div class="card stack install"><h3 class="row">${icon("share", 20)}${esc(t("install.title"))}</h3><ol class="steps">${steps}</ol></div>`;
+  return `<div class="card stack install"><h2 class="row h3">${icon("share", 20)}${esc(t("install.title"))}</h2><ol class="steps">${steps}</ol></div>`;
 }
 
 /* ---------- The reviewer's guide ("Things to try") ---------- */
@@ -283,7 +283,7 @@ function phoneSection(scenarioId) {
   if (!showsExamples()) return "";
   const sigs = weekSignals(SCENARIO_IDS.includes(scenarioId) ? scenarioId : scenario());
   const hits = sigs.filter((s) => s.notable);
-  return `<div class="card stack"><div class="row wrap"><h3 class="grow">${esc(t("signals.resultHeading"))}</h3>${exampleTag()}</div>
+  return `<div class="card stack"><div class="row wrap"><h2 class="grow h3">${esc(t("signals.resultHeading"))}</h2>${exampleTag()}</div>
     ${hits.length
       ? `<ul class="noticed">${hits.map((s) => `<li>${icon("smartphone", 18)}<span>${esc(signalHint(s))}</span></li>`).join("")}</ul>`
       : `<p>${esc(t("signals.resultNone"))}</p>`}
@@ -359,7 +359,8 @@ function checkAnswers(n) {
     </div>`;
 }
 
-function serviceCard(id, { actions = true } = {}) {
+/** `level`: the heading level, 2 when the card sits right under the page title (Support), else 3. */
+function serviceCard(id, { actions = true, level = 3 } = {}) {
   const s = app.config.services[id];
   if (!s) return "";
   const c = s.contact || {};
@@ -376,7 +377,7 @@ function serviceCard(id, { actions = true } = {}) {
     ? `<div class="actions">${btns.map((b, i) => `<a class="btn ${i ? "ghost" : ""}" href="${esc(b.href)}" ${b.ext ? 'target="_blank" rel="noopener noreferrer"' : ""}${b.hreflang ? ` hreflang="${esc(b.hreflang)}"` : ""}>${icon(b.ic, 20)}${esc(b.label)}</a>`).join("")}</div>`
     : "";
   return `<section class="card service" aria-labelledby="s-${esc(id)}">
-    <h3 id="s-${esc(id)}">${esc(Lt(s.name))}</h3>
+    <h${level} id="s-${esc(id)}" class="h3">${esc(Lt(s.name))}</h${level}>
     <p>${esc(Lt(s.purpose))}</p>
     ${note ? `<p class="small">${esc(note)}</p>` : ""}
     ${btns.length ? "" : `<p class="small">${esc(t("service.noContact"))}</p>`}
@@ -413,7 +414,7 @@ function viewResult(answers, { saved, example, phone, scenarioId, back } = {}) {
     <div class="level-head"><div class="row wrap"><span class="small">${esc(t(example ? "result.exampleKicker" : "result.kicker"))}</span>${pillFor(lv)}</div>
       <h1>${esc(t(`result.levels.${lv.id}.title`))}</h1></div>
     <p class="lead">${esc(t(`result.levels.${lv.id}.body`))}</p>
-    <div class="card stack"><h3>${esc(t("result.noticedHeading"))}</h3>${noticed}
+    <div class="card stack"><h2 class="h3">${esc(t("result.noticedHeading"))}</h2>${noticed}
       ${skipped ? `<p class="small">${esc(t("result.skipped", { n: skipped, total: c.questions.length }))}</p>` : ""}</div>
     ${phone ? phoneSection(scenarioId) : ""}
     <h2>${esc(t("result.nextHeading"))}</h2>
@@ -481,7 +482,7 @@ function viewHistory() {
     : `<h2>${esc(t("history.listHeading"))}</h2>${open}<ul class="week-list">${own.map(item).join("")}</ul>`;
   return `<div class="stack"><h1>${esc(t("history.title"))}</h1>
     ${examples.length ? `<p class="small">${esc(t("history.examplesNote"))}</p>` : ""}
-    <div class="card"><h3>${esc(t("history.trendHeading"))}</h3><div class="chart" role="img" aria-label="${esc(t("history.chartLabel"))}: ${recent.map(({ e, r }) => `${fmtWeek(e)} ${r.yes}/${total}`).join(", ")}">${chart}</div></div>
+    <div class="card"><h2 class="h3">${esc(t("history.trendHeading"))}</h2><div class="chart" role="img" aria-label="${esc(t("history.chartLabel"))}: ${recent.map(({ e, r }) => `${fmtWeek(e)} ${r.yes}/${total}`).join(", ")}">${chart}</div></div>
     ${lists}</div>`;
 }
 
@@ -490,7 +491,7 @@ function viewSupport() {
   return `<div class="stack">
     <h1>${esc(t("more.supportHeading"))}</h1>
     ${Object.keys(c.services).length
-      ? `<p class="lead">${esc(t("more.supportLead"))}</p>${Object.keys(c.services).map((id) => serviceCard(id)).join("")}`
+      ? `<p class="lead">${esc(t("more.supportLead"))}</p>${Object.keys(c.services).map((id) => serviceCard(id, { level: 2 })).join("")}`
       : `<div class="card"><p>${esc(c.advice ? Lt(c.advice) : t("service.noContact"))}</p></div>`}
     ${emergencyCard()}</div>`;
 }
@@ -596,7 +597,7 @@ function block(b) {
     const head = L(tb.head) ?? [], rows = L(tb.rows) ?? [];
     // Made-up numbers always carry the Example label ("info" tables hold no numbers).
     const tag = tb.label === "example" ? `<span class="pill demo">${esc(t("demo.label"))}</span>` : "";
-    return `<div class="card stack table-card"><div class="row wrap"><h3 class="grow">${esc(Lt(tb.caption))}</h3>${tag}</div>
+    return `<div class="card stack table-card"><div class="row wrap"><h2 class="grow h3">${esc(Lt(tb.caption))}</h2>${tag}</div>
       ${tb.note ? `<p class="small">${esc(Lt(tb.note))}</p>` : ""}
       <div class="table-wrap"><table><thead><tr>${head.map((h) => `<th scope="col">${esc(typo(h))}</th>`).join("")}</tr></thead>
       <tbody>${rows.map((r) => `<tr>${r.map((cell, i) => (i ? `<td data-label="${esc(typo(head[i] ?? ""))}">${esc(typo(cell))}</td>` : `<th scope="row">${esc(typo(cell))}</th>`)).join("")}</tr>`).join("")}</tbody></table></div></div>`;
