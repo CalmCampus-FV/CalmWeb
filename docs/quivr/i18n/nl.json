@@ -22,7 +22,8 @@
     "toggleOn": "Aan. Je ziet verzonnen weken. Je echte antwoorden worden apart bewaard en blijven onaangeroerd.",
     "toggleOff": "Uit. Zet aan om de app te vullen met een paar verzonnen weken.",
     "turnOn": "Demomodus aanzetten",
-    "turnOff": "Uitzetten en demogegevens wissen"
+    "turnOff": "Uitzetten en demogegevens wissen",
+    "explain": "Voorbeeldgegevens: niet van echte studenten."
   },
   "home": {
     "greeting": "Hallo",
@@ -85,7 +86,12 @@
     "call": "Bel",
     "website": "Open de website",
     "noContact": "De versie van elke universiteit toont hier de echte contactgegevens van deze dienst.",
-    "emailNote": "Dit opent je e-mailapp. Er wordt niets van CalmCampus bijgevoegd."
+    "emailNote": "Dit opent je e-mailapp. Er wordt niets van CalmCampus bijgevoegd.",
+    "pageIn": {
+      "en": "(in het Engels)",
+      "fr": "(in het Frans)",
+      "nl": "(alleen in het Nederlands)"
+    }
   },
   "history": {
     "title": "Jouw weken",
@@ -99,7 +105,8 @@
     "examplesNote": "De eerdere weken zijn voorbeelden, zodat je ziet hoe deze pagina er na een paar weken uitziet.",
     "ownHeading": "Jouw check-ins",
     "ownEmpty": "Je eigen check-ins verschijnen hier.",
-    "examplesHeading": "Voorbeeldweken"
+    "examplesHeading": "Voorbeeldweken",
+    "notYet": "Deze week: nog geen check-in. Tik om te beginnen."
   },
   "more": {
     "supportHeading": "Hulp bij {name}",
@@ -212,7 +219,7 @@
   },
   "preview": {
     "strip": "Preview met voorbeelden",
-    "tryLink": "Wat probeer je"
+    "tryLink": "Wat kun je proberen"
   },
   "about": {
     "title": "Over deze preview",

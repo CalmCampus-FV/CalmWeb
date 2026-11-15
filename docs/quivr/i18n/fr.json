@@ -22,7 +22,8 @@
     "toggleOn": "Activé. Des semaines inventées sont affichées. Tes vraies réponses sont conservées à part et ne sont pas touchées.",
     "toggleOff": "Désactivé. Active-le pour remplir l'application de quelques semaines inventées.",
     "turnOn": "Activer le mode démo",
-    "turnOff": "Désactiver et effacer les données de démo"
+    "turnOff": "Désactiver et effacer les données de démo",
+    "explain": "Données d'exemple : elles ne viennent pas de vrai·es étudiant·es."
   },
   "home": {
     "greeting": "Bonjour",
@@ -85,7 +86,12 @@
     "call": "Appeler",
     "website": "Ouvrir le site web",
     "noContact": "La version de chaque université affiche ici les vraies coordonnées de ce service.",
-    "emailNote": "Cela ouvre ton application de messagerie. Rien de CalmCampus n'y est joint."
+    "emailNote": "Cela ouvre ton application de messagerie. Rien de CalmCampus n'y est joint.",
+    "pageIn": {
+      "nl": "(en néerlandais)",
+      "en": "(en anglais)",
+      "fr": "(en français)"
+    }
   },
   "history": {
     "title": "Tes semaines",
@@ -99,7 +105,8 @@
     "examplesNote": "Les semaines précédentes sont des exemples, pour montrer à quoi ressemble cette page après quelques semaines.",
     "ownHeading": "Tes bilans",
     "ownEmpty": "Tes propres bilans apparaîtront ici.",
-    "examplesHeading": "Semaines d'exemple"
+    "examplesHeading": "Semaines d'exemple",
+    "notYet": "Cette semaine : pas encore de bilan. Touche pour commencer."
   },
   "more": {
     "supportHeading": "Soutien à {name}",
@@ -194,7 +201,7 @@
         "p": "Elle n'utilise aucune donnée réelle d'étudiant·e. Les semaines précédentes et les données du téléphone affichées sont inventées et marquées Exemple. Cette version web ne peut pas lire Santé ni Temps d'écran ; l'application complète est conçue pour le faire, uniquement sur le téléphone."
       }
     ],
-    "principles": "Nous suivons les principes de conception du RGPD : minimisation des données, limitation des finalités, transparence et maîtrise par l'utilisateur. C'est une déclaration sur la conception de l'application. Ce n'est ni une certification ni un audit."
+    "principles": "Nous suivons les principes de conception du RGPD : minimisation des données, limitation des finalités, transparence et maîtrise par la personne qui utilise l'application. C'est une déclaration sur la conception de l'application. Ce n'est ni une certification ni un audit."
   },
   "errors": {
     "config": "Cette université n'a pas pu être chargée. La configuration par défaut est affichée."

@@ -42,3 +42,19 @@ export function institutionConfig(config, instId) {
     institution: inst.id,
   };
 }
+
+/**
+ * The language of a service's website in a given reading language: the config's
+ * `contact.linkLang` when set, else read from the address (a /nl/, /en/ or /fr/ path
+ * segment, or /english/). Null when it cannot be told.
+ */
+export function linkLanguage(contact, lang) {
+  const set = contact?.linkLang?.[lang];
+  if (set) return set;
+  const url = contact?.link?.[lang] ?? (typeof contact?.link === "string" ? contact.link : null);
+  if (!url) return null;
+  let p;
+  try { p = new URL(url).pathname.toLowerCase(); } catch { return null; }
+  const seg = p.split("/").find((s) => ["nl", "en", "fr", "english", "french", "dutch"].includes(s));
+  return seg ? ({ english: "en", french: "fr", dutch: "nl" }[seg] ?? seg) : null;
+}

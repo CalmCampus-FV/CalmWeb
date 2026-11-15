@@ -22,7 +22,8 @@
     "toggleOn": "On. Showing made-up weeks. Your real answers are kept apart and are not touched.",
     "toggleOff": "Off. Turn on to fill the app with a few made-up weeks.",
     "turnOn": "Turn on demo mode",
-    "turnOff": "Turn off and clear demo data"
+    "turnOff": "Turn off and clear demo data",
+    "explain": "Example data: not from real students."
   },
   "home": {
     "greeting": "Hello",
@@ -85,7 +86,12 @@
     "call": "Call",
     "website": "Open the website",
     "noContact": "Each university's version shows this service's real contact details here.",
-    "emailNote": "This opens your email app. Nothing from CalmCampus is attached."
+    "emailNote": "This opens your email app. Nothing from CalmCampus is attached.",
+    "pageIn": {
+      "nl": "(Dutch only)",
+      "fr": "(French only)",
+      "en": "(in English only)"
+    }
   },
   "history": {
     "title": "Your weeks",
@@ -99,7 +105,8 @@
     "examplesNote": "The earlier weeks are examples, so you can see how this page looks after a few weeks.",
     "ownHeading": "Your check-ins",
     "ownEmpty": "Your own check-ins will appear here.",
-    "examplesHeading": "Example weeks"
+    "examplesHeading": "Example weeks",
+    "notYet": "This week: no check-in yet. Tap to start."
   },
   "more": {
     "supportHeading": "Support at {name}",

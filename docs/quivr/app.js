@@ -1,5 +1,5 @@
 import { icon } from "./lib/icons.js";
-import { loadConfig, resolveUniversityId, institutionsOf, institutionConfig } from "./lib/config.js";
+import { loadConfig, resolveUniversityId, institutionsOf, institutionConfig, linkLanguage } from "./lib/config.js";
 import { loc, pickLanguage, translate, typography } from "./lib/i18n.js";
 import { resultFor, answersForLevel, levelRanges } from "./lib/scoring.js";
 import { createStore } from "./lib/store.js";
@@ -302,6 +302,7 @@ function viewWelcome() {
     <p class="lead">${esc(t("welcome.lead"))}</p>
     <ul class="points">${points}</ul>
     ${app.base.welcomeNote ? `<div class="card"><p>${esc(Lt(app.base.welcomeNote))}</p></div>` : ""}
+    ${showsExamples() ? `<p class="small row wrap example-key"><span class="pill demo">${esc(t("demo.label"))}</span><span>${esc(t("demo.explain"))}</span></p>` : ""}
     ${pageLinks(app.base.welcomeLinks)}
     ${installTip()}
     <p class="small">${esc(t("welcome.later"))}</p>
@@ -365,11 +366,14 @@ function serviceCard(id, { actions = true } = {}) {
   const link = L(c.link), hours = Lt(c.hours), note = Lt(s.note);
   const btns = [];
   if (c.email) btns.push({ href: `mailto:${c.email}`, label: t("service.email"), ic: "mail", ext: false });
-  const linkNote = c.linkNote?.[app.lang];
-  if (link) btns.push({ href: link, label: linkNote ? `${t("service.website")} ${typo(linkNote)}` : t("service.website"), ic: "external-link", ext: true });
+  // A website in another language than the reader's says so on its button, for
+  // example "(Dutch only)": the config's linkNote, else from the page's language.
+  const pageLang = linkLanguage(c, app.lang);
+  const linkNote = c.linkNote?.[app.lang] ?? (pageLang && pageLang !== app.lang ? app.ui.service.pageIn?.[pageLang] : null);
+  if (link) btns.push({ href: link, label: linkNote ? `${t("service.website")} ${typo(linkNote)}` : t("service.website"), ic: "external-link", ext: true, hreflang: pageLang });
   if (c.phone) btns.push({ href: `tel:${c.phone.replace(/\s/g, "")}`, label: `${t("service.call")} ${c.phone}`, ic: "phone", ext: false });
   const buttons = actions && btns.length
-    ? `<div class="actions">${btns.map((b, i) => `<a class="btn ${i ? "ghost" : ""}" href="${esc(b.href)}" ${b.ext ? 'target="_blank" rel="noopener noreferrer"' : ""}>${icon(b.ic, 20)}${esc(b.label)}</a>`).join("")}</div>`
+    ? `<div class="actions">${btns.map((b, i) => `<a class="btn ${i ? "ghost" : ""}" href="${esc(b.href)}" ${b.ext ? 'target="_blank" rel="noopener noreferrer"' : ""}${b.hreflang ? ` hreflang="${esc(b.hreflang)}"` : ""}>${icon(b.ic, 20)}${esc(b.label)}</a>`).join("")}</div>`
     : "";
   return `<section class="card service" aria-labelledby="s-${esc(id)}">
     <h3 id="s-${esc(id)}">${esc(Lt(s.name))}</h3>
@@ -466,13 +470,15 @@ function viewHistory() {
       <span class="grow"><strong>${esc(t("history.weekOf", { date: fmtWeek(e) }))}</strong>
         <span class="week-meta">${pillFor(r.level)}<span class="small">${esc(t("history.signs", { n: r.yes, total }))}</span></span></span>${icon("arrow-right", 18)}</a></li>`;
   const newestFirst = [...rows].reverse();
+  const thisWeek = app.store.entryForWeek(currentWeek());
+  const open = thisWeek && !thisWeek.demo ? "" : `<a class="week-now" href="#/check/0" data-reset><span class="grow"><strong>${esc(t("history.weekOf", { date: fmtDate(weekStart(new Date())) }))}</strong><br><span class="small">${esc(t("history.notYet"))}</span></span>${icon("arrow-right", 18)}</a>`;
   const own = newestFirst.filter(({ e }) => !e.demo), examples = newestFirst.filter(({ e }) => e.demo);
   const lists = examples.length
-    ? `<h2>${esc(t("history.ownHeading"))}</h2>
-       ${own.length ? `<ul class="week-list">${own.map(item).join("")}</ul>` : `<p class="small">${esc(t("history.ownEmpty"))}</p>`}
+    ? `<h2>${esc(t("history.ownHeading"))}</h2>${open}
+       ${own.length ? `<ul class="week-list">${own.map(item).join("")}</ul>` : open ? "" : `<p class="small">${esc(t("history.ownEmpty"))}</p>`}
        <div class="row wrap"><h2 class="grow">${esc(t("history.examplesHeading"))}</h2>${exampleTag()}</div>
        <ul class="week-list">${examples.map(item).join("")}</ul>`
-    : `<h2>${esc(t("history.listHeading"))}</h2><ul class="week-list">${own.map(item).join("")}</ul>`;
+    : `<h2>${esc(t("history.listHeading"))}</h2>${open}<ul class="week-list">${own.map(item).join("")}</ul>`;
   return `<div class="stack"><h1>${esc(t("history.title"))}</h1>
     ${examples.length ? `<p class="small">${esc(t("history.examplesNote"))}</p>` : ""}
     <div class="card"><h3>${esc(t("history.trendHeading"))}</h3><div class="chart" role="img" aria-label="${esc(t("history.chartLabel"))}: ${recent.map(({ e, r }) => `${fmtWeek(e)} ${r.yes}/${total}`).join(", ")}">${chart}</div></div>
@@ -584,6 +590,7 @@ function block(b) {
   if (b.box) return `<div class="card stack box">${b.box.map(block).join("")}</div>`;
   if (b.links) return pageLinks(b.links);
   if (b.concept) return conceptMock(b.concept);
+  if (b.frame) return frameMock(b.frame);
   if (b.table) {
     const tb = b.table;
     const head = L(tb.head) ?? [], rows = L(tb.rows) ?? [];
