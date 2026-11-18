@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CalmCampus dans UNIL Campus : maquette</title>
+  <meta name="description" content="Une démo faite pour l’UNIL : CalmCampus intégré discrètement dans UNIL Campus. Maquette, ce n’est pas l’app officielle.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#F5EAD8">
+  <meta name="color-scheme" content="only light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CalmCampus × UNIL : maquette dans UNIL Campus">
+  <meta property="og:description" content="Une démo faite pour l’UNIL : CalmCampus intégré discrètement dans UNIL Campus. Les données ne quittent jamais le téléphone.">
+  <meta property="og:url" content="https://cc.braunf.com/unil/">
+  <meta property="og:site_name" content="CalmCampus">
+  <meta property="og:locale" content="fr_CH">
+  <meta property="og:image" content="https://cc.braunf.com/unil/share.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CalmCampus × UNIL : à quoi CalmCampus pourrait ressembler dans UNIL Campus. Maquette.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CalmCampus × UNIL : maquette dans UNIL Campus">
+  <meta name="twitter:description" content="Une démo faite pour l’UNIL : CalmCampus intégré discrètement dans UNIL Campus.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#maquette">Aller à la maquette</a>
+  <p class="mock-label" role="note"><strong>Maquette&#8239;:</strong> à quoi CalmCampus pourrait ressembler dans UNIL Campus. Ce n’est pas l’app officielle.</p>
+
+  <div class="page">
+    <header class="intro">
+      <p class="eyebrow">CalmCampus × UNIL</p>
+      <h1>Un point bien-être discret, dans UNIL Campus</h1>
+      <p class="lead">Une démo faite pour l’UNIL&#8239;: CalmCampus intégré discrètement dans UNIL Campus.</p>
+      <ul class="points">
+        <li><strong>Intégré à l’app existante.</strong> Une petite carte une fois par semaine et une rubrique «&#8239;Santé et bien-être&#8239;». Pas d’app à télécharger en plus.</li>
+        <li><strong>Avec l’équipe ou le prestataire d’UNIL Campus.</strong> Nous construisons le module, l’UNIL décide de l’intégration et valide chaque texte.</li>
+        <li><strong>Les données ne quittent jamais le téléphone.</strong> Ni CalmCampus ni l’UNIL ne reçoivent de réponses ou de données.</li>
+      </ul>
+    </header>
+
+    <section class="sim" aria-labelledby="sim-h">
+      <h2 id="sim-h">Simuler un étudiant</h2>
+      <p class="hint">Choisissez un cas, puis touchez la carte dans le téléphone et répondez aux questions (pré-remplies selon le cas, modifiables). La rubrique «&#8239;Santé et bien-être&#8239;» est en bas de la liste de l’app.</p>
+      <fieldset class="cases">
+        <legend class="sr">Cas simulé</legend>
+        <label class="case"><input type="radio" name="case" value="A" checked><span><b>A</b> Une semaine normale</span></label>
+        <label class="case"><input type="radio" name="case" value="B"><span><b>B</b> Une semaine difficile</span></label>
+        <label class="case"><input type="radio" name="case" value="C"><span><b>C</b> Plusieurs semaines difficiles</span></label>
+        <label class="case"><input type="radio" name="case" value="D"><span><b>D</b> Refuse l’accès aux données</span></label>
+      </fieldset>
+      <div class="logic" aria-live="polite">
+        <p class="logic-title">Logique du cas <span id="case-letter">A</span></p>
+        <p id="case-logic"></p>
+      </div>
+      <div class="sim-actions">
+        <button type="button" class="btn-ghost" id="jump-result">Voir directement l’écran final</button>
+        <button type="button" class="btn-ghost" id="reset">Recommencer</button>
+      </div>
+      <p class="hint small">Les semaines précédentes et les données de sommeil sont simulées pour la démo.</p>
+    </section>
+
+    <section class="stage" id="maquette" aria-label="Maquette de téléphone : UNIL Campus avec CalmCampus" tabindex="-1">
+      <div class="phone">
+        <div class="phone-screen" id="screen">
+          <div class="status" aria-hidden="true"><span>9:41</span><span class="status-r"><i></i><i></i><i></i></span></div>
+          <div id="phone-view" class="phone-view"></div>
+          <div id="sheet-layer" class="sheet-layer" hidden></div>
+        </div>
+      </div>
+      <p class="disclaimer" role="note">CalmCampus est un prototype. Nous ne sommes pas des professionnels de santé. En cas de besoin, parlez à un médecin ou aux services de l’UNIL.</p>
+    </section>
+
+    <section class="offer" aria-labelledby="offer-h">
+      <h2 id="offer-h">Conditions</h2>
+      <p>Un test gratuit avec de vrais étudiant·es, aussi longtemps que l’UNIL le souhaite. Ensuite, éventuellement, une licence au prix fixé ensemble.</p>
+      <p>Les étudiant·es ne paient jamais. Aucune donnée vendue, pas de publicité.</p>
+      <h2 id="privacy-h">Protection des données</h2>
+      <p>Les réponses et les données de sommeil restent sur le téléphone de l’étudiant·e. CalmCampus et l’UNIL ne reçoivent aucune donnée personnelle. Le module est pensé pour la loi fédérale sur la protection des données (LPD, révisée en 2023, souvent appelée nLPD)&#8239;: pas de collecte, donc pas de transfert ni de traitement de notre côté.</p>
+      <p>Cette page elle-même ne contient aucun outil de suivi ni de statistiques.</p>
+      <h2 id="contact-h">Contact</h2>
+      <p><a href="mailto:florian@calm.braunf.com">florian@calm.braunf.com</a></p>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <p>Hélène David &amp; Florian Braùn, cofondatrice et cofondateur de CalmCampus</p>
+    <p class="small">CalmCampus est un prototype. Nous ne sommes pas des professionnels de santé. En cas de besoin, parlez à un médecin ou aux services de l’UNIL.</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
