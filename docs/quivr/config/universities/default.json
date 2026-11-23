@@ -1,25 +1,37 @@
 {
   "id": "default",
   "name": "Your university",
-  "nameInText": { "en": "your university", "fr": "ton université" },
-  "logo": { "text": null, "image": null, "todo": "Optional. Set text or image to show the university next to CalmCampus." },
+  "nameInText": {
+    "en": "your university"
+  },
+  "logo": {
+    "text": null,
+    "image": null,
+    "todo": "Optional. Set text or image to show the university next to CalmCampus."
+  },
   "preview": true,
   "defaultLanguage": "en",
-  "languages": ["en", "fr"],
+  "languages": [
+    "en"
+  ],
   "publicUrl": "https://cc.braunf.com/demo/",
   "qr": "config/qr/default.svg",
   "feedback": {
     "email": "contact@calm.braunf.com",
-    "subject": { "en": "Feedback on the CalmCampus preview", "fr": "Retour sur l'aperçu CalmCampus" }
+    "subject": {
+      "en": "Feedback on the CalmCampus preview"
+    }
   },
   "questions": [
     {
       "id": "sleep",
       "version": 1,
-      "signals": ["sleep", "lateScreen"],
+      "signals": [
+        "sleep",
+        "lateScreen"
+      ],
       "text": {
-        "en": "This week, has your sleep been worse than usual?",
-        "fr": "Cette semaine, ton sommeil a-t-il été moins bon que d'habitude ?"
+        "en": "This week, has your sleep been worse than usual?"
       }
     },
     {
@@ -27,17 +39,17 @@
       "version": 1,
       "signals": [],
       "text": {
-        "en": "Have you struggled to plan or organise your studies?",
-        "fr": "As-tu eu du mal à organiser ou à planifier tes études ?"
+        "en": "Have you struggled to plan or organise your studies?"
       }
     },
     {
       "id": "energy",
       "version": 1,
-      "signals": ["steps"],
+      "signals": [
+        "steps"
+      ],
       "text": {
-        "en": "Have you found it hard to get started on things you usually manage?",
-        "fr": "As-tu eu du mal à te mettre au travail sur ce que tu gères d'habitude ?"
+        "en": "Have you found it hard to get started on things you usually manage?"
       }
     },
     {
@@ -45,39 +57,78 @@
       "version": 1,
       "signals": [],
       "text": {
-        "en": "Have you been avoiding friends, classes or plans more than usual?",
-        "fr": "As-tu évité tes amis, tes cours ou tes projets plus que d'habitude ?"
+        "en": "Have you been avoiding friends, classes or plans more than usual?"
       }
     }
   ],
   "levels": [
-    { "id": "steady", "minYes": 0, "service": null },
-    { "id": "notice", "minYes": 1, "service": "counselling" },
-    { "id": "support", "minYes": 2, "service": "counselling" },
-    { "id": "care", "minYes": 3, "service": "clinical" }
+    {
+      "id": "steady",
+      "minYes": 0,
+      "service": null
+    },
+    {
+      "id": "notice",
+      "minYes": 1,
+      "service": "counselling"
+    },
+    {
+      "id": "support",
+      "minYes": 2,
+      "service": "counselling"
+    },
+    {
+      "id": "care",
+      "minYes": 3,
+      "service": "clinical"
+    }
   ],
   "services": {
     "counselling": {
-      "name": { "en": "Student counselling service", "fr": "Service d'accompagnement des étudiant·es" },
-      "purpose": {
-        "en": "Support with stress, planning and study organisation.",
-        "fr": "Un soutien pour le stress, la planification et l'organisation des études."
+      "name": {
+        "en": "Student counselling service"
       },
-      "contact": { "link": null, "email": null, "phone": null, "hours": null },
+      "purpose": {
+        "en": "Support with stress, planning and study organisation."
+      },
+      "contact": {
+        "link": null,
+        "email": null,
+        "phone": null,
+        "hours": null
+      },
       "source": null,
       "verified": null,
-      "todo": ["name", "link", "email", "phone", "hours"]
+      "todo": [
+        "name",
+        "link",
+        "email",
+        "phone",
+        "hours"
+      ]
     },
     "clinical": {
-      "name": { "en": "Clinical care service", "fr": "Service de soins cliniques" },
-      "purpose": {
-        "en": "Clinical care from a doctor or psychologist.",
-        "fr": "Des soins cliniques auprès d'un médecin ou d'un·e psychologue."
+      "name": {
+        "en": "Clinical care service"
       },
-      "contact": { "link": null, "email": null, "phone": null, "hours": null },
+      "purpose": {
+        "en": "Clinical care from a doctor or psychologist."
+      },
+      "contact": {
+        "link": null,
+        "email": null,
+        "phone": null,
+        "hours": null
+      },
       "source": null,
       "verified": null,
-      "todo": ["name", "link", "email", "phone", "hours"]
+      "todo": [
+        "name",
+        "link",
+        "email",
+        "phone",
+        "hours"
+      ]
     }
   },
   "emergency": [
@@ -85,10 +136,11 @@
       "id": "general",
       "number": "112",
       "tel": "112",
-      "label": { "en": "Emergency services", "fr": "Services d'urgence" },
+      "label": {
+        "en": "Emergency services"
+      },
       "detail": {
-        "en": "Europe-wide emergency number. Each university's version adds its campus and local numbers.",
-        "fr": "Numéro d'urgence européen. La version de chaque université ajoute ses numéros de campus et locaux."
+        "en": "Europe-wide emergency number. Each university's version adds its campus and local numbers."
       },
       "source": null
     }

@@ -11,6 +11,13 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 const app = { base: null, config: null, store: null, pickReturn: null, pageBack: null, lang: "en", ui: {}, answers: {}, confirmDelete: false, deleted: false, fellBack: false, screen: null, tabScroll: {}, advancing: false };
+/**
+ * Quivr build (`dashboard: true` in the config): the page opens on a mockup of Quivr's
+ * Dashboard, and CalmCampus is a web page in Quivr's in-app browser, entered through a
+ * banner. The CalmCampus home is then #/home; #/ is the Dashboard.
+ */
+const isQuivr = () => app.base?.dashboard === true;
+const HOME = () => (isQuivr() ? "#/home" : "#/");
 const TABS = new Set(["home", "history", "support", "about"]);
 
 /** Display text goes through typography(); links never do (L keeps them raw). */
@@ -84,7 +91,12 @@ function renderShell() {
   const switcher = c.languages.length > 1 ? `<div class="langs" role="group" aria-label="${esc(t("more.languageHeading"))}">${shown.map(langBtn).join("")}</div>` : "";
   // A longer co-brand ("for … students") sits as a small line under the name, so the
   // header fits the smallest phones next to the language buttons.
-  $("top").innerHTML = `<div class="brand${chip.includes(" long") ? " stacked" : ""}"><a class="wordmark" href="#/">CalmCampus</a>${chip}</div>${switcher}`;
+  // In the Quivr build the header is the (illustrative) bar of Quivr's in-app browser.
+  $("top").classList.toggle("webbar", isQuivr());
+  $("top").innerHTML = isQuivr()
+    ? `<a class="wb-close" href="#/" aria-label="${esc(t("qv.closeAria"))}">${icon("x", 20)}<span>${esc(t("qv.close"))}</span></a>
+       <div class="wb-title" role="img" aria-label="${esc(t("qv.browserLabel"))}"><strong>CalmCampus</strong><span>cc.braunf.com</span></div>${switcher}`
+    : `<div class="brand${chip.includes(" long") ? " stacked" : ""}"><a class="wordmark" href="#/">CalmCampus</a>${chip}</div>${switcher}`;
   $("disclaimer").textContent = t("disclaimer");
   document.documentElement.lang = app.lang;
 
@@ -106,7 +118,7 @@ function renderShell() {
 
 function renderNav(active) {
   if (!active) { $("nav").innerHTML = ""; return; }
-  const items = [["home", "house", "#/"], ["history", "chart-no-axes-column", "#/history"], ["support", "life-buoy", "#/support"], ["about", "info", "#/about"]];
+  const items = [["home", "house", HOME()], ["history", "chart-no-axes-column", "#/history"], ["support", "life-buoy", "#/support"], ["about", "info", "#/about"]];
   $("nav").setAttribute("aria-label", t("nav.label"));
   $("nav").innerHTML = items
     .map(([id, ic, href]) => `<a href="${href}" ${id === active ? 'aria-current="page"' : ""}>${icon(ic, 22)}<span>${esc(t(`nav.${id}`))}</span></a>`)
@@ -232,7 +244,7 @@ function fmtSignal(id, v) {
   if (id === "sleep") {
     let h = Math.floor(v), m = Math.round((v - h) * 6) * 10;
     if (m === 60) { h += 1; m = 0; }
-    return t("signals.hours", { h, m: app.lang === "fr" ? String(m).padStart(2, "0") : m });
+    return t("signals.hours", { h, m });
   }
   if (id === "lateScreen") return t("signals.minutes", { m: Math.round(v / 5) * 5 });
   return (Math.round(v / 100) * 100).toLocaleString(app.lang);
@@ -290,6 +302,43 @@ function phoneSection(scenarioId) {
     <p class="small">${esc(t("signals.resultNote"))}</p></div>`;
 }
 
+/* ---------- The Quivr Dashboard (illustrative mockup, Quivr build only) ---------- */
+
+/** Keep the dashboard's own scroll when it is redrawn in place (language switch). */
+function renderDash() {
+  const keep = document.querySelector(".qv-scroll")?.scrollTop ?? 0;
+  const q = (k) => esc(t(`qv.${k}`));
+  const langs = app.base.languages.map((l) =>
+    `<button class="lang${l === app.lang ? " on" : ""}" data-hlang="${l}" lang="${l}" aria-label="${esc(app.ui.lang.names?.[l] ?? l)}" aria-pressed="${l === app.lang}">${esc(l.toUpperCase())}</button>`).join("");
+  const c = (k, f) => q(`cards.${k}.${f}`);
+  const tab = (id, ic, on) => `<span class="qv-tab${on ? " on" : ""}"${on ? ' aria-current="page"' : ""}>${icon(ic, 24)}<span>${q(`tabs.${id}`)}</span></span>`;
+  $("quivr").innerHTML = `
+    <div class="qv-note"><div><strong>${q("mockNote")}</strong><span>${q("mockSub")}</span></div>
+      <div class="langs" role="group" aria-label="${esc(t("more.languageHeading"))}">${langs}</div></div>
+    <header class="qv-head"><span class="qv-side"></span><h1>${q("title")}</h1><span class="qv-side qv-bell">${icon("bell", 22)}<span class="sr">${q("bell")}</span></span></header>
+    <div class="qv-scroll">
+      <a class="qv-banner" href="#/home" data-track="frame" aria-label="${q("banner.aria")}">
+        ${icon("sprout", 22)}
+        <span class="qv-banner-text"><span class="qv-banner-kicker">${q("banner.kicker")}</span><strong>${q("banner.title")}</strong><span>${q("banner.text")}</span></span>
+        <span class="qv-banner-open" aria-hidden="true">${q("banner.open")}${icon("arrow-right", 16)}</span></a>
+      <div class="qv-feed">
+        <article class="qv-card"><p class="qv-kicker">${c("event", "kicker")}</p><p class="qv-time">${c("event", "time")}</p><h2>${c("event", "title")}</h2><p class="qv-meta">${c("event", "room")}</p></article>
+        <article class="qv-card"><p class="qv-kicker">${c("library", "kicker")}</p><h2>${c("library", "name")}</h2><p class="qv-meta">${c("library", "hours")}</p>
+          <div class="qv-bar" aria-hidden="true"><i data-w="72"></i></div><p class="qv-meta"><span class="qv-dot"></span>${c("library", "count")}</p></article>
+        <article class="qv-card"><p class="qv-kicker">${c("restaurant", "kicker")}</p><div class="qv-dish"><h2>${c("restaurant", "dish")}</h2><strong>${c("restaurant", "price")}</strong></div></article>
+        <article class="qv-card"><p class="qv-kicker">${c("news", "kicker")}</p><h2>${c("news", "title")}</h2></article>
+        <p class="qv-approx">${q("approx")}</p>
+        <a class="qv-about" href="#/quivr-view">${q("about")}${icon("arrow-right", 16)}</a>
+      </div>
+    </div>
+    <nav class="qv-tabs" aria-label="${q("tabsLabel")}">${tab("dashboard", "q-mark", true)}${tab("schedule", "clock")}${tab("library", "book-open")}${tab("restaurant", "utensils")}${tab("more", "ellipsis")}</nav>`;
+  // Widths are set here, not in a style attribute.
+  $("quivr").querySelectorAll("[data-w]").forEach((el) => { el.style.width = `${el.dataset.w}%`; });
+  document.documentElement.lang = app.lang;
+  const sc = document.querySelector(".qv-scroll");
+  if (sc) sc.scrollTop = keep;
+}
+
 /* ---------- Screens ---------- */
 
 function viewWelcome() {
@@ -331,7 +380,7 @@ const checkIndex = () => { const m = location.hash.match(/^#\/check\/(\d+)$/); r
 /** Returns null when it redirects, so route() stops there. */
 function viewCheck(n) {
   const qs = questionsInOrder();
-  if (!(n >= 0 && n < qs.length)) { location.replace("#/"); return null; }
+  if (!(n >= 0 && n < qs.length)) { location.replace(HOME()); return null; }
   // Never show a question before the earlier ones are answered, for example after the
   // browser's back button returns into a check-in that is already finished.
   const missing = qs.findIndex((q, i) => i < n && app.answers[q.id] === undefined);
@@ -339,7 +388,7 @@ function viewCheck(n) {
   const q = qs[n];
   const dots = qs.map((_, i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("");
   return `<div class="stack">
-    <div class="row">${backLink(n === 0 ? "#/" : `#/check/${n - 1}`, t("checkin.back"), true)}
+    <div class="row">${backLink(n === 0 ? HOME() : `#/check/${n - 1}`, t("checkin.back"), true)}
       <span class="small grow" style="text-align:right">${esc(t("checkin.progress", { n: n + 1, total: qs.length }))}</span></div>
     <div class="progress" aria-hidden="true">${dots}</div>
     <p class="small">${esc(t("checkin.heading"))}</p>
@@ -422,7 +471,7 @@ function viewResult(answers, { saved, example, phone, scenarioId, back } = {}) {
     ${emergencyCard()}
     ${saved ? `<p class="small row">${icon("shield-check", 18)}<span>${esc(t("result.saved"))}</span></p>` : ""}
     ${saved ? nextTryCard() : ""}
-    <a class="btn ghost" href="${back ? back.href : "#/"}">${esc(back ? back.label : t("result.again"))}</a></div>`;
+    <a class="btn ghost" href="${back ? back.href : HOME()}">${esc(back ? back.label : t("result.again"))}</a></div>`;
 }
 
 /** Every level, how many yes answers lead to it and where it points: what a university reviews. */
@@ -657,7 +706,7 @@ function frameMock(f) {
     <div class="mock-phone"><div class="mock-screen">
       <div class="mock-app">${esc(Lt(f.app))}</div>
       <div class="mock-bars" aria-hidden="true"><i></i><i></i><i class="short"></i></div>
-      <a class="mock-card" href="#/" data-track="frame" aria-label="CalmCampus. ${esc(Lt(f.card.text))} ${esc(Lt(f.card.button))}">
+      <a class="mock-card mock-banner" href="#/" data-track="frame" aria-label="CalmCampus. ${esc(Lt(f.card.text))} ${esc(Lt(f.card.button))}">
         <span class="mock-kicker">CalmCampus</span><span>${esc(Lt(f.card.text))}</span>
         <span class="btn sm" aria-hidden="true">${esc(Lt(f.card.button))}${icon("arrow-right", 18)}</span></a>
       <div class="mock-bars" aria-hidden="true"><i></i><i class="short"></i></div>
@@ -707,8 +756,17 @@ function route(opts) {
   const hash = location.hash.replace(/^#\/?/, "");
   const [name, arg] = hash.split("/");
   if (name === "more") { location.replace("#/about"); return; }
-  if ((!name || name === "home") && isPreview() && !app.store.isWelcomed()) { location.replace("#/welcome"); return; }
-  if (needsPick() && ["", "home", "check", "result", "history", "support", "results", "preview"].includes(name || "")) { location.replace("#/pick"); return; }
+  const dash = isQuivr() && !name;
+  if ((!name || name === "home") && isPreview() && !isQuivr() && !app.store.isWelcomed()) { location.replace("#/welcome"); return; }
+  if (!dash && needsPick() && ["", "home", "check", "result", "history", "support", "results", "preview"].includes(name || "")) { location.replace("#/pick"); return; }
+  if (dash) {
+    if (!inPlace) { if (TABS.has(app.screen)) app.tabScroll[app.screen] = window.scrollY; app.screen = "dash"; }
+    document.body.classList.add("on-dash");
+    renderDash();
+    if (!inPlace) { window.scrollTo(0, 0); }
+    return;
+  }
+  document.body.classList.remove("on-dash");
   // Remember where each tab was scrolled, so coming back to it (from Privacy, a
   // result or a preview) lands where you left it instead of at the top.
   if (!inPlace && TABS.has(app.screen)) app.tabScroll[app.screen] = window.scrollY;
@@ -716,7 +774,7 @@ function route(opts) {
   if (!inPlace) app.screen = name || "home";
   // The preview line is hidden on the welcome screen and during the check-in.
   const bare = (s) => s === "welcome" || s === "check";
-  if (from !== app.screen && (bare(from) || bare(app.screen))) renderShell();
+  if (from !== app.screen && (bare(from) || bare(app.screen) || from === "dash")) renderShell();
   const view = $("view");
   let html = "", nav = "home";
   if (name === "welcome") { nav = null; html = viewWelcome(); }
@@ -724,14 +782,14 @@ function route(opts) {
     if (!inPlace && from !== "pick") app.pickReturn = ["about", "results", "support"].includes(from) ? `#/${from}` : null;
     nav = needsPick() ? null : "about"; html = viewPick();
   } else if (pageOf(name)) {
-    if (!inPlace && from !== name) app.pageBack = from === "welcome" ? "#/welcome" : "#/about";
+    if (!inPlace && from !== name) app.pageBack = from === "welcome" ? "#/welcome" : from === "dash" ? "#/" : "#/about";
     nav = "about"; html = viewPage(pageOf(name));
     if (isPreview()) app.store.markTried(`page:${name}`);
   }
   else if (name === "check") { nav = null; html = viewCheck(Number(arg)); if (html === null) return; }
   else if (name === "result") {
     const e = app.store.entryForWeek(arg || currentWeek());
-    if (!e) { location.replace("#/"); return; }
+    if (!e) { location.replace(HOME()); return; }
     const own = !e.demo;
     const fromHistory = inPlace ? app.resultBack === "history" : from === "history";
     if (!inPlace) app.resultBack = fromHistory ? "history" : null;
@@ -798,12 +856,12 @@ function onClick(ev) {
     if (isPreview()) app.store.markTried("uni");
     applyUni();
     renderShell();
-    location.replace(app.pickReturn || "#/");
+    location.replace(app.pickReturn || HOME());
     return;
   }
   if (el.dataset.welcome !== undefined) {
     app.store.setWelcomed();
-    location.replace("#/");
+    location.replace(HOME());
     return;
   }
   if (el.dataset.answer) {
@@ -854,7 +912,7 @@ function onClick(ev) {
         app.tabScroll = {};
         applyUni();
         renderShell();
-        location.replace("#/welcome");
+        location.replace(isQuivr() ? "#/" : "#/welcome");
         return;
       }
       app.deleted = true;
@@ -909,6 +967,7 @@ async function init() {
     if (params.get("demo") === "1" && !app.store.isDemo()) app.store.setDemo(true, demoEntries(config));
     if (params.get("demo") === "0") app.store.setDemo(false);
   }
+  if (isQuivr()) { document.body.classList.add("qv-mode"); if (isPreview()) app.store.setWelcomed(); }
   renderShell();
   document.addEventListener("click", onClick);
   window.addEventListener("hashchange", route);

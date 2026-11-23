@@ -2,36 +2,32 @@
   "id": "quivr",
   "name": {
     "nl": "Quivr",
-    "en": "Quivr",
-    "fr": "Quivr"
+    "en": "Quivr"
   },
   "nameInText": {
     "nl": "Quivr",
-    "en": "Quivr",
-    "fr": "Quivr"
+    "en": "Quivr"
   },
   "logo": {
     "text": {
       "nl": "voor Quivr-studenten",
-      "en": "for Quivr students",
-      "fr": "pour les étudiant·es de Quivr"
+      "en": "for Quivr students"
     },
     "image": null,
     "todo": "Text placeholder on purpose. A Quivr logo needs Quivr's permission."
   },
   "preview": true,
+  "dashboard": true,
   "defaultLanguage": "nl",
   "languages": [
     "nl",
-    "en",
-    "fr"
+    "en"
   ],
   "languageFromBrowser": false,
   "languageSwitch": "all",
   "privacyNote": {
     "nl": "Je antwoorden blijven op je telefoon en worden daar verwerkt. Niemand anders heeft ze: niet Quivr, niet de universiteit en niet het CalmCampus-team.",
-    "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team.",
-    "fr": "Tes réponses restent sur ton téléphone et y sont traitées. Personne d'autre ne les a : ni Quivr, ni l'université, ni l'équipe CalmCampus."
+    "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team."
   },
   "publicUrl": "https://cc.braunf.com/quivr/",
   "qr": "config/qr/quivr.svg",
@@ -39,14 +35,12 @@
     "email": "contact@calm.braunf.com",
     "subject": {
       "nl": "Feedback op de CalmCampus-preview (Quivr)",
-      "en": "Feedback on the CalmCampus preview (Quivr)",
-      "fr": "Retour sur l'aperçu CalmCampus (Quivr)"
+      "en": "Feedback on the CalmCampus preview (Quivr)"
     }
   },
   "welcomeNote": {
     "nl": "Dit is een preview die we maakten zodat Quivr ze kan beoordelen. Het is geen functie van Quivr, en Quivr heeft met niets ingestemd.",
-    "en": "This is a preview made for Quivr to review. It is not a Quivr feature, and Quivr has not agreed to anything.",
-    "fr": "Ceci est un aperçu fait pour que Quivr l'examine. Ce n'est pas une fonction de Quivr, et Quivr n'a rien accepté."
+    "en": "This is a preview made for Quivr to review. It is not a Quivr feature, and Quivr has not agreed to anything."
   },
   "welcomeLinks": [
     "quivr-view"
@@ -54,8 +48,7 @@
   "aboutPages": {
     "heading": {
       "nl": "Voor Quivr",
-      "en": "For Quivr",
-      "fr": "Pour Quivr"
+      "en": "For Quivr"
     },
     "ids": [
       "quivr-view",
@@ -69,19 +62,17 @@
   "tries": [
     {
       "id": "frame",
-      "href": "#/quivr-view",
+      "href": "#/",
       "marks": [
         "frame"
       ],
       "h": {
-        "nl": "Open de Quivr-weergave en tik op de kaart",
-        "en": "Open the Quivr view and tap the card",
-        "fr": "Ouvre la vue Quivr et touche la carte"
+        "nl": "Tik op de banner in Quivr",
+        "en": "Tap the banner in Quivr"
       },
       "p": {
-        "nl": "Een mockup van hoe een CalmCampus-kaart in Quivr zou kunnen staan.",
-        "en": "A mockup of how a CalmCampus card could look in Quivr.",
-        "fr": "Une maquette de la façon dont une carte CalmCampus pourrait apparaître dans Quivr."
+        "nl": "Een mockup van hoe een CalmCampus-banner in Quivr zou kunnen staan.",
+        "en": "A mockup of how a CalmCampus banner could look in Quivr."
       }
     },
     {
@@ -92,13 +83,11 @@
       ],
       "h": {
         "nl": "Kies een universiteit",
-        "en": "Pick a university",
-        "fr": "Choisis une université"
+        "en": "Pick a university"
       },
       "p": {
         "nl": "De hulp volgt de universiteit die je kiest. Wijzig ze wanneer je wilt.",
-        "en": "Support follows the university you pick. Change it any time.",
-        "fr": "Le soutien suit l'université choisie. Tu peux la changer à tout moment."
+        "en": "Support follows the university you pick. Change it any time."
       }
     },
     {
@@ -109,13 +98,11 @@
       ],
       "h": {
         "nl": "Doe de check-in",
-        "en": "Do the check-in",
-        "fr": "Fais le bilan"
+        "en": "Do the check-in"
       },
       "p": {
         "nl": "Vier ja-of-neevragen. Minder dan een minuut.",
-        "en": "Four yes or no questions. Less than a minute.",
-        "fr": "Quatre questions par oui ou non. Moins d'une minute."
+        "en": "Four yes or no questions. Less than a minute."
       }
     },
     {
@@ -126,13 +113,11 @@
       ],
       "h": {
         "nl": "Bekijk elk mogelijk resultaat",
-        "en": "See every possible result",
-        "fr": "Vois tous les résultats possibles"
+        "en": "See every possible result"
       },
       "p": {
         "nl": "Open de lijst: elk resultaat en de dienst van {name} die het voorstelt.",
-        "en": "Open the list: each result and the service at {name} it suggests.",
-        "fr": "Ouvre la liste : chaque résultat et le service de {name} qu'il propose."
+        "en": "Open the list: each result and the service at {name} it suggests."
       }
     },
     {
@@ -143,13 +128,11 @@
       ],
       "h": {
         "nl": "Open Hulp en de noodnummers",
-        "en": "Open Support and the emergency numbers",
-        "fr": "Ouvre Soutien et les numéros d'urgence"
+        "en": "Open Support and the emergency numbers"
       },
       "p": {
         "nl": "De diensten en noodnummers die een student zou zien.",
-        "en": "The services and emergency numbers a student would see.",
-        "fr": "Les services et les numéros d'urgence qu'un·e étudiant·e verrait."
+        "en": "The services and emergency numbers a student would see."
       }
     },
     {
@@ -160,13 +143,11 @@
       ],
       "h": {
         "nl": "Bekijk fase 1 en fase 2",
-        "en": "See Phase 1 and Phase 2",
-        "fr": "Vois la phase 1 et la phase 2"
+        "en": "See Phase 1 and Phase 2"
       },
       "p": {
         "nl": "Nu zonder ontwikkelwerk, later in Quivr zelf: een concept om door te tikken.",
-        "en": "Now with no development, later inside Quivr: a concept you can tap through.",
-        "fr": "Maintenant sans développement, plus tard dans Quivr : un concept à parcourir."
+        "en": "Now with no development, later inside Quivr: a concept you can tap through."
       }
     },
     {
@@ -178,13 +159,11 @@
       ],
       "h": {
         "nl": "Lees het testplan",
-        "en": "Read the test plan",
-        "fr": "Lis le plan de test"
+        "en": "Read the test plan"
       },
       "p": {
         "nl": "De test van drie weken en hoe we lage betrokkenheid vermijden.",
-        "en": "The three-week test and how we avoid low engagement.",
-        "fr": "Le test de trois semaines et comment éviter une faible participation."
+        "en": "The three-week test and how we avoid low engagement."
       }
     }
   ],
@@ -198,8 +177,7 @@
       ],
       "text": {
         "nl": "Was je slaap deze week slechter dan gewoonlijk?",
-        "en": "This week, has your sleep been worse than usual?",
-        "fr": "Cette semaine, ton sommeil a-t-il été moins bon que d'habitude ?"
+        "en": "This week, has your sleep been worse than usual?"
       }
     },
     {
@@ -208,8 +186,7 @@
       "signals": [],
       "text": {
         "nl": "Had je moeite om je studie te plannen of te organiseren?",
-        "en": "Have you struggled to plan or organise your studies?",
-        "fr": "As-tu eu du mal à organiser ou à planifier tes études ?"
+        "en": "Have you struggled to plan or organise your studies?"
       }
     },
     {
@@ -220,8 +197,7 @@
       ],
       "text": {
         "nl": "Vond je het moeilijk om te beginnen aan dingen die je gewoonlijk wel lukken?",
-        "en": "Have you found it hard to get started on things you usually manage?",
-        "fr": "As-tu eu du mal à te mettre au travail sur ce que tu gères d'habitude ?"
+        "en": "Have you found it hard to get started on things you usually manage?"
       }
     },
     {
@@ -230,8 +206,7 @@
       "signals": [],
       "text": {
         "nl": "Ging je vrienden, lessen of plannen meer uit de weg dan gewoonlijk?",
-        "en": "Have you been avoiding friends, classes or plans more than usual?",
-        "fr": "As-tu évité tes ami·es, tes cours ou tes projets plus que d'habitude ?"
+        "en": "Have you been avoiding friends, classes or plans more than usual?"
       }
     }
   ],
@@ -265,13 +240,11 @@
       "tel": "112",
       "label": {
         "nl": "Noodnummer: ziekenwagen en brandweer",
-        "en": "Emergency: ambulance and fire brigade",
-        "fr": "Urgence : ambulance et pompiers"
+        "en": "Emergency: ambulance and fire brigade"
       },
       "detail": {
         "nl": "Gratis, in heel Europa.",
-        "en": "Free, anywhere in Europe.",
-        "fr": "Gratuit, partout en Europe."
+        "en": "Free, anywhere in Europe."
       },
       "source": "https://www.112.be/nl"
     },
@@ -281,13 +254,11 @@
       "tel": "1813",
       "label": {
         "nl": "Zelfmoordlijn 1813, 24/7",
-        "en": "Zelfmoordlijn 1813 (suicide line), 24/7",
-        "fr": "Zelfmoordlijn 1813 (ligne de prévention du suicide), 24 h/24"
+        "en": "Zelfmoordlijn 1813 (suicide line), 24/7"
       },
       "detail": {
         "nl": "Anoniem en gratis. Chat elke dag van 17 tot 24 uur, op woensdag vanaf 12 uur.",
-        "en": "Anonymous and free, in Dutch. Chat every day from 17:00 to midnight, Wednesdays from 12:00.",
-        "fr": "Anonyme et gratuit, en néerlandais. Chat tous les jours de 17 h à minuit, le mercredi dès 12 h."
+        "en": "Anonymous and free, in Dutch. Chat every day from 17:00 to midnight, Wednesdays from 12:00."
       },
       "source": "https://www.zelfmoord1813.be/"
     },
@@ -297,13 +268,11 @@
       "tel": "106",
       "label": {
         "nl": "Tele-Onthaal 106, 24/7",
-        "en": "Tele-Onthaal 106 (listening line), 24/7",
-        "fr": "Tele-Onthaal 106 (ligne d'écoute), 24 h/24"
+        "en": "Tele-Onthaal 106 (listening line), 24/7"
       },
       "detail": {
         "nl": "Praten helpt. Gratis en anoniem.",
-        "en": "Someone to talk to about anything. Free and anonymous, in Dutch.",
-        "fr": "Quelqu'un à qui parler, de tout. Gratuit et anonyme, en néerlandais."
+        "en": "Someone to talk to about anything. Free and anonymous, in Dutch."
       },
       "source": "https://www.tele-onthaal.be/"
     },
@@ -313,13 +282,11 @@
       "tel": "107",
       "label": {
         "nl": "Télé-Accueil 107, 24/7 (Frans)",
-        "en": "Télé-Accueil 107 (listening line), 24/7",
-        "fr": "Télé-Accueil 107, 24 h/24"
+        "en": "Télé-Accueil 107 (listening line), 24/7"
       },
       "detail": {
         "nl": "Een luisterlijn in het Frans. Gratis.",
-        "en": "A listening line in French. Free.",
-        "fr": "Service d'écoute gratuit."
+        "en": "A listening line in French. Free."
       },
       "source": "https://www.tele-accueil.be/"
     },
@@ -329,13 +296,11 @@
       "tel": "080032123",
       "label": {
         "nl": "Centre de Prévention du Suicide, 24/7 (Frans)",
-        "en": "Centre de Prévention du Suicide (suicide line), 24/7",
-        "fr": "Centre de Prévention du Suicide, 24 h/24"
+        "en": "Centre de Prévention du Suicide (suicide line), 24/7"
       },
       "detail": {
         "nl": "Een gespecialiseerde luisterlijn in het Frans. Anoniem en gratis.",
-        "en": "A specialised listening line in French. Anonymous and free.",
-        "fr": "La ligne d'écoute spécialisée en prévention du suicide. Anonyme et gratuite."
+        "en": "A specialised listening line in French. Anonymous and free."
       },
       "source": "https://www.preventionsuicide.be/la-ligne-decoute-0800-32-123"
     }
@@ -345,43 +310,36 @@
       "id": "kuleuven",
       "name": {
         "nl": "KU Leuven",
-        "en": "KU Leuven",
-        "fr": "KU Leuven"
+        "en": "KU Leuven"
       },
       "hint": {
         "nl": "Diensten van KU Leuven Stuvo in Leuven",
-        "en": "KU Leuven Stuvo services in Leuven",
-        "fr": "Services de KU Leuven Stuvo à Louvain"
+        "en": "KU Leuven Stuvo services in Leuven"
       },
       "services": {
         "firstline": {
           "name": {
             "nl": "Eerstelijnspsycholoog (KU Leuven Stuvo)",
-            "en": "First-line psychologist (KU Leuven Stuvo)",
-            "fr": "Eerstelijnspsycholoog, psychologue de première ligne (KU Leuven Stuvo)"
+            "en": "First-line psychologist (KU Leuven Stuvo)"
           },
           "purpose": {
             "nl": "Een kort traject van 1 tot maximaal 5 sessies om samen te bekijken wat er speelt en stappen te zetten. Alle sessies zijn gratis.",
-            "en": "A short track of 1 to at most 5 sessions to look at what is going on together and take steps. All sessions are free.",
-            "fr": "Un court suivi de 1 à 5 séances au plus pour comprendre ensemble ce qui se passe et avancer. Toutes les séances sont gratuites."
+            "en": "A short track of 1 to at most 5 sessions to look at what is going on together and take steps. All sessions are free."
           },
           "note": {
             "nl": "Afspraak maken via het GGZ-portaal (link op de website).",
-            "en": "Book through the GGZ portal (link on the website).",
-            "fr": "Rendez-vous via le portail GGZ (lien sur le site)."
+            "en": "Book through the GGZ portal (link on the website)."
           },
           "contact": {
             "link": {
               "nl": "https://www.kuleuven.be/stuvo/gezondheid/mentaal-welzijn/psycholoog/index.html",
-              "en": "https://www.kuleuven.be/stuvo/english/stuvo/health/mental-health/psychologists-and-psychiatrists/index.html",
-              "fr": "https://www.kuleuven.be/stuvo/english/stuvo/health/mental-health/psychologists-and-psychiatrists/index.html"
+              "en": "https://www.kuleuven.be/stuvo/english/stuvo/health/mental-health/psychologists-and-psychiatrists/index.html"
             },
             "email": null,
             "phone": "016 32 43 43",
             "hours": {
               "nl": "Onthaal (telefoon): lesweken van 8 tot 17.30 uur, lesvrije weken van 8 tot 17 uur.",
-              "en": "Reception (phone): 8:00 to 17:30 in teaching weeks, 8:00 to 17:00 in weeks without classes.",
-              "fr": "Accueil (téléphone) : de 8 h à 17 h 30 pendant les semaines de cours, de 8 h à 17 h les autres semaines."
+              "en": "Reception (phone): 8:00 to 17:30 in teaching weeks, 8:00 to 17:00 in weeks without classes."
             },
             "linkLang": {
               "nl": "nl"
@@ -401,31 +359,26 @@
         "psychotherapy": {
           "name": {
             "nl": "Psycholoog-psychotherapeut (KU Leuven Stuvo)",
-            "en": "Psychologist-psychotherapist (KU Leuven Stuvo)",
-            "fr": "Psycholoog-psychotherapeut, psychologue-psychothérapeute (KU Leuven Stuvo)"
+            "en": "Psychologist-psychotherapist (KU Leuven Stuvo)"
           },
           "purpose": {
             "nl": "Langere begeleiding, individueel of in groep, bij emotionele en psychische moeilijkheden die meer tijd en verdieping vragen.",
-            "en": "Longer support, one to one or in a group, for emotional and psychological difficulties that need more time and depth.",
-            "fr": "Un accompagnement plus long, individuel ou en groupe, pour des difficultés émotionnelles et psychologiques qui demandent plus de temps."
+            "en": "Longer support, one to one or in a group, for emotional and psychological difficulties that need more time and depth."
           },
           "note": {
             "nl": "Afspraak maken via het GGZ-portaal. De prijs hangt af van je studentenprofiel.",
-            "en": "Book through the GGZ portal. The price depends on your student profile.",
-            "fr": "Rendez-vous via le portail GGZ. Le prix dépend de ton profil d'étudiant·e."
+            "en": "Book through the GGZ portal. The price depends on your student profile."
           },
           "contact": {
             "link": {
               "nl": "https://www.kuleuven.be/stuvo/gezondheid/mentaal-welzijn/psycholoog/index.html",
-              "en": "https://www.kuleuven.be/stuvo/english/stuvo/health/mental-health/psychologists-and-psychiatrists/index.html",
-              "fr": "https://www.kuleuven.be/stuvo/english/stuvo/health/mental-health/psychologists-and-psychiatrists/index.html"
+              "en": "https://www.kuleuven.be/stuvo/english/stuvo/health/mental-health/psychologists-and-psychiatrists/index.html"
             },
             "email": null,
             "phone": "016 32 43 43",
             "hours": {
               "nl": "Onthaal (telefoon): lesweken van 8 tot 17.30 uur, lesvrije weken van 8 tot 17 uur.",
-              "en": "Reception (phone): 8:00 to 17:30 in teaching weeks, 8:00 to 17:00 in weeks without classes.",
-              "fr": "Accueil (téléphone) : de 8 h à 17 h 30 pendant les semaines de cours, de 8 h à 17 h les autres semaines."
+              "en": "Reception (phone): 8:00 to 17:30 in teaching weeks, 8:00 to 17:00 in weeks without classes."
             },
             "linkLang": {
               "nl": "nl"
@@ -472,62 +425,52 @@
           "tel": "016322222",
           "label": {
             "nl": "Noodlijn KU Leuven, 24/7",
-            "en": "KU Leuven emergency line, 24/7",
-            "fr": "Ligne d'urgence de la KU Leuven, 24 h/24"
+            "en": "KU Leuven emergency line, 24/7"
           },
           "detail": {
             "nl": "Voor noodsituaties op de campus. Vanaf een vast toestel van KU Leuven: 2222.",
-            "en": "For emergencies on campus. From a KU Leuven landline: 2222.",
-            "fr": "Pour les urgences sur le campus. Depuis un téléphone fixe de la KU Leuven : 2222."
+            "en": "For emergencies on campus. From a KU Leuven landline: 2222."
           },
           "source": "https://admin.kuleuven.be/sab/vgm/kuleuven/noodsituaties/noodnummers-emergencynumbers_KUL"
         }
       ],
       "nameInText": {
         "nl": "KU Leuven",
-        "en": "KU Leuven",
-        "fr": "la KU Leuven"
+        "en": "KU Leuven"
       }
     },
     {
       "id": "kulak",
       "name": {
         "nl": "KU Leuven Kulak (Kortrijk)",
-        "en": "KU Leuven Kulak (Kortrijk)",
-        "fr": "KU Leuven Kulak (Courtrai)"
+        "en": "KU Leuven Kulak (Kortrijk)"
       },
       "nameInText": {
         "nl": "Kulak",
-        "en": "Kulak",
-        "fr": "Kulak"
+        "en": "Kulak"
       },
       "hint": {
         "nl": "Campus Kortrijk",
-        "en": "Kortrijk campus",
-        "fr": "Campus de Courtrai"
+        "en": "Kortrijk campus"
       },
       "services": {
         "wellbeing": {
           "name": {
             "nl": "Studentenwelzijn en gezondheid (Stuvo Kulak)",
-            "en": "Studentenwelzijn en gezondheid: student wellbeing (Stuvo Kulak)",
-            "fr": "Studentenwelzijn en gezondheid : bien-être étudiant (Stuvo Kulak)"
+            "en": "Studentenwelzijn en gezondheid: student wellbeing (Stuvo Kulak)"
           },
           "purpose": {
             "nl": "Worstel je met persoonlijke problemen of maak je je zorgen om een medestudent? De studentenpsycholoog en psychosociaal begeleider staan voor jou klaar.",
-            "en": "For personal problems, or when you worry about a fellow student: the student psychologist and the psychosocial counsellor are there for you.",
-            "fr": "Pour des difficultés personnelles, ou si tu t'inquiètes pour un·e autre étudiant·e : un·e psychologue pour étudiant·es et un·e accompagnateur·rice psychosocial·e sont là pour toi."
+            "en": "For personal problems, or when you worry about a fellow student: the student psychologist and the psychosocial counsellor are there for you."
           },
           "note": {
             "nl": "Afspraak maken via de boekingslinks op de website. Algemeen nummer van Stuvo Kulak hieronder.",
-            "en": "Book through the links on the website. The number below is Stuvo Kulak's general line.",
-            "fr": "Rendez-vous via les liens du site. Le numéro ci-dessous est la ligne générale de Stuvo Kulak."
+            "en": "Book through the links on the website. The number below is Stuvo Kulak's general line."
           },
           "contact": {
             "link": {
               "nl": "https://kulak.kuleuven.be/nl/studeren/studentenvoorzieningen/studentenzorgen",
-              "en": "https://kulak.kuleuven.be/nl/studeren/studentenvoorzieningen/studentenzorgen",
-              "fr": "https://kulak.kuleuven.be/nl/studeren/studentenvoorzieningen/studentenzorgen"
+              "en": "https://kulak.kuleuven.be/nl/studeren/studentenvoorzieningen/studentenzorgen"
             },
             "email": null,
             "phone": "056 24 61 38",
@@ -575,13 +518,11 @@
           "tel": "016322222",
           "label": {
             "nl": "Noodlijn KU Leuven, 24/7",
-            "en": "KU Leuven emergency line, 24/7",
-            "fr": "Ligne d'urgence de la KU Leuven, 24 h/24"
+            "en": "KU Leuven emergency line, 24/7"
           },
           "detail": {
             "nl": "Voor noodsituaties op de campus. Vanaf een vast toestel van KU Leuven: 2222.",
-            "en": "For emergencies on campus. From a KU Leuven landline: 2222.",
-            "fr": "Pour les urgences sur le campus. Depuis un téléphone fixe de la KU Leuven : 2222."
+            "en": "For emergencies on campus. From a KU Leuven landline: 2222."
           },
           "source": "https://kulak.kuleuven.be/nl/studeren/studentenvoorzieningen/studentenzorgen",
           "sources": [
@@ -595,36 +536,30 @@
       "id": "ugent",
       "name": {
         "nl": "UGent",
-        "en": "Ghent University (UGent)",
-        "fr": "Université de Gand (UGent)"
+        "en": "Ghent University (UGent)"
       },
       "nameInText": {
         "nl": "UGent",
-        "en": "Ghent University",
-        "fr": "l'UGent"
+        "en": "Ghent University"
       },
       "services": {
         "psychologists": {
           "name": {
             "nl": "Studentenpsychologen (UGent)",
-            "en": "Student psychologists (UGent)",
-            "fr": "Studentenpsychologen, psychologues pour étudiant·es (UGent)"
+            "en": "Student psychologists (UGent)"
           },
           "purpose": {
             "nl": "Voor studiegerelateerde of persoonlijke problemen. Gratis voor elke UGent-student, en gebonden aan het beroepsgeheim.",
-            "en": "For study-related or personal problems: solution-focused, short-term support. Free for every UGent student, and bound by professional confidentiality.",
-            "fr": "Pour des difficultés liées aux études ou personnelles : un soutien court et orienté solutions. Gratuit pour chaque étudiant·e de l'UGent, et soumis au secret professionnel."
+            "en": "For study-related or personal problems: solution-focused, short-term support. Free for every UGent student, and bound by professional confidentiality."
           },
           "note": {
             "nl": "Afspraak maken online via de website. Twijfel je? Het Studentencentrum helpt je verder (e-mail en telefoon hieronder).",
-            "en": "Book online on the website. Not sure it is for you? The Student Centre helps (email and phone below).",
-            "fr": "Rendez-vous en ligne sur le site. Un doute ? Le Studentencentrum t'aide (e-mail et téléphone ci-dessous)."
+            "en": "Book online on the website. Not sure it is for you? The Student Centre helps (email and phone below)."
           },
           "contact": {
             "link": {
               "nl": "https://www.ugent.be/student/nl/welzijn-gezondheid/wel-in-je-vel/studentenpsychologen",
-              "en": "https://www.ugent.be/student/en/study-support/student-psychologists/overview.htm",
-              "fr": "https://www.ugent.be/student/en/study-support/student-psychologists/overview.htm"
+              "en": "https://www.ugent.be/student/en/study-support/student-psychologists/overview.htm"
             },
             "email": "studentencentrum@ugent.be",
             "phone": "09 331 00 31",
@@ -671,13 +606,11 @@
           "tel": "092648888",
           "label": {
             "nl": "Permanentie UGent, 24/7",
-            "en": "UGent emergency service (Permanentie), 24/7",
-            "fr": "Permanence de l'UGent, 24 h/24"
+            "en": "UGent emergency service (Permanentie), 24/7"
           },
           "detail": {
             "nl": "De veiligheidsdienst van UGent, dag en nacht bereikbaar.",
-            "en": "UGent's security service, reachable day and night.",
-            "fr": "Le service de sécurité de l'UGent, joignable jour et nuit."
+            "en": "UGent's security service, reachable day and night."
           },
           "source": "https://www.ugent.be/student/nl/welzijn-gezondheid/wel-in-je-vel/studentenpsychologen"
         }
@@ -687,36 +620,30 @@
       "id": "uantwerpen",
       "name": {
         "nl": "UAntwerpen",
-        "en": "University of Antwerp (UAntwerpen)",
-        "fr": "Université d'Anvers (UAntwerpen)"
+        "en": "University of Antwerp (UAntwerpen)"
       },
       "nameInText": {
         "nl": "UAntwerpen",
-        "en": "the University of Antwerp",
-        "fr": "l'UAntwerpen"
+        "en": "the University of Antwerp"
       },
       "services": {
         "stip": {
           "name": {
             "nl": "Studentenpsychologen (STIP, UAntwerpen)",
-            "en": "Student psychologists (STIP, UAntwerpen)",
-            "fr": "Studentenpsychologen, psychologues pour étudiant·es (STIP, UAntwerpen)"
+            "en": "Student psychologists (STIP, UAntwerpen)"
           },
           "purpose": {
             "nl": "Bij het StudentenInformatiePunt (STIP) staat een team studentenpsychologen en studiecoaches klaar. Op korte termijn volgt een gratis oriënterend gesprek.",
-            "en": "At the Student Information Point (STIP), a team of student psychologists and study coaches is there for you. A free first conversation follows at short notice.",
-            "fr": "Au point d'information étudiant (STIP), une équipe de psychologues et de coachs d'étude est là pour toi. Un premier entretien gratuit suit rapidement."
+            "en": "At the Student Information Point (STIP), a team of student psychologists and study coaches is there for you. A free first conversation follows at short notice."
           },
           "note": {
             "nl": "Een afspraak maak je telefonisch of aan de balie van STIP. Vanaf 24 jaar betaal je 11 euro per individuele sessie.",
-            "en": "Book by phone or at the STIP desk. From age 24, an individual session costs 11 euros.",
-            "fr": "Rendez-vous par téléphone ou au guichet du STIP. À partir de 24 ans, une séance individuelle coûte 11 euros."
+            "en": "Book by phone or at the STIP desk. From age 24, an individual session costs 11 euros."
           },
           "contact": {
             "link": {
               "nl": "https://www.uantwerpen.be/nl/studeren/hulp-bij-studentenvragen/stip/",
-              "en": "https://www.uantwerpen.be/en/study/student-support-advice/counselling/psychological-support/",
-              "fr": "https://www.uantwerpen.be/en/study/student-support-advice/counselling/psychological-support/"
+              "en": "https://www.uantwerpen.be/en/study/student-support-advice/counselling/psychological-support/"
             },
             "email": "stip@uantwerpen.be",
             "phone": "03 265 48 72",
@@ -738,19 +665,16 @@
         "psynet": {
           "name": {
             "nl": "PSY-NET: psychologische ondersteuning aan verlaagd tarief",
-            "en": "PSY-NET: psychological support at a reduced rate",
-            "fr": "PSY-NET : soutien psychologique à tarif réduit"
+            "en": "PSY-NET: psychological support at a reduced rate"
           },
           "purpose": {
             "nl": "Een netwerk van psychologen en psychotherapeuten in Antwerpen, aan een verlaagd tarief. De studentenpsychologen van STIP verwijzen je door.",
-            "en": "A network of psychologists and psychotherapists in Antwerp at a reduced rate. STIP's student psychologists refer you.",
-            "fr": "Un réseau de psychologues et de psychothérapeutes à Anvers, à tarif réduit. Les psychologues du STIP t'y orientent."
+            "en": "A network of psychologists and psychotherapists in Antwerp at a reduced rate. STIP's student psychologists refer you."
           },
           "contact": {
             "link": {
               "nl": "https://www.uantwerpen.be/nl/studeren/studiebegeleiding-ondersteuning/psychologische-ondersteuning/psy-net/",
-              "en": "https://www.uantwerpen.be/en/study/student-support-advice/counselling/psychological-support/psy-net/",
-              "fr": "https://www.uantwerpen.be/en/study/student-support-advice/counselling/psychological-support/psy-net/"
+              "en": "https://www.uantwerpen.be/en/study/student-support-advice/counselling/psychological-support/psy-net/"
             },
             "email": null,
             "phone": null,
@@ -794,36 +718,30 @@
       "id": "vub",
       "name": {
         "nl": "VUB",
-        "en": "Vrije Universiteit Brussel (VUB)",
-        "fr": "Vrije Universiteit Brussel (VUB)"
+        "en": "Vrije Universiteit Brussel (VUB)"
       },
       "nameInText": {
         "nl": "de VUB",
-        "en": "the VUB",
-        "fr": "la VUB"
+        "en": "the VUB"
       },
       "services": {
         "psychologists": {
           "name": {
             "nl": "Studentenpsychologen (VUB Studiebegeleiding)",
-            "en": "Student psychologists (VUB Study Guidance)",
-            "fr": "Studentenpsychologen, psychologues pour étudiant·es (VUB)"
+            "en": "Student psychologists (VUB Study Guidance)"
           },
           "purpose": {
             "nl": "Praat gratis en in vertrouwen over wat moeilijk loopt tijdens je studie, zoals studiestress, faalangst of uitstelgedrag.",
-            "en": "Talk for free and in confidence about what is difficult during your studies, such as study stress, fear of failure or procrastination.",
-            "fr": "Parle gratuitement et en toute confidentialité de ce qui est difficile pendant tes études, comme le stress des études, la peur de l'échec ou la procrastination."
+            "en": "Talk for free and in confidence about what is difficult during your studies, such as study stress, fear of failure or procrastination."
           },
           "note": {
             "nl": "Elke werkdag kun je zonder afspraak langs bij het Meeting Point van Studiebegeleiding (VUB Main Campus Etterbeek, gebouw F).",
-            "en": "Any working day you can drop by the Study Guidance Meeting Point without an appointment (VUB Main Campus Etterbeek, building F).",
-            "fr": "Chaque jour ouvrable, tu peux passer sans rendez-vous au Meeting Point de Studiebegeleiding (VUB Main Campus Etterbeek, bâtiment F)."
+            "en": "Any working day you can drop by the Study Guidance Meeting Point without an appointment (VUB Main Campus Etterbeek, building F)."
           },
           "contact": {
             "link": {
               "nl": "https://www.vub.be/nl/contact/organisatie/studentenpsychologen",
-              "en": "https://www.vub.be/en/studying-vub/praktisch/welzijn-aan-de-vub/contact-student-psychologists",
-              "fr": "https://www.vub.be/nl/contact/organisatie/studentenpsychologen"
+              "en": "https://www.vub.be/en/studying-vub/praktisch/welzijn-aan-de-vub/contact-student-psychologists"
             },
             "email": "begeleiding@vub.be",
             "phone": "02 629 23 06",
@@ -844,19 +762,16 @@
         "brucc": {
           "name": {
             "nl": "BRUCC (Brussels University Consultation Centre)",
-            "en": "BRUCC (Brussels University Consultation Centre)",
-            "fr": "BRUCC (Brussels University Consultation Centre)"
+            "en": "BRUCC (Brussels University Consultation Centre)"
           },
           "purpose": {
             "nl": "Het psychologisch consultatiecentrum van de VUB, ook voor studenten. Voor studievragen werkt het samen met de studentenpsychologen.",
-            "en": "VUB's psychological consultation centre, also open to students. For study-related questions it works with the student psychologists.",
-            "fr": "Le centre de consultation psychologique de la VUB, ouvert aussi aux étudiant·es. Pour les questions liées aux études, il travaille avec les psychologues pour étudiant·es."
+            "en": "VUB's psychological consultation centre, also open to students. For study-related questions it works with the student psychologists."
           },
           "contact": {
             "link": {
               "nl": "https://www.vub.be/nl/nieuws/brucc-vub-voor-psychologische-hulp",
-              "en": "https://www.vub.be/en/news/brucc-vub-offers-psychological-support",
-              "fr": "https://www.vub.be/nl/nieuws/brucc-vub-voor-psychologische-hulp"
+              "en": "https://www.vub.be/en/news/brucc-vub-offers-psychological-support"
             },
             "email": null,
             "phone": null,
@@ -902,13 +817,11 @@
           "tel": "026291111",
           "label": {
             "nl": "Bewaking VUB Campus Etterbeek, 24/7",
-            "en": "VUB security, Etterbeek campus, 24/7",
-            "fr": "Sécurité de la VUB, campus d'Etterbeek, 24 h/24"
+            "en": "VUB security, Etterbeek campus, 24/7"
           },
           "detail": {
             "nl": "Noodnummer van de bewakingsdienst op de campus.",
-            "en": "The campus security service's emergency number.",
-            "fr": "Le numéro d'urgence du service de sécurité du campus."
+            "en": "The campus security service's emergency number."
           },
           "source": "https://www.vub.be/en/contact/organisation/emergency-number-security-247-campus-etterbeek"
         }
@@ -918,36 +831,30 @@
       "id": "uhasselt",
       "name": {
         "nl": "UHasselt",
-        "en": "UHasselt",
-        "fr": "UHasselt"
+        "en": "UHasselt"
       },
       "nameInText": {
         "nl": "UHasselt",
-        "en": "UHasselt",
-        "fr": "l'UHasselt"
+        "en": "UHasselt"
       },
       "services": {
         "psychologist": {
           "name": {
             "nl": "Studentenpsycholoog (UHasselt)",
-            "en": "Student psychologist (UHasselt)",
-            "fr": "Studentenpsycholoog, psychologue pour étudiant·es (UHasselt)"
+            "en": "Student psychologist (UHasselt)"
           },
           "purpose": {
             "nl": "De studentenpsycholoog ondersteunt je bij persoonlijke of relationele problemen. Individuele en groepssessies zijn gratis, zonder wachtlijst.",
-            "en": "The student psychologist helps you with personal or interpersonal problems. One-to-one and group sessions are free, with no waiting list.",
-            "fr": "Un·e psychologue pour étudiant·es t'aide pour des difficultés personnelles ou relationnelles. Les séances individuelles et en groupe sont gratuites, sans liste d'attente."
+            "en": "The student psychologist helps you with personal or interpersonal problems. One-to-one and group sessions are free, with no waiting list."
           },
           "note": {
             "nl": "Afspraak maken via de online agenda's van de psychologen op de website, op campus Hasselt, Diepenbeek of online.",
-            "en": "Book through the psychologists' online calendars on the website: on the Hasselt or Diepenbeek campus, or online.",
-            "fr": "Rendez-vous via les agendas en ligne des psychologues sur le site : sur le campus de Hasselt, de Diepenbeek ou en ligne."
+            "en": "Book through the psychologists' online calendars on the website: on the Hasselt or Diepenbeek campus, or online."
           },
           "contact": {
             "link": {
               "nl": "https://uhasselt.be/nl/info-voor/studenten/begeleiding-en-ondersteuning-tijdens-je-studie/studentenpsycholoog",
-              "en": "https://uhasselt.be/en/info-for/current-students/guidance-and-support/student-psychologist",
-              "fr": "https://uhasselt.be/en/info-for/current-students/guidance-and-support/student-psychologist"
+              "en": "https://uhasselt.be/en/info-for/current-students/guidance-and-support/student-psychologist"
             },
             "email": "studentenpsycholoog@uhasselt.be",
             "phone": null,
@@ -967,26 +874,22 @@
         "studentpoint": {
           "name": {
             "nl": "Student Point (UHasselt)",
-            "en": "Student Point (UHasselt)",
-            "fr": "Student Point (UHasselt)"
+            "en": "Student Point (UHasselt)"
           },
           "purpose": {
             "nl": "Heb je een vraag en weet je niet bij wie je terechtkunt? Student Point helpt je of brengt je bij de juiste persoon.",
-            "en": "Have a question and don't know who to contact? Student Point helps you or directs you to the right person.",
-            "fr": "Une question et tu ne sais pas à qui t'adresser ? Student Point t'aide ou t'oriente vers la bonne personne."
+            "en": "Have a question and don't know who to contact? Student Point helps you or directs you to the right person."
           },
           "contact": {
             "link": {
               "nl": "https://uhasselt.be/en/info-for/current-students/guidance-and-support/student-point",
-              "en": "https://uhasselt.be/en/info-for/current-students/guidance-and-support/student-point",
-              "fr": "https://uhasselt.be/en/info-for/current-students/guidance-and-support/student-point"
+              "en": "https://uhasselt.be/en/info-for/current-students/guidance-and-support/student-point"
             },
             "email": "studentpoint@uhasselt.be",
             "phone": "011 26 81 19",
             "hours": {
               "nl": "Zonder afspraak. Diepenbeek, gebouw D (Agora): van 10 tot 14 uur. Hasselt, Oude Gevangenis: maandag en donderdag van 10 tot 14 uur.",
-              "en": "No appointment needed. Diepenbeek, building D (Agora): 10:00 to 14:00. Hasselt, Old Prison: Monday and Thursday, 10:00 to 14:00.",
-              "fr": "Sans rendez-vous. Diepenbeek, bâtiment D (Agora) : de 10 h à 14 h. Hasselt, ancienne prison : lundi et jeudi, de 10 h à 14 h."
+              "en": "No appointment needed. Diepenbeek, building D (Agora): 10:00 to 14:00. Hasselt, Old Prison: Monday and Thursday, 10:00 to 14:00."
             }
           },
           "source": "https://uhasselt.be/en/info-for/current-students/guidance-and-support/student-point",
@@ -1025,13 +928,11 @@
           "tel": "011268888",
           "label": {
             "nl": "Brand of ongeval op de campus van UHasselt",
-            "en": "Fire or accident on a UHasselt campus",
-            "fr": "Incendie ou accident sur un campus de l'UHasselt"
+            "en": "Fire or accident on a UHasselt campus"
           },
           "detail": {
             "nl": "Vanaf een gsm. Vanaf een vast toestel op de campus: 8888.",
-            "en": "From a mobile phone. From a campus landline: 8888.",
-            "fr": "Depuis un portable. Depuis un téléphone fixe du campus : 8888."
+            "en": "From a mobile phone. From a campus landline: 8888."
           },
           "source": "https://uhasselt.be/en/info-for/current-students/facilities-and-services/safety-on-campus"
         }
@@ -1041,24 +942,20 @@
       "id": "other",
       "name": {
         "nl": "Andere instelling",
-        "en": "Other institution",
-        "fr": "Autre établissement"
+        "en": "Other institution"
       },
       "nameInText": {
         "nl": "je instelling",
-        "en": "your institution",
-        "fr": "ton établissement"
+        "en": "your institution"
       },
       "hint": {
         "nl": "Alleen de nationale nummers en algemeen advies",
-        "en": "Only the national numbers and general advice",
-        "fr": "Seulement les numéros nationaux et un conseil général"
+        "en": "Only the national numbers and general advice"
       },
       "services": {},
       "advice": {
         "nl": "De studentendienst van je eigen instelling (vaak studentenvoorzieningen of Stuvo genoemd) kan je zeggen bij wie je terechtkunt. De nummers hieronder zijn er voor iedereen in België.",
-        "en": "Your institution's student services can tell you who to talk to. The numbers below are open to everyone in Belgium.",
-        "fr": "Les services aux étudiant·es de ton établissement peuvent te dire à qui t'adresser. Les numéros ci-dessous sont ouverts à tout le monde en Belgique."
+        "en": "Your institution's student services can tell you who to talk to. The numbers below are open to everyone in Belgium."
       }
     }
   ],
@@ -1067,56 +964,47 @@
       "id": "quivr-view",
       "eyebrow": {
         "nl": "Voor Quivr",
-        "en": "For Quivr",
-        "fr": "Pour Quivr"
+        "en": "For Quivr"
       },
       "title": {
         "nl": "Hoe het in Quivr zou kunnen werken",
-        "en": "How it could look in Quivr",
-        "fr": "À quoi cela pourrait ressembler dans Quivr"
+        "en": "How it could look in Quivr"
       },
       "linkLabel": {
         "nl": "Bekijk hoe het in Quivr zou kunnen werken",
-        "en": "See how it could look in Quivr",
-        "fr": "Voir à quoi cela pourrait ressembler dans Quivr"
+        "en": "See how it could look in Quivr"
       },
       "blocks": [
         {
           "h": {
             "nl": "1. Wat studenten zien",
-            "en": "1. What students see",
-            "fr": "1. Ce que voient les étudiant·es"
+            "en": "1. What students see"
           }
         },
         {
           "p": {
-            "nl": "Geen download voor studenten en geen ontwikkelwerk voor Quivr: Quivr voegt één kaart of link toe in de app, en CalmCampus opent in de eigen browser van de Quivr-app.",
-            "en": "No download for students and no development for Quivr: Quivr adds one card or link in its app, and CalmCampus opens inside the Quivr app's own browser.",
-            "fr": "Aucun téléchargement pour les étudiant·es et aucun développement pour Quivr : Quivr ajoute une carte ou un lien dans son app, et CalmCampus s'ouvre dans le navigateur intégré de l'app Quivr."
+            "nl": "Geen download voor studenten en geen ontwikkelwerk voor Quivr: Quivr plaatst één banner in de app, en CalmCampus opent in de eigen browser van de Quivr-app.",
+            "en": "No download for students and no development for Quivr: Quivr places one banner in its app, and CalmCampus opens inside the Quivr app's in-app browser."
           }
         },
         {
           "frame": {
             "label": {
               "nl": "Mockup: hoe dit in Quivr zou kunnen werken, geen echte Quivr-functie",
-              "en": "Mockup: how this could look in Quivr, not a live Quivr feature",
-              "fr": "Maquette : à quoi cela pourrait ressembler dans Quivr, pas une fonction réelle de Quivr"
+              "en": "Mockup: how this could look in Quivr, not a live Quivr feature"
             },
             "app": {
               "nl": "Quivr",
-              "en": "Quivr",
-              "fr": "Quivr"
+              "en": "Quivr"
             },
             "card": {
               "text": {
                 "nl": "Wekelijkse check-in: 4 vragen, minder dan een minuut. Privé, blijft op je telefoon.",
-                "en": "Weekly check-in: 4 questions, less than a minute. Private, stays on your phone.",
-                "fr": "Bilan hebdomadaire : 4 questions, moins d'une minute. Privé, reste sur ton téléphone."
+                "en": "Weekly check-in: 4 questions, less than a minute. Private, stays on your phone."
               },
               "button": {
                 "nl": "Open",
-                "en": "Open",
-                "fr": "Ouvrir"
+                "en": "Open"
               }
             }
           }
@@ -1124,15 +1012,13 @@
         {
           "note": {
             "nl": "Je antwoorden blijven op je telefoon en worden daar verwerkt. Niemand anders heeft ze: niet Quivr, niet de universiteit en niet het CalmCampus-team.",
-            "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team.",
-            "fr": "Tes réponses restent sur ton téléphone et y sont traitées. Personne d'autre ne les a : ni Quivr, ni l'université, ni l'équipe CalmCampus."
+            "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team."
           }
         },
         {
           "h": {
             "nl": "2. Wat Quivr eraan heeft",
-            "en": "2. What Quivr gets",
-            "fr": "2. Ce que Quivr y gagne"
+            "en": "2. What Quivr gets"
           }
         },
         {
@@ -1140,35 +1026,27 @@
             "nl": [
               "Een wekelijkse welzijnscheck-in voor de eigen studenten, zonder ontwikkelkosten.",
               "Een wekelijkse reden om de app te openen.",
-              "Na de test kijken we samen naar Quivrs eigen aantal tikken op de kaart, plus een korte vrijwillige feedbackvraag. Geen beloofde resultaten.",
+              "Na de test kijken we samen naar Quivrs eigen aantal tikken op de banner, plus een korte vrijwillige feedbackvraag. Geen beloofde resultaten.",
               "Gemakkelijk te stoppen als studenten het niet gebruiken."
             ],
             "en": [
               "A weekly wellbeing check-in for its students, at no development cost.",
               "A weekly reason to open the app.",
-              "After the test, we look together at Quivr's own card-tap numbers, plus a short optional feedback question. No promised outcomes.",
+              "After the test, we look together at Quivr's own banner-tap numbers, plus a short optional feedback question. No promised outcomes.",
               "An easy stop if students don't use it."
-            ],
-            "fr": [
-              "Un bilan bien-être hebdomadaire pour ses étudiant·es, sans coût de développement.",
-              "Une raison hebdomadaire d'ouvrir l'app.",
-              "Après le test, nous regardons ensemble les chiffres propres à Quivr (appuis sur la carte), plus une courte question de retour facultative. Aucun résultat promis.",
-              "Un arrêt facile si les étudiant·es ne l'utilisent pas."
             ]
           }
         },
         {
           "h": {
             "nl": "3. Een test van drie weken, met vooraf afgesproken doelen",
-            "en": "3. A three-week test, with targets agreed in advance",
-            "fr": "3. Un test de trois semaines, avec des objectifs convenus à l'avance"
+            "en": "3. A three-week test, with targets agreed in advance"
           }
         },
         {
           "p": {
-            "nl": "Week 0: Quivr keurt de tekst van de kaart goed. Week 1 tot 3: de kaart staat online, met één herinnering. Daarna beslissen we samen: behouden, aanpassen of stoppen.",
-            "en": "Week 0: Quivr approves the card text. Weeks 1 to 3: the card is live, with one reminder. Then we decide together: keep, adjust or stop.",
-            "fr": "Semaine 0 : Quivr valide le texte de la carte. Semaines 1 à 3 : la carte est en ligne, avec un rappel. Ensuite, on décide ensemble : garder, ajuster ou arrêter."
+            "nl": "Week 0: Quivr keurt de tekst van de banner goed. Week 1 tot 3: de banner staat online, met één herinnering. Daarna beslissen we samen: behouden, aanpassen of stoppen.",
+            "en": "Week 0: Quivr approves the banner text. Weeks 1 to 3: the banner is live, with one reminder. Then we decide together: keep, adjust or stop."
           }
         },
         {
@@ -1176,13 +1054,11 @@
             "label": "target",
             "caption": {
               "nl": "Voorgestelde doelen",
-              "en": "Proposed targets",
-              "fr": "Objectifs proposés"
+              "en": "Proposed targets"
             },
             "note": {
               "nl": "Voorgesteld doel, vooraf af te spreken met Quivr, geen resultaat.",
-              "en": "Proposed target, to agree with Quivr in advance, not a result.",
-              "fr": "Objectif proposé, à convenir à l'avance avec Quivr, pas un résultat."
+              "en": "Proposed target, to agree with Quivr in advance, not a result."
             },
             "head": {
               "nl": [
@@ -1192,29 +1068,19 @@
               "en": [
                 "Measure",
                 "Proposed target"
-              ],
-              "fr": [
-                "Mesure",
-                "Objectif proposé"
               ]
             },
             "rows": {
               "nl": [
                 [
-                  "Tikken op de kaart",
-                  "Minstens 2% van de studenten die de kaart zien"
+                  "Tikken op de banner",
+                  "Minstens 2% van de studenten die de banner zien"
                 ]
               ],
               "en": [
                 [
-                  "Card tap-through",
-                  "At least 2% of students who see the card"
-                ]
-              ],
-              "fr": [
-                [
-                  "Appuis sur la carte",
-                  "Au moins 2 % des étudiant·es qui voient la carte"
+                  "Banner tap-through",
+                  "At least 2% of students who see the banner"
                 ]
               ]
             }
@@ -1228,15 +1094,13 @@
         {
           "h": {
             "nl": "4. Fase 2: een concept, niet gebouwd",
-            "en": "4. Phase 2: a concept, not built",
-            "fr": "4. Phase 2 : un concept, pas développé"
+            "en": "4. Phase 2: a concept, not built"
           }
         },
         {
           "p": {
-            "nl": "Alleen als de test werkt: CalmCampus in de Quivr-app zelf, met een wekelijkse banner en vrijwillige telefoongegevens. Weinig werk voor Quivr, maar niet nul: één integratie en een app-release.",
-            "en": "Only if the test works: CalmCampus inside the Quivr app, with a weekly banner and opt-in phone data. Low effort for Quivr, not zero: one integration and an app release.",
-            "fr": "Seulement si le test fonctionne : CalmCampus dans l'app Quivr, avec une bannière hebdomadaire et des données du téléphone facultatives. Peu d'effort pour Quivr, mais pas zéro : une intégration et une nouvelle version de l'app."
+            "nl": "Alleen als de test werkt: CalmCampus als eigen onderdeel van de Quivr-app (een native module), met vrijwillige telefoongegevens. Weinig werk voor Quivr, maar niet nul: één integratie en een app-release.",
+            "en": "Only if the test works: CalmCampus as a part of the Quivr app itself (a native module), with opt-in phone data. Low effort for Quivr, not zero: one integration and an app release."
           }
         },
         {
@@ -1249,15 +1113,13 @@
             {
               "h": {
                 "nl": "Volgende stap: een gesprek van 20 minuten",
-                "en": "Next step: a 20-minute call",
-                "fr": "Prochaine étape : un appel de 20 minutes"
+                "en": "Next step: a 20-minute call"
               }
             },
             {
               "p": {
                 "nl": "Lijkt dit een test waard? Plan een gesprek van 20 minuten met Florian Braùn (florian@calm.braunf.com) of Hélène David (helene@calm.braunf.com).",
-                "en": "If this looks worth testing, book a 20-minute call with Florian Braùn (florian@calm.braunf.com) or Hélène David (helene@calm.braunf.com).",
-                "fr": "Si cela vaut la peine d'être testé, planifie un appel de 20 minutes avec Florian Braùn (florian@calm.braunf.com) ou Hélène David (helene@calm.braunf.com)."
+                "en": "If this looks worth testing, book a 20-minute call with Florian Braùn (florian@calm.braunf.com) or Hélène David (helene@calm.braunf.com)."
               }
             }
           ]
@@ -1268,46 +1130,36 @@
       "id": "quivr-phases",
       "eyebrow": {
         "nl": "Voor Quivr",
-        "en": "For Quivr",
-        "fr": "Pour Quivr"
+        "en": "For Quivr"
       },
       "title": {
         "nl": "Fase 1 en fase 2",
-        "en": "Phase 1 and Phase 2",
-        "fr": "Phase 1 et phase 2"
+        "en": "Phase 1 and Phase 2"
       },
       "linkLabel": {
         "nl": "Fase 1 → fase 2",
-        "en": "Phase 1 → Phase 2",
-        "fr": "Phase 1 → phase 2"
+        "en": "Phase 1 → Phase 2"
       },
       "blocks": [
         {
           "h": {
             "nl": "Fase 1. Nu: geen ontwikkelwerk voor Quivr",
-            "en": "Phase 1. Now: zero development for Quivr",
-            "fr": "Phase 1. Maintenant : aucun développement pour Quivr"
+            "en": "Phase 1. Now: zero development for Quivr"
           }
         },
         {
           "list": {
             "nl": [
-              "De kaart of link in Quivr opent CalmCampus in de eigen browser van de Quivr-app.",
-              "Als Quivr dat wil: één wekelijkse pushmelding of banner, met de middelen die Quivr al heeft.",
+              "De banner in Quivr opent CalmCampus in de eigen browser van de Quivr-app.",
+              "Als Quivr dat wil: één wekelijkse pushmelding of bannerherinnering, met de middelen die Quivr al heeft.",
               "De test van drie weken.",
               "De antwoorden blijven op de telefoon. Geen download voor studenten."
             ],
             "en": [
-              "The card or link in Quivr opens CalmCampus inside the Quivr app's own browser.",
-              "Optional: one weekly push or banner that Quivr sends with the tools it already has.",
+              "The banner in Quivr opens CalmCampus inside the Quivr app's in-app browser.",
+              "Optional: one weekly push or banner reminder that Quivr sends with the tools it already has.",
               "The three-week test.",
               "Answers stay on the phone. No download for students."
-            ],
-            "fr": [
-              "La carte ou le lien dans Quivr ouvre CalmCampus dans le navigateur intégré de l'app Quivr.",
-              "En option : une notification ou une bannière par semaine, que Quivr envoie avec les outils qu'il a déjà.",
-              "Le test de trois semaines.",
-              "Les réponses restent sur le téléphone. Aucun téléchargement pour les étudiant·es."
             ]
           }
         },
@@ -1320,186 +1172,155 @@
         {
           "h": {
             "nl": "Fase 2. Later, alleen als de test werkt: in de Quivr-app",
-            "en": "Phase 2. Later, only if the test works: inside the Quivr app",
-            "fr": "Phase 2. Plus tard, seulement si le test fonctionne : dans l'app Quivr"
+            "en": "Phase 2. Later, only if the test works: inside the Quivr app"
           }
         },
         {
           "p": {
             "nl": "Als de test van drie weken werkt, kan CalmCampus een deel van de Quivr-app zelf worden. Tik hieronder door het concept: het is niet gebouwd.",
-            "en": "If the three-week test works, CalmCampus could become part of the Quivr app itself. Tap through the concept below: it is not built.",
-            "fr": "Si le test de trois semaines fonctionne, CalmCampus pourrait faire partie de l'app Quivr elle-même. Parcours le concept ci-dessous : il n'est pas développé."
+            "en": "If the three-week test works, CalmCampus could become part of the Quivr app itself. Tap through the concept below: it is not built."
           }
         },
         {
           "concept": {
             "label": {
               "nl": "Concept: niet gebouwd",
-              "en": "Concept: not built",
-              "fr": "Concept : pas développé"
+              "en": "Concept: not built"
             },
             "app": {
               "nl": "Quivr",
-              "en": "Quivr",
-              "fr": "Quivr"
+              "en": "Quivr"
             },
             "tabsLabel": {
               "nl": "Schermen van het concept",
-              "en": "Concept screens",
-              "fr": "Écrans du concept"
+              "en": "Concept screens"
             },
             "screens": [
               {
                 "type": "banner",
                 "tab": {
                   "nl": "Banner",
-                  "en": "Banner",
-                  "fr": "Bannière"
+                  "en": "Banner"
                 },
                 "title": {
                   "nl": "Startscherm van Quivr",
-                  "en": "Quivr home",
-                  "fr": "Accueil de Quivr"
+                  "en": "Quivr home"
                 },
                 "banner": {
                   "nl": "Je wekelijkse check-in: 4 vragen, minder dan een minuut",
-                  "en": "Your weekly check-in: 4 questions, less than a minute",
-                  "fr": "Ton bilan hebdomadaire : 4 questions, moins d'une minute"
+                  "en": "Your weekly check-in: 4 questions, less than a minute"
                 },
                 "button": {
                   "nl": "Start",
-                  "en": "Start",
-                  "fr": "Commencer"
+                  "en": "Start"
                 },
                 "weekLabel": {
                   "nl": "Deze week in het concept",
-                  "en": "This week in the concept",
-                  "fr": "Cette semaine dans le concept"
+                  "en": "This week in the concept"
                 },
                 "notAnswered": {
                   "nl": "Nog niet beantwoord",
-                  "en": "Not answered yet",
-                  "fr": "Pas encore répondu"
+                  "en": "Not answered yet"
                 },
                 "answered": {
                   "nl": "Beantwoord",
-                  "en": "Answered",
-                  "fr": "Répondu"
+                  "en": "Answered"
                 },
                 "caption": {
                   "nl": "Een kleine banner bovenaan het startscherm van Quivr. Hij komt alleen terug in een week die nog niet beantwoord is.",
-                  "en": "A small banner at the top of Quivr's home. It comes back only in a week that has not been answered yet.",
-                  "fr": "Une petite bannière en haut de l'accueil de Quivr. Elle ne revient que pendant une semaine sans réponse."
+                  "en": "A small banner at the top of Quivr's home. It comes back only in a week that has not been answered yet."
                 }
               },
               {
                 "type": "questions",
                 "tab": {
                   "nl": "Vragen",
-                  "en": "Questions",
-                  "fr": "Questions"
+                  "en": "Questions"
                 },
                 "title": {
                   "nl": "Wekelijkse check-in",
-                  "en": "Weekly check-in",
-                  "fr": "Bilan hebdomadaire"
+                  "en": "Weekly check-in"
                 },
                 "done": {
                   "nl": "Klaar voor deze week. De banner blijft weg tot volgende week.",
-                  "en": "Done for this week. The banner stays away until next week.",
-                  "fr": "C'est fait pour cette semaine. La bannière ne revient pas avant la semaine prochaine."
+                  "en": "Done for this week. The banner stays away until next week."
                 },
                 "again": {
                   "nl": "Opnieuw",
-                  "en": "Start again",
-                  "fr": "Recommencer"
+                  "en": "Start again"
                 },
                 "caption": {
                   "nl": "Dezelfde vier vragen, in Quivr.",
-                  "en": "The same four questions, inside Quivr.",
-                  "fr": "Les mêmes quatre questions, dans Quivr."
+                  "en": "The same four questions, inside Quivr."
                 }
               },
               {
                 "type": "overview",
                 "tab": {
                   "nl": "Overzicht",
-                  "en": "Overview",
-                  "fr": "Aperçu"
+                  "en": "Overview"
                 },
                 "title": {
                   "nl": "Jouw weken",
-                  "en": "Your weeks",
-                  "fr": "Tes semaines"
+                  "en": "Your weeks"
                 },
                 "heading": {
                   "nl": "Signalen per week",
-                  "en": "Signs each week",
-                  "fr": "Signes par semaine"
+                  "en": "Signs each week"
                 },
                 "text": {
                   "nl": "Voorbeeldweken, zodat het concept iets toont.",
-                  "en": "Example weeks, so the concept has something to show.",
-                  "fr": "Des semaines d'exemple, pour que le concept montre quelque chose."
+                  "en": "Example weeks, so the concept has something to show."
                 },
                 "caption": {
                   "nl": "Het wekelijkse overzicht, in Quivr.",
-                  "en": "The weekly overview, inside Quivr.",
-                  "fr": "L'aperçu de la semaine, dans Quivr."
+                  "en": "The weekly overview, inside Quivr."
                 }
               },
               {
                 "type": "permissions",
                 "tab": {
                   "nl": "Toestemming",
-                  "en": "Permissions",
-                  "fr": "Autorisations"
+                  "en": "Permissions"
                 },
                 "title": {
                   "nl": "Telefoongegevens (optioneel)",
-                  "en": "Phone data (optional)",
-                  "fr": "Données du téléphone (facultatif)"
+                  "en": "Phone data (optional)"
                 },
                 "intro": {
                   "nl": "CalmCampus kan naar slaap kijken, het belangrijkste optionele signaal, om te kiezen welke vraag eerst komt. Stappen en schermtijd of laat telefoongebruik zijn ook optioneel. Alles staat uit tot jij het aanzet.",
-                  "en": "CalmCampus can look at sleep, its main optional signal, to choose which question comes first. Steps and screen time (late phone use) are optional too. Everything is off until you switch it on.",
-                  "fr": "CalmCampus peut regarder le sommeil, son principal signal facultatif, pour choisir quelle question vient en premier. Les pas et le temps d'écran (usage tardif du téléphone) sont aussi facultatifs. Tout reste désactivé jusqu'à ce que tu l'actives."
+                  "en": "CalmCampus can look at sleep, its main optional signal, to choose which question comes first. Steps and screen time (late phone use) are optional too. Everything is off until you switch it on."
                 },
                 "items": [
                   {
                     "id": "sleep",
                     "label": {
                       "nl": "Slaap (Apple Gezondheid / Health Connect)",
-                      "en": "Sleep (Apple Health / Health Connect)",
-                      "fr": "Sommeil (Apple Santé / Health Connect)"
+                      "en": "Sleep (Apple Health / Health Connect)"
                     }
                   },
                   {
                     "id": "steps",
                     "label": {
                       "nl": "Stappen (Apple Gezondheid / Health Connect)",
-                      "en": "Steps (Apple Health / Health Connect)",
-                      "fr": "Pas (Apple Santé / Health Connect)"
+                      "en": "Steps (Apple Health / Health Connect)"
                     }
                   },
                   {
                     "id": "screen",
                     "label": {
                       "nl": "Schermtijd",
-                      "en": "Screen time",
-                      "fr": "Temps d'écran"
+                      "en": "Screen time"
                     }
                   }
                 ],
                 "note": {
                   "nl": "Alle gegevens blijven op je telefoon en worden nooit naar Quivr of CalmCampus gestuurd.",
-                  "en": "All data stays on your phone and is never sent to Quivr or CalmCampus.",
-                  "fr": "Toutes les données restent sur ton téléphone et ne sont jamais envoyées à Quivr ni à CalmCampus."
+                  "en": "All data stays on your phone and is never sent to Quivr or CalmCampus."
                 },
                 "caption": {
                   "nl": "Vrijwillig, standaard uit, elk apart aan te zetten. Slaap is het belangrijkste signaal. In dit concept wordt niets gelezen: de schakelaars tonen alleen het idee.",
-                  "en": "Opt-in, off by default, each switched on its own. Sleep is the main signal. In this concept nothing is read: the switches only show the idea.",
-                  "fr": "Facultatif, désactivé par défaut, chacun activable séparément. Le sommeil est le signal principal. Dans ce concept, rien n'est lu : les interrupteurs ne montrent que l'idée."
+                  "en": "Opt-in, off by default, each switched on its own. Sleep is the main signal. In this concept nothing is read: the switches only show the idea."
                 }
               }
             ]
@@ -1508,8 +1329,7 @@
         {
           "h": {
             "nl": "Wie doet wat in fase 2",
-            "en": "Who does what in Phase 2",
-            "fr": "Qui fait quoi en phase 2"
+            "en": "Who does what in Phase 2"
           }
         },
         {
@@ -1517,8 +1337,7 @@
             "label": "info",
             "caption": {
               "nl": "Taken in fase 2",
-              "en": "Tasks in Phase 2",
-              "fr": "Tâches en phase 2"
+              "en": "Tasks in Phase 2"
             },
             "head": {
               "nl": [
@@ -1528,10 +1347,6 @@
               "en": [
                 "Who",
                 "What"
-              ],
-              "fr": [
-                "Qui",
-                "Quoi"
               ]
             },
             "rows": {
@@ -1554,16 +1369,6 @@
                   "Quivr",
                   "Integrates it, ships the app update and approves the wording."
                 ]
-              ],
-              "fr": [
-                [
-                  "CalmCampus",
-                  "Développe et entretient le module (iOS, Android, ou React Native ou Flutter, selon la technologie de Quivr), avec ses tests et sa documentation."
-                ],
-                [
-                  "Quivr",
-                  "L'intègre, publie la mise à jour de l'app et valide les textes."
-                ]
               ]
             }
           }
@@ -1571,8 +1376,7 @@
         {
           "note": {
             "nl": "Weinig werk voor Quivr, maar niet nul: één integratie en een app-release.",
-            "en": "Low effort for Quivr, not zero: one integration and an app release.",
-            "fr": "Peu d'effort pour Quivr, mais pas zéro : une intégration et une nouvelle version de l'app."
+            "en": "Low effort for Quivr, not zero: one integration and an app release."
           }
         },
         {
@@ -1587,20 +1391,17 @@
       "id": "quivr-gets",
       "eyebrow": {
         "nl": "Voor Quivr",
-        "en": "For Quivr",
-        "fr": "Pour Quivr"
+        "en": "For Quivr"
       },
       "title": {
         "nl": "Wat Quivr eraan heeft",
-        "en": "What Quivr gets",
-        "fr": "Ce que Quivr y gagne"
+        "en": "What Quivr gets"
       },
       "blocks": [
         {
           "note": {
-            "nl": "Geen download voor studenten en geen ontwikkelwerk voor Quivr: Quivr voegt één kaart of link toe in de app, en CalmCampus opent in de eigen browser van de Quivr-app.",
-            "en": "No download for students and no development for Quivr: Quivr adds one card or link in its app, and CalmCampus opens inside the Quivr app's own browser.",
-            "fr": "Aucun téléchargement pour les étudiant·es et aucun développement pour Quivr : Quivr ajoute une carte ou un lien dans son app, et CalmCampus s'ouvre dans le navigateur intégré de l'app Quivr."
+            "nl": "Geen download voor studenten en geen ontwikkelwerk voor Quivr: Quivr plaatst één banner in de app, en CalmCampus opent in de eigen browser van de Quivr-app.",
+            "en": "No download for students and no development for Quivr: Quivr places one banner in its app, and CalmCampus opens inside the Quivr app's in-app browser."
           }
         },
         {
@@ -1608,35 +1409,27 @@
             "nl": [
               "Een nuttige functie rond welzijn die elke week terugkomt, voor de eigen studenten, zonder ontwikkelkosten.",
               "Een wekelijkse reden om de app te openen.",
-              "Na de test Quivrs eigen aantal tikken op de kaart, plus een korte vrijwillige feedbackvraag voor studenten.",
+              "Na de test Quivrs eigen aantal tikken op de banner, plus een korte vrijwillige feedbackvraag voor studenten.",
               "Gemakkelijk te stoppen als studenten het niet gebruiken."
             ],
             "en": [
               "A useful, recurring wellbeing feature for its students, at no development cost.",
               "A weekly reason to open the app.",
-              "After the test, Quivr's own card-tap numbers, plus a short optional feedback question for students.",
+              "After the test, Quivr's own banner-tap numbers, plus a short optional feedback question for students.",
               "An easy stop if students don't use it."
-            ],
-            "fr": [
-              "Une fonction de bien-être utile et récurrente pour ses étudiant·es, sans coût de développement.",
-              "Une raison hebdomadaire d'ouvrir l'app.",
-              "Après le test, les chiffres propres à Quivr (appuis sur la carte), plus une courte question de retour facultative pour les étudiant·es.",
-              "Un arrêt facile si les étudiant·es ne l'utilisent pas."
             ]
           }
         },
         {
           "note": {
             "nl": "We beloven geen resultaten. De test van drie weken is er om het uit te zoeken.",
-            "en": "We make no promises about outcomes. The three-week test is there to find out.",
-            "fr": "Nous ne promettons aucun résultat. Le test de trois semaines est là pour le découvrir."
+            "en": "We make no promises about outcomes. The three-week test is there to find out."
           }
         },
         {
           "note": {
-            "nl": "Testen met echte studenten is gratis, zolang Quivr dat wil. Als het een blijvend onderdeel van Quivr wordt, spreken we samen een licentie af. Studenten betalen nooit.",
-            "en": "Testing with real students is free for as long as Quivr wants. If it became a lasting part of Quivr, a licence would be agreed together. Students never pay.",
-            "fr": "Tester avec de vrais étudiant·es est gratuit, aussi longtemps que Quivr le souhaite. Si cela devenait une partie durable de Quivr, une licence serait convenue ensemble. Les étudiant·es ne paient jamais."
+            "nl": "Testen met echte studenten is gratis, zolang Quivr dat wil. Studenten betalen nooit.",
+            "en": "Testing with real students is free for as long as Quivr wants. Students never pay."
           }
         },
         {
@@ -1652,23 +1445,19 @@
       "id": "quivr-engagement",
       "eyebrow": {
         "nl": "Voor Quivr",
-        "en": "For Quivr",
-        "fr": "Pour Quivr"
+        "en": "For Quivr"
       },
       "title": {
         "nl": "Hoe we lage betrokkenheid zoals vorig jaar vermijden",
-        "en": "How we avoid last year's low engagement",
-        "fr": "Comment éviter la faible participation de l'an dernier"
+        "en": "How we avoid last year's low engagement"
       },
       "linkLabel": {
         "nl": "Hoe we lage betrokkenheid vermijden",
-        "en": "How we avoid low engagement",
-        "fr": "Comment éviter une faible participation"
+        "en": "How we avoid low engagement"
       },
       "lead": {
         "nl": "Quivr vertelde ons dat een gelijkaardige campagne minder betrokkenheid kreeg dan gehoopt. We kennen de details niet, dus we beschrijven ze hier niet. Dit zijn de keuzes die we daarom maakten.",
-        "en": "Quivr told us that a similar campaign got lower engagement than hoped. We don't know its details, so we don't describe it here. These are the choices we made with that in mind.",
-        "fr": "Quivr nous a dit qu'une campagne similaire a eu moins de participation qu'espéré. Nous n'en connaissons pas les détails, donc nous ne la décrivons pas ici. Voici les choix que nous avons faits en conséquence."
+        "en": "Quivr told us that a similar campaign got lower engagement than hoped. We don't know its details, so we don't describe it here. These are the choices we made with that in mind."
       },
       "blocks": [
         {
@@ -1677,10 +1466,10 @@
               "Een check-in die minder dan een minuut duurt.",
               "Iets wat de student elke week voor zichzelf gebruikt, geen eenmalige campagne.",
               "Standaard privé: de antwoorden blijven op de telefoon, dus er is geen reden om iets achter te houden.",
-              "De kaart staat waar studenten al kijken: bij het lessenrooster of op het startscherm.",
+              "De banner staat bovenaan het startscherm van Quivr, waar studenten al kijken.",
               "Timing voor en tijdens de examenperiode, niet in de eerste weken.",
               "Hoogstens één vriendelijke herinnering per week, alleen via een kanaal dat Quivr al heeft, als Quivr dat wil.",
-              "Gewone, niet-klinische taal, in het Nederlands, het Engels en het Frans.",
+              "Gewone, niet-klinische taal, in het Nederlands en het Engels.",
               "Hulp wordt alleen getoond als de eigen antwoorden van de student daarop wijzen.",
               "Resultaten wijzen naar een dienst van de eigen universiteit."
             ],
@@ -1688,23 +1477,12 @@
               "A check-in that takes less than a minute.",
               "Something students use for themselves every week, not a one-off campaign.",
               "Private by default: answers stay on the phone, so there is no reason to hold back.",
-              "The card placed where students already look: the schedule or the home screen.",
+              "The banner sits at the top of Quivr's home screen, where students already look.",
               "Timing before and during the exam period, not in the first weeks.",
               "At most one gentle weekly reminder, only through a channel Quivr already has, if Quivr wants.",
-              "Plain, non-clinical language in Dutch, English and French.",
+              "Plain, non-clinical language in Dutch and English.",
               "Support shown only when the student's own answers suggest it.",
               "Results that point to a service at their own university."
-            ],
-            "fr": [
-              "Un bilan qui prend moins d'une minute.",
-              "Quelque chose que l'étudiant·e utilise pour soi chaque semaine, pas une campagne ponctuelle.",
-              "Privé par défaut : les réponses restent sur le téléphone, donc aucune raison de se retenir.",
-              "La carte placée là où les étudiant·es regardent déjà : l'horaire ou l'écran d'accueil.",
-              "Un calendrier avant et pendant la période d'examens, pas dans les premières semaines.",
-              "Au plus un rappel discret par semaine, seulement par un canal que Quivr a déjà, si Quivr le souhaite.",
-              "Un langage simple et non clinique, en néerlandais, en anglais et en français.",
-              "Le soutien n'apparaît que lorsque les propres réponses de l'étudiant·e le suggèrent.",
-              "Des résultats qui renvoient vers un service de sa propre université."
             ]
           }
         },
@@ -1719,18 +1497,15 @@
       "id": "quivr-test",
       "eyebrow": {
         "nl": "Voor Quivr",
-        "en": "For Quivr",
-        "fr": "Pour Quivr"
+        "en": "For Quivr"
       },
       "title": {
         "nl": "Test van drie weken",
-        "en": "Three-week test",
-        "fr": "Test de trois semaines"
+        "en": "Three-week test"
       },
       "lead": {
         "nl": "Een korte, afgebakende test, met vooraf afgesproken doelen en een eenvoudige beslissing op het einde.",
-        "en": "A short, bounded test, with targets agreed in advance and a simple decision at the end.",
-        "fr": "Un test court et limité, avec des objectifs convenus à l'avance et une décision simple à la fin."
+        "en": "A short, bounded test, with targets agreed in advance and a simple decision at the end."
       },
       "blocks": [
         {
@@ -1738,49 +1513,41 @@
             {
               "h": {
                 "nl": "Week 0",
-                "en": "Week 0",
-                "fr": "Semaine 0"
+                "en": "Week 0"
               },
               "p": {
-                "nl": "Quivr bekijkt deze preview en keurt de tekst van de kaart goed (ongeveer 15 minuten voor Quivr).",
-                "en": "Quivr reviews this preview and approves the card text (about 15 minutes for Quivr).",
-                "fr": "Quivr examine cet aperçu et valide le texte de la carte (environ 15 minutes pour Quivr)."
+                "nl": "Quivr bekijkt deze preview en keurt de tekst van de banner goed (ongeveer 15 minuten voor Quivr).",
+                "en": "Quivr reviews this preview and approves the banner text (about 15 minutes for Quivr)."
               }
             },
             {
               "h": {
                 "nl": "Week 1",
-                "en": "Week 1",
-                "fr": "Semaine 1"
+                "en": "Week 1"
               },
               "p": {
-                "nl": "De kaart staat online. We kijken naar het eigen aantal tikken op de kaart van Quivr.",
-                "en": "The card goes live. We look at Quivr's own card-tap numbers.",
-                "fr": "La carte est en ligne. Nous regardons les chiffres propres à Quivr : les appuis sur la carte."
+                "nl": "De banner staat online. We kijken naar Quivrs eigen aantal tikken op de banner.",
+                "en": "The banner goes live. We look at Quivr's own banner-tap numbers."
               }
             },
             {
               "h": {
                 "nl": "Week 2",
-                "en": "Week 2",
-                "fr": "Semaine 2"
+                "en": "Week 2"
               },
               "p": {
-                "nl": "Eén herinnering via het kanaal van Quivr, als Quivr dat wil. Quivr volgt de tikken op de kaart verder zelf.",
-                "en": "One reminder through Quivr's channel, if Quivr wants. Quivr keeps following its own card taps.",
-                "fr": "Un rappel par le canal de Quivr, si Quivr le souhaite. Quivr continue de suivre lui-même les appuis sur la carte."
+                "nl": "Eén herinnering via het kanaal van Quivr, als Quivr dat wil. Quivr volgt de tikken op de banner verder zelf.",
+                "en": "One reminder through Quivr's channel, if Quivr wants. Quivr keeps following its own banner taps."
               }
             },
             {
               "h": {
                 "nl": "Week 3",
-                "en": "Week 3",
-                "fr": "Semaine 3"
+                "en": "Week 3"
               },
               "p": {
                 "nl": "Laatste week, met een korte vrijwillige feedbackvraag op het einde: studenten kiezen zelf of ze antwoorden, en niets is verplicht. Daarna een gesprek van 20 minuten over Quivrs eigen cijfers en die feedback: behouden, aanpassen of stoppen.",
-                "en": "Final week, with a short optional feedback question at the end: students choose whether to answer, and nothing is required. Then a 20-minute call on Quivr's own numbers and that feedback: keep, adjust or stop.",
-                "fr": "Dernière semaine, avec une courte question de retour facultative à la fin : les étudiant·es choisissent d'y répondre ou non, rien n'est obligatoire. Ensuite, un appel de 20 minutes sur les chiffres propres à Quivr et ces retours : garder, ajuster ou arrêter."
+                "en": "Final week, with a short optional feedback question at the end: students choose whether to answer, and nothing is required. Then a 20-minute call on Quivr's own numbers and that feedback: keep, adjust or stop."
               }
             }
           ]
@@ -1790,13 +1557,11 @@
             "label": "target",
             "caption": {
               "nl": "Voorgestelde doelen",
-              "en": "Proposed targets",
-              "fr": "Objectifs proposés"
+              "en": "Proposed targets"
             },
             "note": {
               "nl": "Voorgesteld doel, vooraf af te spreken met Quivr, geen resultaat.",
-              "en": "Proposed target, to agree with Quivr in advance, not a result.",
-              "fr": "Objectif proposé, à convenir à l'avance avec Quivr, pas un résultat."
+              "en": "Proposed target, to agree with Quivr in advance, not a result."
             },
             "head": {
               "nl": [
@@ -1806,29 +1571,19 @@
               "en": [
                 "Measure",
                 "Proposed target"
-              ],
-              "fr": [
-                "Mesure",
-                "Objectif proposé"
               ]
             },
             "rows": {
               "nl": [
                 [
-                  "Tikken op de kaart",
-                  "Minstens 2% van de studenten die de kaart zien"
+                  "Tikken op de banner",
+                  "Minstens 2% van de studenten die de banner zien"
                 ]
               ],
               "en": [
                 [
-                  "Card tap-through",
-                  "At least 2% of students who see the card"
-                ]
-              ],
-              "fr": [
-                [
-                  "Appuis sur la carte",
-                  "Au moins 2 % des étudiant·es qui voient la carte"
+                  "Banner tap-through",
+                  "At least 2% of students who see the banner"
                 ]
               ]
             }
@@ -1837,15 +1592,13 @@
         {
           "h": {
             "nl": "Wanneer?",
-            "en": "When?",
-            "fr": "Quand ?"
+            "en": "When?"
           }
         },
         {
           "p": {
             "nl": "Drie weken die eindigen voor de volgende examenperiode. Precieze data: af te spreken met Quivr.",
-            "en": "Three weeks that end before the next exam period. Exact dates: to confirm with Quivr.",
-            "fr": "Trois semaines qui se terminent avant la prochaine période d'examens. Dates exactes : à confirmer avec Quivr."
+            "en": "Three weeks that end before the next exam period. Exact dates: to confirm with Quivr."
           }
         },
         {
@@ -1860,48 +1613,38 @@
       "id": "quivr-measure",
       "eyebrow": {
         "nl": "Voor Quivr",
-        "en": "For Quivr",
-        "fr": "Pour Quivr"
+        "en": "For Quivr"
       },
       "title": {
         "nl": "Hoe we zouden meten, met privacy voorop",
-        "en": "How we'd measure, privacy-first",
-        "fr": "Comment nous mesurerions, en protégeant la vie privée"
+        "en": "How we'd measure, privacy-first"
       },
       "blocks": [
         {
           "note": {
             "nl": "Alleen een ontwerp: niets op deze pagina zit in deze preview.",
-            "en": "Design only: nothing on this page is built into this preview.",
-            "fr": "Conception seulement : rien sur cette page n'est intégré à cet aperçu."
+            "en": "Design only: nothing on this page is built into this preview."
           }
         },
         {
           "note": {
             "nl": "Je antwoorden blijven op je telefoon en worden daar verwerkt. Niemand anders heeft ze: niet Quivr, niet de universiteit en niet het CalmCampus-team.",
-            "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team.",
-            "fr": "Tes réponses restent sur ton téléphone et y sont traitées. Personne d'autre ne les a : ni Quivr, ni l'université, ni l'équipe CalmCampus."
+            "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team."
           }
         },
         {
           "list": {
             "nl": [
-              "Quivr gebruikt zijn eigen aantal tikken op de kaart.",
+              "Quivr gebruikt zijn eigen aantal tikken op de banner.",
               "De app toont studenten hun eigen aantal check-ins, alleen op de telefoon.",
               "Op het einde kan een korte, vrijwillige feedbackvraag staan. Studenten kiezen zelf of ze antwoorden, en niets eruit is verplicht.",
               "CalmCampus verzamelt geen cijfers en geen antwoorden."
             ],
             "en": [
-              "Quivr uses its own card-tap numbers.",
+              "Quivr uses its own banner-tap numbers.",
               "The app shows students their own count, on the phone only.",
               "A short optional feedback question can come at the end. Students choose whether to answer, and nothing from it is required.",
               "CalmCampus collects no figures and no answers."
-            ],
-            "fr": [
-              "Quivr utilise ses propres chiffres d'appuis sur la carte.",
-              "L'app montre à l'étudiant·e son propre nombre de bilans, seulement sur le téléphone.",
-              "Une courte question de retour facultative peut figurer à la fin. Les étudiant·es choisissent d'y répondre ou non, et rien n'est obligatoire.",
-              "CalmCampus ne collecte ni chiffres ni réponses."
             ]
           }
         },
@@ -1910,8 +1653,7 @@
             "label": "example",
             "caption": {
               "nl": "Voorbeeld van Quivrs eigen cijfers (verzonnen getallen, geen resultaten)",
-              "en": "Example of Quivr's own numbers (made-up numbers, not results)",
-              "fr": "Exemple des chiffres propres à Quivr (nombres inventés, pas des résultats)"
+              "en": "Example of Quivr's own numbers (made-up numbers, not results)"
             },
             "head": {
               "nl": [
@@ -1925,18 +1667,12 @@
                 "Week 1",
                 "Week 2",
                 "Week 3"
-              ],
-              "fr": [
-                "Mesure",
-                "Semaine 1",
-                "Semaine 2",
-                "Semaine 3"
               ]
             },
             "rows": {
               "nl": [
                 [
-                  "Tikken op de kaart (Quivr)",
+                  "Tikken op de banner (Quivr)",
                   "900",
                   "620",
                   "540"
@@ -1944,15 +1680,7 @@
               ],
               "en": [
                 [
-                  "Card taps (Quivr)",
-                  "900",
-                  "620",
-                  "540"
-                ]
-              ],
-              "fr": [
-                [
-                  "Appuis sur la carte (Quivr)",
+                  "Banner taps (Quivr)",
                   "900",
                   "620",
                   "540"
