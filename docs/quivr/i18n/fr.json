@@ -6,7 +6,7 @@
       "nl": "Nederlands"
     }
   },
-  "disclaimer": "Nous sommes des étudiant·es, pas des professionnel·les de santé. CalmCampus ne pose pas de diagnostic et ne soigne pas : l'application aide les étudiant·es à repérer les premiers signes et à trouver le bon soutien.",
+  "disclaimer": "Nous sommes des étudiant·es, pas des professionnel·les de santé. CalmCampus ne pose pas de diagnostic et ne soigne pas. Si tu le souhaites, l'application peut te signaler un soutien qui existe déjà, ou tu peux parler à un médecin ou au service d'aide aux étudiant·es.",
   "nav": {
     "home": "Accueil",
     "history": "Semaines",
@@ -28,7 +28,7 @@
   "home": {
     "greeting": "Bonjour",
     "title": "Une minute au calme pour toi",
-    "lead": "Quatre questions auxquelles répondre par oui ou non, sur la semaine écoulée. Cela prend moins d'une minute et t'aide à repérer les premiers signes et à trouver le bon soutien.",
+    "lead": "Quatre questions auxquelles répondre par oui ou non, sur la semaine écoulée. Cela prend moins d'une minute. Si tu le souhaites, l'application peut te signaler un soutien qui existe déjà.",
     "start": "Commencer le bilan",
     "doneTitle": "Tu as fait ton bilan cette semaine",
     "doneBody": "Merci d'avoir pris une minute. Tu peux le refaire si quelque chose a changé.",
@@ -208,10 +208,10 @@
   },
   "welcome": {
     "title": "Bienvenue",
-    "lead": "CalmCampus aide les étudiant·es à repérer tôt les signes de stress et à trouver le bon soutien. Voici un aperçu pour {name} : essaie-le comme le ferait un·e étudiant·e. Cela prend environ cinq minutes.",
+    "lead": "Voici un aperçu pour {name} : essaie-le comme le ferait un·e étudiant·e. Cela prend environ cinq minutes.",
     "points": [
       "Réponds à quatre questions par oui ou non sur ta semaine. Moins d'une minute.",
-      "L'application complète tient aussi compte du sommeil, des pas et de l'usage du téléphone tard le soir. Ici, ce sont des exemples, pas tes vraies données.",
+      "L'application complète peut aussi regarder le sommeil, son principal signal facultatif. Les pas et l'usage du téléphone tard le soir sont aussi facultatifs. Tout reste désactivé jusqu'à ce que tu l'actives. Ici, ce sont des exemples, pas tes vraies données.",
       "Rien de ce que tu saisis ne quitte ce téléphone."
     ],
     "start": "Commencer l'aperçu",
@@ -223,7 +223,7 @@
   },
   "about": {
     "title": "À propos de cet aperçu",
-    "intro": "CalmCampus aide les étudiant·es à repérer tôt les signes de stress et à trouver le bon soutien à {name}. Cet aperçu montre comment l'application fonctionnerait. Les semaines passées et les données du téléphone sont des exemples. Tes propres réponses restent sur ce téléphone.",
+    "intro": "CalmCampus est un court bilan hebdomadaire à {name}. Si tu le souhaites, l'application peut te signaler un soutien qui existe déjà. Cet aperçu montre comment elle fonctionnerait. Les semaines passées et les données du téléphone sont des exemples. Tes propres réponses restent sur ce téléphone.",
     "tryHeading": "À essayer",
     "try": [
       {

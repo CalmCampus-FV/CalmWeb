@@ -29,9 +29,9 @@
   "languageFromBrowser": false,
   "languageSwitch": "all",
   "privacyNote": {
-    "nl": "Je antwoorden blijven op je telefoon. Het enige wat je telefoon ooit zou kunnen verlaten, is een vrijwillige, anonieme tik op ‘tel mij mee’ (één getal, geen antwoorden), en dat is een voorstel, nog niet gebouwd.",
-    "en": "Your answers stay on your phone. The only thing that could ever leave is an optional, anonymous ‘count me in’ tap (a single number, no answers), and that is a proposal, not built yet.",
-    "fr": "Tes réponses restent sur ton téléphone. La seule chose qui pourrait un jour en sortir est un appui facultatif et anonyme sur « je participe » (un seul nombre, aucune réponse), et c'est une proposition, pas encore développée."
+    "nl": "Je antwoorden blijven op je telefoon en worden daar verwerkt. Niemand anders heeft ze: niet Quivr, niet de universiteit en niet het CalmCampus-team.",
+    "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team.",
+    "fr": "Tes réponses restent sur ton téléphone et y sont traitées. Personne d'autre ne les a : ni Quivr, ni l'université, ni l'équipe CalmCampus."
   },
   "publicUrl": "https://cc.braunf.com/quivr/",
   "qr": "config/qr/quivr.svg",
@@ -1123,9 +1123,9 @@
         },
         {
           "note": {
-            "nl": "Je antwoorden blijven op je telefoon. Het enige wat je telefoon ooit zou kunnen verlaten, is een vrijwillige, anonieme tik op ‘tel mij mee’ (één getal, geen antwoorden), en dat is een voorstel, nog niet gebouwd.",
-            "en": "Your answers stay on your phone. The only thing that could ever leave is an optional, anonymous ‘count me in’ tap (a single number, no answers), and that is a proposal, not built yet.",
-            "fr": "Tes réponses restent sur ton téléphone. La seule chose qui pourrait un jour en sortir est un appui facultatif et anonyme sur « je participe » (un seul nombre, aucune réponse), et c'est une proposition, pas encore développée."
+            "nl": "Je antwoorden blijven op je telefoon en worden daar verwerkt. Niemand anders heeft ze: niet Quivr, niet de universiteit en niet het CalmCampus-team.",
+            "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team.",
+            "fr": "Tes réponses restent sur ton téléphone et y sont traitées. Personne d'autre ne les a : ni Quivr, ni l'université, ni l'équipe CalmCampus."
           }
         },
         {
@@ -1140,19 +1140,19 @@
             "nl": [
               "Een wekelijkse welzijnscheck-in voor de eigen studenten, zonder ontwikkelkosten.",
               "Een wekelijkse reden om de app te openen.",
-              "Na de test een anoniem overzicht, met alleen totalen. Geen beloofde resultaten.",
+              "Na de test kijken we samen naar Quivrs eigen aantal tikken op de kaart, plus een korte vrijwillige feedbackvraag. Geen beloofde resultaten.",
               "Gemakkelijk te stoppen als studenten het niet gebruiken."
             ],
             "en": [
               "A weekly wellbeing check-in for its students, at no development cost.",
               "A weekly reason to open the app.",
-              "After the test, an anonymous summary with totals only. No promised outcomes.",
+              "After the test, we look together at Quivr's own card-tap numbers, plus a short optional feedback question. No promised outcomes.",
               "An easy stop if students don't use it."
             ],
             "fr": [
               "Un bilan bien-être hebdomadaire pour ses étudiant·es, sans coût de développement.",
               "Une raison hebdomadaire d'ouvrir l'app.",
-              "Après le test, un résumé anonyme, avec seulement des totaux. Aucun résultat promis.",
+              "Après le test, nous regardons ensemble les chiffres propres à Quivr (appuis sur la carte), plus une courte question de retour facultative. Aucun résultat promis.",
               "Un arrêt facile si les étudiant·es ne l'utilisent pas."
             ]
           }
@@ -1203,66 +1203,18 @@
                 [
                   "Tikken op de kaart",
                   "Minstens 2% van de studenten die de kaart zien"
-                ],
-                [
-                  "Afgeronde check-ins",
-                  "Minstens 70% van de gestarte check-ins"
-                ],
-                [
-                  "Terug in week 2",
-                  "Minstens 30% van wie in week 1 afrondde"
-                ],
-                [
-                  "Terug in week 3",
-                  "Minstens 20% van wie in week 1 afrondde"
-                ],
-                [
-                  "Tikken op hulplinks",
-                  "Alleen een totaal, geen doel: meer is niet beter"
                 ]
               ],
               "en": [
                 [
                   "Card tap-through",
                   "At least 2% of students who see the card"
-                ],
-                [
-                  "Check-in completion",
-                  "At least 70% of check-ins started"
-                ],
-                [
-                  "Week-2 return",
-                  "At least 30% of week-1 completers"
-                ],
-                [
-                  "Week-3 return",
-                  "At least 20% of week-1 completers"
-                ],
-                [
-                  "Support-link taps",
-                  "A total only, no target: higher is not better"
                 ]
               ],
               "fr": [
                 [
                   "Appuis sur la carte",
                   "Au moins 2 % des étudiant·es qui voient la carte"
-                ],
-                [
-                  "Bilans terminés",
-                  "Au moins 70 % des bilans commencés"
-                ],
-                [
-                  "Retour en semaine 2",
-                  "Au moins 30 % de celles et ceux qui ont terminé en semaine 1"
-                ],
-                [
-                  "Retour en semaine 3",
-                  "Au moins 20 % de celles et ceux qui ont terminé en semaine 1"
-                ],
-                [
-                  "Appuis sur les liens de soutien",
-                  "Un total seulement, sans objectif : plus n'est pas mieux"
                 ]
               ]
             }
@@ -1509,9 +1461,9 @@
                   "fr": "Données du téléphone (facultatif)"
                 },
                 "intro": {
-                  "nl": "CalmCampus kan naar slaap, stappen en schermtijd kijken om te kiezen welke vraag eerst komt. Elk staat uit tot jij het aanzet.",
-                  "en": "CalmCampus can look at sleep, steps and screen time to choose which question comes first. Each one is off until you switch it on.",
-                  "fr": "CalmCampus peut regarder le sommeil, les pas et le temps d'écran pour choisir quelle question vient en premier. Chacun reste désactivé jusqu'à ce que tu l'actives."
+                  "nl": "CalmCampus kan naar slaap kijken, het belangrijkste optionele signaal, om te kiezen welke vraag eerst komt. Stappen en schermtijd of laat telefoongebruik zijn ook optioneel. Alles staat uit tot jij het aanzet.",
+                  "en": "CalmCampus can look at sleep, its main optional signal, to choose which question comes first. Steps and screen time (late phone use) are optional too. Everything is off until you switch it on.",
+                  "fr": "CalmCampus peut regarder le sommeil, son principal signal facultatif, pour choisir quelle question vient en premier. Les pas et le temps d'écran (usage tardif du téléphone) sont aussi facultatifs. Tout reste désactivé jusqu'à ce que tu l'actives."
                 },
                 "items": [
                   {
@@ -1545,9 +1497,9 @@
                   "fr": "Toutes les données restent sur ton téléphone et ne sont jamais envoyées à Quivr ni à CalmCampus."
                 },
                 "caption": {
-                  "nl": "Vrijwillig, standaard uit, elk apart aan te zetten. In dit concept wordt niets gelezen: de schakelaars tonen alleen het idee.",
-                  "en": "Opt-in, off by default, each switched on its own. In this concept nothing is read: the switches only show the idea.",
-                  "fr": "Facultatif, désactivé par défaut, chacun activable séparément. Dans ce concept, rien n'est lu : les interrupteurs ne montrent que l'idée."
+                  "nl": "Vrijwillig, standaard uit, elk apart aan te zetten. Slaap is het belangrijkste signaal. In dit concept wordt niets gelezen: de schakelaars tonen alleen het idee.",
+                  "en": "Opt-in, off by default, each switched on its own. Sleep is the main signal. In this concept nothing is read: the switches only show the idea.",
+                  "fr": "Facultatif, désactivé par défaut, chacun activable séparément. Le sommeil est le signal principal. Dans ce concept, rien n'est lu : les interrupteurs ne montrent que l'idée."
                 }
               }
             ]
@@ -1656,19 +1608,19 @@
             "nl": [
               "Een nuttige functie rond welzijn die elke week terugkomt, voor de eigen studenten, zonder ontwikkelkosten.",
               "Een wekelijkse reden om de app te openen.",
-              "Na de test een anoniem overzicht, met alleen totalen.",
+              "Na de test Quivrs eigen aantal tikken op de kaart, plus een korte vrijwillige feedbackvraag voor studenten.",
               "Gemakkelijk te stoppen als studenten het niet gebruiken."
             ],
             "en": [
               "A useful, recurring wellbeing feature for its students, at no development cost.",
               "A weekly reason to open the app.",
-              "An anonymous summary after the test, with totals only.",
+              "After the test, Quivr's own card-tap numbers, plus a short optional feedback question for students.",
               "An easy stop if students don't use it."
             ],
             "fr": [
               "Une fonction de bien-être utile et récurrente pour ses étudiant·es, sans coût de développement.",
               "Une raison hebdomadaire d'ouvrir l'app.",
-              "Après le test, un résumé anonyme, avec seulement des totaux.",
+              "Après le test, les chiffres propres à Quivr (appuis sur la carte), plus une courte question de retour facultative pour les étudiant·es.",
               "Un arrêt facile si les étudiant·es ne l'utilisent pas."
             ]
           }
@@ -1678,6 +1630,13 @@
             "nl": "We beloven geen resultaten. De test van drie weken is er om het uit te zoeken.",
             "en": "We make no promises about outcomes. The three-week test is there to find out.",
             "fr": "Nous ne promettons aucun résultat. Le test de trois semaines est là pour le découvrir."
+          }
+        },
+        {
+          "note": {
+            "nl": "Testen met echte studenten is gratis, zolang Quivr dat wil. Als het een blijvend onderdeel van Quivr wordt, spreken we samen een licentie af. Studenten betalen nooit.",
+            "en": "Testing with real students is free for as long as Quivr wants. If it became a lasting part of Quivr, a licence would be agreed together. Students never pay.",
+            "fr": "Tester avec de vrais étudiant·es est gratuit, aussi longtemps que Quivr le souhaite. Si cela devenait une partie durable de Quivr, une licence serait convenue ensemble. Les étudiant·es ne paient jamais."
           }
         },
         {
@@ -1795,9 +1754,9 @@
                 "fr": "Semaine 1"
               },
               "p": {
-                "nl": "De kaart staat online. We meten tikken op de kaart (de eigen telling van Quivr) en gestarte en afgeronde check-ins.",
-                "en": "The card goes live. We measure card taps (Quivr's own count) and check-ins started and completed.",
-                "fr": "La carte est en ligne. Nous mesurons les appuis sur la carte (le décompte de Quivr) et les bilans commencés et terminés."
+                "nl": "De kaart staat online. We kijken naar het eigen aantal tikken op de kaart van Quivr.",
+                "en": "The card goes live. We look at Quivr's own card-tap numbers.",
+                "fr": "La carte est en ligne. Nous regardons les chiffres propres à Quivr : les appuis sur la carte."
               }
             },
             {
@@ -1807,9 +1766,9 @@
                 "fr": "Semaine 2"
               },
               "p": {
-                "nl": "Eén herinnering via het kanaal van Quivr. We meten hoeveel studenten terugkomen.",
-                "en": "One reminder through Quivr's channel. We measure returning students.",
-                "fr": "Un rappel par le canal de Quivr. Nous mesurons combien d'étudiant·es reviennent."
+                "nl": "Eén herinnering via het kanaal van Quivr, als Quivr dat wil. Quivr volgt de tikken op de kaart verder zelf.",
+                "en": "One reminder through Quivr's channel, if Quivr wants. Quivr keeps following its own card taps.",
+                "fr": "Un rappel par le canal de Quivr, si Quivr le souhaite. Quivr continue de suivre lui-même les appuis sur la carte."
               }
             },
             {
@@ -1819,9 +1778,9 @@
                 "fr": "Semaine 3"
               },
               "p": {
-                "nl": "Laatste week. Daarna een gesprek van 15 minuten: behouden, aanpassen of stoppen.",
-                "en": "Final week. Then a 15-minute call: keep, adjust or stop.",
-                "fr": "Dernière semaine. Ensuite, un appel de 15 minutes : garder, ajuster ou arrêter."
+                "nl": "Laatste week, met een korte vrijwillige feedbackvraag op het einde: studenten kiezen zelf of ze antwoorden, en niets is verplicht. Daarna een gesprek van 20 minuten over Quivrs eigen cijfers en die feedback: behouden, aanpassen of stoppen.",
+                "en": "Final week, with a short optional feedback question at the end: students choose whether to answer, and nothing is required. Then a 20-minute call on Quivr's own numbers and that feedback: keep, adjust or stop.",
+                "fr": "Dernière semaine, avec une courte question de retour facultative à la fin : les étudiant·es choisissent d'y répondre ou non, rien n'est obligatoire. Ensuite, un appel de 20 minutes sur les chiffres propres à Quivr et ces retours : garder, ajuster ou arrêter."
               }
             }
           ]
@@ -1858,66 +1817,18 @@
                 [
                   "Tikken op de kaart",
                   "Minstens 2% van de studenten die de kaart zien"
-                ],
-                [
-                  "Afgeronde check-ins",
-                  "Minstens 70% van de gestarte check-ins"
-                ],
-                [
-                  "Terug in week 2",
-                  "Minstens 30% van wie in week 1 afrondde"
-                ],
-                [
-                  "Terug in week 3",
-                  "Minstens 20% van wie in week 1 afrondde"
-                ],
-                [
-                  "Tikken op hulplinks",
-                  "Alleen een totaal, geen doel: meer is niet beter"
                 ]
               ],
               "en": [
                 [
                   "Card tap-through",
                   "At least 2% of students who see the card"
-                ],
-                [
-                  "Check-in completion",
-                  "At least 70% of check-ins started"
-                ],
-                [
-                  "Week-2 return",
-                  "At least 30% of week-1 completers"
-                ],
-                [
-                  "Week-3 return",
-                  "At least 20% of week-1 completers"
-                ],
-                [
-                  "Support-link taps",
-                  "A total only, no target: higher is not better"
                 ]
               ],
               "fr": [
                 [
                   "Appuis sur la carte",
                   "Au moins 2 % des étudiant·es qui voient la carte"
-                ],
-                [
-                  "Bilans terminés",
-                  "Au moins 70 % des bilans commencés"
-                ],
-                [
-                  "Retour en semaine 2",
-                  "Au moins 30 % de celles et ceux qui ont terminé en semaine 1"
-                ],
-                [
-                  "Retour en semaine 3",
-                  "Au moins 20 % de celles et ceux qui ont terminé en semaine 1"
-                ],
-                [
-                  "Appuis sur les liens de soutien",
-                  "Un total seulement, sans objectif : plus n'est pas mieux"
                 ]
               ]
             }
@@ -1967,30 +1878,30 @@
         },
         {
           "note": {
-            "nl": "Je antwoorden blijven op je telefoon. Het enige wat je telefoon ooit zou kunnen verlaten, is een vrijwillige, anonieme tik op ‘tel mij mee’ (één getal, geen antwoorden), en dat is een voorstel, nog niet gebouwd.",
-            "en": "Your answers stay on your phone. The only thing that could ever leave is an optional, anonymous ‘count me in’ tap (a single number, no answers), and that is a proposal, not built yet.",
-            "fr": "Tes réponses restent sur ton téléphone. La seule chose qui pourrait un jour en sortir est un appui facultatif et anonyme sur « je participe » (un seul nombre, aucune réponse), et c'est une proposition, pas encore développée."
+            "nl": "Je antwoorden blijven op je telefoon en worden daar verwerkt. Niemand anders heeft ze: niet Quivr, niet de universiteit en niet het CalmCampus-team.",
+            "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team.",
+            "fr": "Tes réponses restent sur ton téléphone et y sont traitées. Personne d'autre ne les a : ni Quivr, ni l'université, ni l'équipe CalmCampus."
           }
         },
         {
           "list": {
             "nl": [
-              "Quivr deelt zijn eigen totaal aan tikken op de kaart.",
+              "Quivr gebruikt zijn eigen aantal tikken op de kaart.",
               "De app toont studenten hun eigen aantal check-ins, alleen op de telefoon.",
-              "Op het einde een vrijwillige, anonieme tik op ‘tel mij mee’: die stuurt één getal, zonder ID, zonder antwoorden en zonder toestelgegevens. Standaard uit, en niet in deze preview.",
-              "We delen alleen totalen, nooit individuele antwoorden."
+              "Op het einde kan een korte, vrijwillige feedbackvraag staan. Studenten kiezen zelf of ze antwoorden, en niets eruit is verplicht.",
+              "CalmCampus verzamelt geen cijfers en geen antwoorden."
             ],
             "en": [
-              "Quivr reports its own card-tap total.",
+              "Quivr uses its own card-tap numbers.",
               "The app shows students their own count, on the phone only.",
-              "At the end, an optional anonymous ‘count me in’ tap sends a single number, with no ID, no answers and no device data. Opt-in, off by default, and not in this preview.",
-              "We share totals only, never individual answers."
+              "A short optional feedback question can come at the end. Students choose whether to answer, and nothing from it is required.",
+              "CalmCampus collects no figures and no answers."
             ],
             "fr": [
-              "Quivr communique son propre total d'appuis sur la carte.",
+              "Quivr utilise ses propres chiffres d'appuis sur la carte.",
               "L'app montre à l'étudiant·e son propre nombre de bilans, seulement sur le téléphone.",
-              "À la fin, un appui facultatif et anonyme sur « je participe » envoie un seul nombre, sans identifiant, sans réponses et sans données de l'appareil. Désactivé par défaut, et absent de cet aperçu.",
-              "Nous ne partageons que des totaux, jamais de réponses individuelles."
+              "Une courte question de retour facultative peut figurer à la fin. Les étudiant·es choisissent d'y répondre ou non, et rien n'est obligatoire.",
+              "CalmCampus ne collecte ni chiffres ni réponses."
             ]
           }
         },
@@ -1998,9 +1909,9 @@
           "table": {
             "label": "example",
             "caption": {
-              "nl": "Zo zou het overzicht eruitzien (verzonnen getallen)",
-              "en": "What the summary would look like (made-up numbers)",
-              "fr": "À quoi ressemblerait le résumé (nombres inventés)"
+              "nl": "Voorbeeld van Quivrs eigen cijfers (verzonnen getallen, geen resultaten)",
+              "en": "Example of Quivr's own numbers (made-up numbers, not results)",
+              "fr": "Exemple des chiffres propres à Quivr (nombres inventés, pas des résultats)"
             },
             "head": {
               "nl": [
@@ -2029,30 +1940,6 @@
                   "900",
                   "620",
                   "540"
-                ],
-                [
-                  "Gestarte check-ins",
-                  "450",
-                  "330",
-                  "290"
-                ],
-                [
-                  "Afgeronde check-ins",
-                  "380",
-                  "290",
-                  "250"
-                ],
-                [
-                  "Teruggekomen studenten",
-                  "–",
-                  "150",
-                  "110"
-                ],
-                [
-                  "Tikken op hulplinks (totaal)",
-                  "40",
-                  "30",
-                  "25"
                 ]
               ],
               "en": [
@@ -2061,30 +1948,6 @@
                   "900",
                   "620",
                   "540"
-                ],
-                [
-                  "Check-ins started",
-                  "450",
-                  "330",
-                  "290"
-                ],
-                [
-                  "Check-ins completed",
-                  "380",
-                  "290",
-                  "250"
-                ],
-                [
-                  "Returning students",
-                  "–",
-                  "150",
-                  "110"
-                ],
-                [
-                  "Support-link taps (total)",
-                  "40",
-                  "30",
-                  "25"
                 ]
               ],
               "fr": [
@@ -2093,30 +1956,6 @@
                   "900",
                   "620",
                   "540"
-                ],
-                [
-                  "Bilans commencés",
-                  "450",
-                  "330",
-                  "290"
-                ],
-                [
-                  "Bilans terminés",
-                  "380",
-                  "290",
-                  "250"
-                ],
-                [
-                  "Étudiant·es revenu·es",
-                  "–",
-                  "150",
-                  "110"
-                ],
-                [
-                  "Appuis sur les liens de soutien (total)",
-                  "40",
-                  "30",
-                  "25"
                 ]
               ]
             }
@@ -2133,7 +1972,7 @@
   "share": {
     "title": "CalmCampus × Quivr: preview",
     "description": "Een wekelijkse check-in van vier vragen, in minder dan een minuut, met de hulp van je eigen universiteit. Een preview gemaakt om door Quivr te laten bekijken: geen Quivr-functie.",
-    "image": "config/share/quivr.png",
+    "image": "share.png",
     "imageAlt": "CalmCampus × Quivr: preview. Een wekelijkse check-in van minder dan een minuut, gemaakt om door Quivr te laten bekijken."
   }
 }

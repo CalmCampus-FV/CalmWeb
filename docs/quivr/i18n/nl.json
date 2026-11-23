@@ -6,7 +6,7 @@
       "nl": "Nederlands"
     }
   },
-  "disclaimer": "We zijn studenten, geen zorgverleners. CalmCampus stelt geen diagnose en behandelt niet; het helpt studenten om vroege signalen op te merken en de juiste ondersteuning te vinden.",
+  "disclaimer": "We zijn studenten, geen zorgverleners. CalmCampus stelt geen diagnose en behandelt niet. Als je wilt, kan het je wijzen op ondersteuning die al bestaat, of je kunt met een huisarts of de studentenbegeleiding praten.",
   "nav": {
     "home": "Start",
     "history": "Mijn weken",
@@ -28,7 +28,7 @@
   "home": {
     "greeting": "Hallo",
     "title": "Een rustige minuut voor jou",
-    "lead": "Vier ja-of-neevragen over de voorbije week. Het duurt minder dan een minuut, en het helpt je om vroege signalen op te merken en de juiste ondersteuning te vinden.",
+    "lead": "Vier ja-of-neevragen over de voorbije week. Het duurt minder dan een minuut. Als je wilt, kan het je wijzen op ondersteuning die al bestaat.",
     "start": "Start de check-in van deze week",
     "doneTitle": "Je hebt deze week ingecheckt",
     "doneBody": "Bedankt dat je even de tijd nam. Je kunt het opnieuw doen als er iets veranderd is.",
@@ -208,10 +208,10 @@
   },
   "welcome": {
     "title": "Welkom",
-    "lead": "CalmCampus helpt studenten om vroege signalen van stress op te merken en de juiste ondersteuning te vinden. Dit is een preview voor {name}: probeer het zoals een student het zou doen. Het duurt ongeveer vijf minuten.",
+    "lead": "Dit is een preview voor {name}: probeer het zoals een student het zou doen. Het duurt ongeveer vijf minuten.",
     "points": [
       "Beantwoord vier ja-of-neevragen over je week. Het duurt minder dan een minuut.",
-      "De volledige app kijkt ook naar slaap, stappen en laat telefoongebruik. Hier zijn dat voorbeelden, niet je echte gegevens.",
+      "De volledige app kan ook naar slaap kijken, het belangrijkste optionele signaal. Stappen en laat telefoongebruik zijn ook optioneel. Alles staat uit tot jij het aanzet. Hier zijn het voorbeelden, niet je echte gegevens.",
       "Niets wat je invult, verlaat deze telefoon."
     ],
     "start": "Start de preview",
@@ -223,7 +223,7 @@
   },
   "about": {
     "title": "Over deze preview",
-    "intro": "CalmCampus helpt studenten om vroege signalen van stress op te merken en de juiste ondersteuning te vinden bij {name}. Deze preview toont hoe het zou werken. De voorbije weken en de telefoongegevens zijn voorbeelden. Je eigen antwoorden blijven op deze telefoon.",
+    "intro": "CalmCampus is een korte wekelijkse check-in bij {name}. Als je wilt, kan het je wijzen op ondersteuning die al bestaat. Deze preview toont hoe het zou werken. De voorbije weken en de telefoongegevens zijn voorbeelden. Je eigen antwoorden blijven op deze telefoon.",
     "tryHeading": "Dingen om te proberen",
     "try": [
       {
