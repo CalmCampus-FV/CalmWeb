@@ -6,7 +6,7 @@
       "nl": "Nederlands"
     }
   },
-  "disclaimer": "We are students, not medical professionals. CalmCampus does not diagnose or treat; it helps students notice early signs and reach the right support.",
+  "disclaimer": "We are students, not medical professionals. CalmCampus does not diagnose or treat. If you want to, it can point you to support that already exists, or you can speak to a doctor or student support.",
   "nav": {
     "home": "Home",
     "history": "My weeks",
@@ -28,7 +28,7 @@
   "home": {
     "greeting": "Hello",
     "title": "A quiet minute for you",
-    "lead": "Four yes or no questions about this past week. It takes less than a minute, and it helps you notice early signs and find the right support.",
+    "lead": "Four yes or no questions about this past week. It takes less than a minute. If you want to, it can point you to support that already exists.",
     "start": "Start this week's check-in",
     "doneTitle": "You checked in this week",
     "doneBody": "Thanks for taking a minute. You can redo it if something has changed.",
@@ -208,10 +208,10 @@
   },
   "welcome": {
     "title": "Welcome",
-    "lead": "CalmCampus helps students notice early signs of stress and find the right support. This is a preview for {name}: try it the way a student would. It takes about five minutes.",
+    "lead": "This is a preview for {name}: try it the way a student would. It takes about five minutes.",
     "points": [
       "Answer four yes or no questions about your week. It takes less than a minute.",
-      "The full app also looks at sleep, steps and late phone use. Here these are examples, not your real data.",
+      "The full app can also look at sleep, its main optional signal. Steps and late phone use are optional too. All stay off until you switch them on. Here they are examples, not your real data.",
       "Nothing you enter leaves this phone."
     ],
     "start": "Start the preview",
@@ -223,7 +223,7 @@
   },
   "about": {
     "title": "About this preview",
-    "intro": "CalmCampus helps students notice early signs of stress and find the right support at {name}. This preview shows how it would work. The past weeks and the phone data are examples. Your own answers stay on this phone.",
+    "intro": "CalmCampus is a short weekly check-in at {name}. If you want to, it can point you to support that already exists. This preview shows how it would work. The past weeks and the phone data are examples. Your own answers stay on this phone.",
     "tryHeading": "Things to try",
     "try": [
       {
