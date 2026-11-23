@@ -2,7 +2,6 @@
   "lang": {
     "names": {
       "en": "English",
-      "fr": "Français",
       "nl": "Nederlands"
     }
   },
@@ -89,7 +88,6 @@
     "emailNote": "Dit opent je e-mailapp. Er wordt niets van CalmCampus bijgevoegd.",
     "pageIn": {
       "en": "(in het Engels)",
-      "fr": "(in het Frans)",
       "nl": "(alleen in het Nederlands)"
     }
   },
@@ -292,5 +290,55 @@
     "lead": "CalmCampus toont de ondersteuning van je eigen universiteit. Je kunt dit later wijzigen onder Over.",
     "current": "Jouw universiteit",
     "change": "Wijzigen"
+  },
+  "qv": {
+    "mockNote": "Mockup: hoe dit er in de Quivr-app zou kunnen uitzien",
+    "mockSub": "Geen echte Quivr-build. Quivr heeft met niets ingestemd.",
+    "title": "Dashboard",
+    "bell": "Meldingen",
+    "tabsLabel": "Quivr-tabbladen",
+    "tabs": {
+      "dashboard": "Dashboard",
+      "schedule": "Uurrooster",
+      "library": "Bibmonitor",
+      "restaurant": "Restaurant",
+      "more": "Meer"
+    },
+    "banner": {
+      "kicker": "CalmCampus",
+      "title": "Wekelijkse check-in",
+      "text": "4 vragen, minder dan een minuut. Privé: blijft op je telefoon.",
+      "open": "Open",
+      "aria": "CalmCampus: wekelijkse check-in van 4 vragen, minder dan een minuut. Privé, blijft op je telefoon. Opent in de browser van Quivr."
+    },
+    "cards": {
+      "event": {
+        "kicker": "VOLGEND EVENT - MORGEN",
+        "time": "10:30 - 12:30",
+        "title": "Inleiding tot statistiek",
+        "room": "Lokaal 3.02"
+      },
+      "library": {
+        "kicker": "BIBLIOTHEEK",
+        "name": "Centrale bibliotheek",
+        "hours": "Open tot 22:00",
+        "count": "216 van 300 plaatsen bezet"
+      },
+      "restaurant": {
+        "kicker": "RESTAURANT - VANDAAG",
+        "dish": "Pasta met tomaat en basilicum",
+        "price": "€ 4,10"
+      },
+      "news": {
+        "kicker": "NIEUWS",
+        "title": "Nieuwe openingsuren tijdens de examenperiode"
+      }
+    },
+    "example": "Voorbeeld",
+    "approx": "Illustratief. Kleuren en indeling volgen openbare screenshots van Quivr. De inhoud van de kaarten is verzonnen. De banner en de in-app browser zijn getekend: we hebben geen officiële screenshot daarvan. De andere tabbladen zijn niet actief.",
+    "about": "Uitleg voor Quivr",
+    "close": "Sluit",
+    "closeAria": "Sluit de in-app browser en ga terug naar het Quivr-dashboard",
+    "browserLabel": "In-app browser (illustratief)"
   }
 }

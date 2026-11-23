@@ -354,3 +354,75 @@ main { flex: 1; padding: 8px 20px calc(var(--dock-h) + 24px); outline: none; }
 h2.h3 { font-size: 18px; }
 .service .h3 { margin-bottom: 6px; }
 .install.desktop .h3 { margin-bottom: 6px; }
+
+/* ---------- Quivr build: a mockup of Quivr's Dashboard, and CalmCampus in its in-app browser ----------
+   Colours sampled from Quivr's public App Store screenshots. Illustrative, not Quivr's real build. */
+#quivr { display: none; }
+body.on-dash { background: #E9E9EC; }
+body.on-dash #app { display: none; }
+body.on-dash #quivr { display: flex; }
+body.qv-mode:not(.on-dash) { background: #E9E9EC; }
+.qv-mode .app, .qv-mode .dock { max-width: 430px; }
+.qv-mode .app { background: var(--cream); }
+@media (min-width: 600px) { .qv-mode .app { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 18px 48px rgba(0, 0, 0, 0.16); } }
+
+/* The in-app browser bar (illustrative) */
+.top.webbar {
+  position: sticky; top: 0; z-index: 20; gap: 8px; padding: calc(8px + env(safe-area-inset-top)) 10px 8px;
+  background: #F2F2F7; border-bottom: 1px solid #D1D1D6;
+}
+.wb-close { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 10px; border-radius: 999px; text-decoration: none; font: 600 15px var(--font-body); color: var(--ink); }
+.wb-title { flex: 1; min-width: 0; display: grid; text-align: center; line-height: 1.2; }
+.wb-title strong { font-size: 15px; }
+.wb-title span { font-size: 12px; color: var(--ink-soft); }
+.webbar .langs { flex: none; }
+.webbar .lang { padding: 0 10px; }
+
+.qv {
+  --qv-yellow: #FFD751; --qv-teal: #18BC98; --qv-grey: #98989C; --qv-rest: #C8C8CC;
+  flex-direction: column; width: 100%; max-width: 430px; height: 100dvh; margin: 0 auto; background: #F8F8F8; color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif; font-size: 15px; line-height: 1.35; overflow: hidden;
+}
+@media (min-width: 600px) {
+  .qv { height: min(860px, calc(100dvh - 32px)); margin: 16px auto; border-radius: 38px; border: 8px solid #1C1C1E; box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2); }
+}
+.qv h1, .qv h2 { font-family: inherit; }
+.qv-note { flex: none; display: flex; align-items: center; gap: 10px; padding: calc(8px + env(safe-area-inset-top)) 12px 8px; background: #1C1C1E; color: #fff; }
+.qv-note > div:first-child { flex: 1; display: grid; gap: 1px; font-size: 12px; line-height: 1.3; }
+.qv-note span { color: #D1D1D6; }
+.qv-note .langs { display: flex; gap: 6px; }
+.qv-note .lang { min-height: 36px; padding: 0 10px; border: 2px solid #fff; background: transparent; color: #fff; font: 700 12px system-ui, sans-serif; border-radius: 999px; cursor: pointer; }
+.qv-note .lang.on { background: #fff; color: #000; }
+.qv-head { flex: none; display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--qv-yellow); color: #fff; }
+.qv-head h1 { font-size: 19px; font-weight: 700; color: #fff; }
+.qv-side { width: 32px; display: grid; place-items: center end; }
+.qv-scroll { flex: 1; overflow-y: auto; overscroll-behavior: contain; }
+.qv-banner {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px; text-decoration: none; color: #000;
+  background: var(--cream); border-bottom: 1px solid rgba(0, 0, 0, 0.1); border-left: 5px solid var(--sage);
+}
+.qv-banner > .icon { color: var(--sage-deep); }
+.qv-banner-text { flex: 1; display: grid; font-size: 13px; line-height: 1.3; }
+.qv-banner-text strong { font-size: 14px; }
+.qv-banner-kicker { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage-deep); }
+.qv-banner-open { flex: none; display: inline-flex; align-items: center; gap: 4px; min-height: 36px; padding: 0 12px; border-radius: 999px; background: #000; color: #fff; font-weight: 700; font-size: 14px; }
+.qv-banner:active { filter: brightness(0.95); }
+.qv-banner:focus-visible { outline-offset: -3px; }
+.qv-feed { display: grid; gap: 10px; padding: 12px; }
+.qv-card { background: #fff; border-radius: 10px; padding: 14px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); display: grid; gap: 3px; }
+.qv-card h2 { font-size: 17px; font-weight: 700; line-height: 1.25; }
+.qv-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: #6C6C70; }
+.qv-time { font-size: 13px; color: #6C6C70; }
+.qv-meta { font-size: 13px; color: #6C6C70; display: flex; align-items: center; gap: 6px; }
+.qv-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--qv-teal); }
+.qv-bar { height: 8px; margin: 6px 0 2px; border-radius: 999px; background: var(--qv-rest); overflow: hidden; }
+.qv-bar i { display: block; height: 100%; background: var(--qv-teal); }
+.qv-dish strong { white-space: nowrap; }
+.qv-dish { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.qv-approx { font-size: 12px; color: #6C6C70; padding: 4px 2px; }
+.qv-about { justify-self: start; display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 13px; font-weight: 600; color: #3A3A3C; }
+.qv-tabs { flex: none; display: flex; background: #fff; border-top: 1px solid #D8D8DC; padding-bottom: env(safe-area-inset-bottom); }
+.qv-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 54px; font-size: 10.5px; color: var(--qv-grey); cursor: default; }
+.qv-tab .icon { stroke-width: 2; }
+.qv-tab.on { color: #000; font-weight: 600; }
+.mock-banner { border-radius: 0; box-shadow: none; border-left: 5px solid var(--sage); background: var(--cream); }
