@@ -2,7 +2,7 @@
 // Cache storage is shared by the whole origin, so every university folder owns a prefix
 // and only ever deletes its own old caches.
 const PREFIX = "calmcampus-quivr-";
-const CACHE = `${PREFIX}a15c0ffee1`;
+const CACHE = `${PREFIX}a17stage02`;
 const SHELL = ["./","app.js","config/qr/default.svg","config/qr/quivr.svg","config/universities/default.json","config/universities/quivr.json","fonts/caprasimo-latin-400-normal.woff2","fonts/figtree-latin-wght-normal.woff2","i18n/en.json","i18n/nl.json","icons/apple-touch-icon.png","icons/icon-192.png","icons/icon-512.png","icons/icon-maskable-512.png","index.html","lib/config.js","lib/demo.js","lib/i18n.js","lib/icons.js","lib/scoring.js","lib/signals.js","lib/store.js","lib/week.js","manifest.webmanifest","styles.css"];
 
 self.addEventListener("install", (e) => {

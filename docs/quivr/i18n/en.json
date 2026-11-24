@@ -5,7 +5,7 @@
       "nl": "Nederlands"
     }
   },
-  "disclaimer": "We are students, not medical professionals. CalmCampus does not diagnose or treat. If you want to, it can point you to support that already exists, or you can speak to a doctor or student support.",
+  "disclaimer": "We are students, not medical professionals. CalmCampus does not diagnose or treat. We strongly suggest speaking to a doctor or student support.",
   "nav": {
     "home": "Home",
     "history": "My weeks",
@@ -309,14 +309,17 @@
       "title": "Weekly check-in",
       "text": "4 questions, less than a minute. Your answers stay on your phone.",
       "open": "Open",
-      "aria": "CalmCampus: weekly check-in of 4 questions, less than a minute. Your answers stay on your phone."
+      "aria": "CalmCampus: weekly check-in of 4 questions, less than a minute. Your answers stay on your phone.",
+      "cta": "Start"
     },
     "cards": {
       "event": {
         "kicker": "NEXT EVENT - TOMORROW",
         "time": "10:30 - 12:30",
         "title": "Introduction to statistics",
-        "room": "Room 3.02"
+        "room": "Room 3.02",
+        "start": "10:30",
+        "until": "until 12:30"
       },
       "library": {
         "kicker": "LIBRARY MONITOR",
@@ -344,9 +347,31 @@
     "example": "Example",
     "about": "Notes for Quivr",
     "back": "Back to the dashboard",
-    "disc": "CalmCampus does not diagnose. We are students, not medical professionals.",
+    "disc": "We are students, not medical professionals. CalmCampus does not diagnose or treat. We strongly suggest speaking to a doctor or student support.",
     "toDash": "Back to the dashboard",
     "supportTitle": "Support",
-    "supportPick": "Pick your university to see where you can go. The emergency numbers are always below."
+    "supportPick": "Pick your university to see where you can go. The emergency numbers are always below.",
+    "stage": {
+      "eyebrow": "CalmCampus × Quivr",
+      "title": "CalmCampus inside the Quivr app",
+      "lead": "A mockup of how a weekly check-in could sit in the Quivr app. Tap the banner to try it.",
+      "steps": [
+        {
+          "t": "A banner in the Quivr app",
+          "d": "It sits under the header of the Dashboard, no extra tab."
+        },
+        {
+          "t": "A check-in of four questions",
+          "d": "Native Quivr screens, in less than a minute."
+        },
+        {
+          "t": "Answers stay on the phone",
+          "d": "Nothing leaves the phone."
+        }
+      ],
+      "free": "Free to test with real students, as long as Quivr wants. Students never pay.",
+      "note": "Mockup, not a real Quivr build.",
+      "langs": "Language"
+    }
   }
 }

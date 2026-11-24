@@ -5,7 +5,7 @@
       "nl": "Nederlands"
     }
   },
-  "disclaimer": "We zijn studenten, geen zorgverleners. CalmCampus stelt geen diagnose en behandelt niet. Als je wilt, kan het je wijzen op ondersteuning die al bestaat, of je kunt met een huisarts of de studentenbegeleiding praten.",
+  "disclaimer": "We zijn studenten, geen zorgverleners. CalmCampus stelt geen diagnose en behandelt niet. We raden sterk aan om met een huisarts of de studentenbegeleiding te praten.",
   "nav": {
     "home": "Start",
     "history": "Mijn weken",
@@ -309,14 +309,17 @@
       "title": "Wekelijkse check-in",
       "text": "4 vragen, minder dan een minuut. Je antwoorden blijven op je telefoon.",
       "open": "Open",
-      "aria": "CalmCampus: wekelijkse check-in van 4 vragen, minder dan een minuut. Je antwoorden blijven op je telefoon."
+      "aria": "CalmCampus: wekelijkse check-in van 4 vragen, minder dan een minuut. Je antwoorden blijven op je telefoon.",
+      "cta": "Start"
     },
     "cards": {
       "event": {
         "kicker": "VOLGEND EVENT - MORGEN",
         "time": "10:30 - 12:30",
         "title": "Inleiding tot statistiek",
-        "room": "Lokaal 3.02"
+        "room": "Lokaal 3.02",
+        "start": "10:30",
+        "until": "tot 12:30"
       },
       "library": {
         "kicker": "BIBMONITOR",
@@ -344,9 +347,31 @@
     "example": "Voorbeeld",
     "about": "Uitleg voor Quivr",
     "back": "Terug naar het dashboard",
-    "disc": "CalmCampus stelt geen diagnose. We zijn studenten, geen zorgverleners.",
+    "disc": "We zijn studenten, geen zorgverleners. CalmCampus stelt geen diagnose en behandelt niet. We raden sterk aan om met een huisarts of de studentenbegeleiding te praten.",
     "toDash": "Terug naar het dashboard",
     "supportTitle": "Hulp",
-    "supportPick": "Kies je universiteit om te zien waar je terechtkunt. De nummers voor noodgevallen staan hieronder altijd klaar."
+    "supportPick": "Kies je universiteit om te zien waar je terechtkunt. De nummers voor noodgevallen staan hieronder altijd klaar.",
+    "stage": {
+      "eyebrow": "CalmCampus × Quivr",
+      "title": "CalmCampus in de Quivr-app",
+      "lead": "Een mockup van hoe een wekelijkse check-in in de Quivr-app kan passen. Tik op de banner om het te proberen.",
+      "steps": [
+        {
+          "t": "Een banner in de Quivr-app",
+          "d": "Onder de header van het Dashboard, zonder extra tab."
+        },
+        {
+          "t": "Een check-in van vier vragen",
+          "d": "Native Quivr-schermen, in minder dan een minuut."
+        },
+        {
+          "t": "Antwoorden blijven op de telefoon",
+          "d": "Niets verlaat de telefoon."
+        }
+      ],
+      "free": "Gratis te testen met echte studenten, zolang Quivr dat wil. Studenten betalen nooit.",
+      "note": "Mockup, geen echte Quivr-build.",
+      "langs": "Taal"
+    }
   }
 }
