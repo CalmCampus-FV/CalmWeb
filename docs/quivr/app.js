@@ -138,7 +138,7 @@ async function setLang(lang, fromEl = null, focusSel = null) {
   app.lang = lang;
   app.store.setLang(lang);
   app.ui = await loadUi(lang);
-  refresh(fromEl, isQuivr() && !focusSel ? `.qv-note [data-hlang="${lang}"]` : focusSel, renderShell);
+  refresh(fromEl, isQuivr() && !focusSel ? `${deskMq()?.matches ? ".qv-panel" : ".qv-note"} [data-hlang="${lang}"]` : focusSel, renderShell);
 }
 
 /* ---------- Small pieces ---------- */
@@ -309,12 +309,21 @@ function phoneSection(scenarioId) {
 /* ---------- The Quivr app frame and Dashboard (illustrative mockup, Quivr build only) ---------- */
 
 const qv = (k, vars) => esc(t(`qv.${k}`, vars));
+const deskMq = () => window.matchMedia?.("(min-width: 1100px)");
 
 /** The phone frame is built once; its text parts are redrawn by renderFrame() (language switch). */
 function buildFrame() {
   $("app")?.remove();
+  const host = $("quivr");
+  const page = document.createElement("div");
+  page.className = "qv-page";
+  page.innerHTML = `<aside class="qv-panel" id="qv-panel"></aside><div class="qv-device" id="qv-device"></div>`;
+  host.replaceWith(page);
+  page.querySelector("#qv-device").appendChild(host);
+  page.querySelector("#qv-device").insertAdjacentHTML("beforeend", `<p class="qv-under" id="qv-under"></p>`);
   $("quivr").innerHTML = `
     <div class="qv-note" id="qv-note"></div>
+    <div class="qv-status" aria-hidden="true"><span>9:41</span><span class="qv-status-r"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.7" y="5" width="3" height="6" rx="1"/><rect x="9.4" y="2.5" width="3" height="8.5" rx="1"/><rect x="14" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.2" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="16" height="8" rx="2" fill="currentColor"/><rect x="22.5" y="4" width="2" height="4" rx="1" fill="currentColor" opacity=".45"/></svg></span></div>
     <header class="qv-head" id="qv-head"></header>
     <div class="qv-stage" id="qv-stage"><div class="qv-body" id="qv-body">
       <div class="qv-scroll" id="qv-scroll"><main id="view" tabindex="-1"></main></div>
@@ -329,6 +338,14 @@ function renderFrame() {
   $("qv-note").innerHTML = `<div><strong>${qv("mockNote")}</strong><span>${qv("mockSub")}</span></div>
     <div class="langs" role="group" aria-label="${esc(t("more.languageHeading"))}">${langs}</div>`;
   $("qv-disc").textContent = t("qv.disc");
+  $("qv-under").textContent = t("qv.disc");
+  const langBtns = `<div class="langs" role="group" aria-label="${qv("stage.langs")}">${langs}</div>`;
+  const steps = [0, 1, 2].map((i) => `<li><span class="qv-n">${i + 1}</span><span><strong>${qv(`stage.steps.${i}.t`)}</strong><span>${qv(`stage.steps.${i}.d`)}</span></span></li>`).join("");
+  $("qv-panel").innerHTML = `<p class="qv-eyebrow">${qv("stage.eyebrow")}</p><h2>${qv("stage.title")}</h2><p class="qv-lead">${qv("stage.lead")}</p>
+    <ol class="qv-steps">${steps}</ol>
+    <p class="qv-free">${icon("shield-check", 18)}<span>${qv("stage.free")}</span></p>
+    <div class="qv-panel-row"><a class="qv-notes" href="#/quivr-view">${qv("about")}${icon("arrow-right", 16)}</a>${langBtns}</div>
+    <p class="qv-panel-note">${qv("stage.note")}</p>`;
   renderHead();
   renderTabs();
   document.documentElement.lang = app.lang;
@@ -370,18 +387,22 @@ function renderHead() {
 
 function viewDash() {
   const c = (k, f) => qv(`cards.${k}.${f}`);
+  const ic = (name) => `<span class="qv-ic">${icon(name, 17)}</span>`;
   return `<a class="qv-banner" href="#/check/0" data-reset data-track="frame" aria-label="${qv("banner.aria")}">
-      <span class="qv-banner-ic">${icon("sprout", 20)}</span>
+      <svg class="qv-banner-art" viewBox="0 0 200 80" aria-hidden="true"><circle cx="170" cy="14" r="46"/><circle cx="196" cy="70" r="30"/></svg>
+      <span class="qv-banner-ic">${icon("sprout", 22)}</span>
       <span class="qv-banner-text"><span class="qv-banner-kicker">${qv("banner.kicker")}</span><strong>${qv("banner.title")}</strong><span>${qv("banner.text")}</span></span>
-      ${icon("chevron-right", 20)}</a>
+      <span class="qv-banner-go">${icon("chevron-right", 18)}<span class="sr">${qv("banner.cta")}</span></span></a>
     <div class="qv-feed">
-      <article class="qv-card"><p class="qv-kicker">${c("today", "kicker")}</p>
+      <article class="qv-card qv-event"><p class="qv-kicker">${ic("calendar-clock")}${c("event", "kicker")}</p>
+        <div class="qv-event-row"><div class="qv-start"><strong>${c("event", "start")}</strong><span>${c("event", "until")}</span></div>
+        <div class="qv-event-text"><h2>${c("event", "title")}</h2><p class="qv-meta">${c("event", "room")}</p></div></div></article>
+      <article class="qv-card"><p class="qv-kicker">${ic("clock")}${c("today", "kicker")}</p>
         <ul class="qv-list"><li><span class="qv-time">${c("today", "t1")}</span><span>${c("today", "a1")}</span></li><li><span class="qv-time">${c("today", "t2")}</span><span>${c("today", "a2")}</span></li></ul></article>
-      <article class="qv-card"><p class="qv-kicker">${c("event", "kicker")}</p><h2>${c("event", "title")}</h2><p class="qv-meta">${c("event", "time")} · ${c("event", "room")}</p></article>
-      <article class="qv-card"><p class="qv-kicker">${c("library", "kicker")}</p><div class="qv-dish"><h2>${c("library", "name")}</h2><span class="qv-meta">${c("library", "hours")}</span></div>
+      <article class="qv-card"><p class="qv-kicker">${ic("book-open")}${c("library", "kicker")}</p><div class="qv-dish"><h2>${c("library", "name")}</h2><span class="qv-meta">${c("library", "hours")}</span></div>
         <div class="qv-bar" aria-hidden="true"><i data-w="72"></i></div><p class="qv-meta"><span class="qv-dot"></span>${c("library", "count")}</p></article>
-      <article class="qv-card"><p class="qv-kicker">${c("restaurant", "kicker")}</p><div class="qv-dish"><h2>${c("restaurant", "dish")}</h2><strong>${c("restaurant", "price")}</strong></div></article>
-      <article class="qv-card"><p class="qv-kicker">${c("news", "kicker")}</p><h2>${c("news", "title")}</h2></article>
+      <article class="qv-card"><p class="qv-kicker">${ic("utensils")}${c("restaurant", "kicker")}</p><div class="qv-dish"><h2>${c("restaurant", "dish")}</h2><strong>${c("restaurant", "price")}</strong></div></article>
+      <article class="qv-card"><p class="qv-kicker">${ic("newspaper")}${c("news", "kicker")}</p><h2>${c("news", "title")}</h2></article>
       <a class="qv-about" href="#/quivr-view">${qv("about")}${icon("arrow-right", 14)}</a>
     </div>`;
 }
@@ -535,7 +556,7 @@ function viewResult(answers, { saved, example, phone, scenarioId, back } = {}) {
     : `<div class="card stack"><p>${esc(lv.minYes > 0 && c.advice ? Lt(c.advice) : t("result.steadyNext"))}</p><a class="btn sage" href="#/support">${esc(t("result.seeSupport"))}</a></div>`;
   return `<div class="stack">
     ${back ? `<div>${backLink(back.href, back.label)}</div>` : ""}
-    <div class="level-head"><div class="row wrap"><span class="small">${esc(t(example ? "result.exampleKicker" : "result.kicker"))}</span>${pillFor(lv)}</div>
+    <div class="level-head">${isQuivr() ? `<svg class="qv-hero-art" viewBox="0 0 120 120" aria-hidden="true"><circle cx="90" cy="30" r="56"/><circle cx="108" cy="104" r="34"/></svg><span class="qv-hero-ic">${icon("sprout", 26)}</span>` : ""}<div class="row wrap"><span class="small">${esc(t(example ? "result.exampleKicker" : "result.kicker"))}</span>${pillFor(lv)}</div>
       <h1>${esc(t(`result.levels.${lv.id}.title`))}</h1></div>
     <p class="lead">${esc(t(`result.levels.${lv.id}.body`))}</p>
     <div class="card stack"><h2 class="h3">${esc(t("result.noticedHeading"))}</h2>${noticed}

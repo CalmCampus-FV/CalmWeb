@@ -360,7 +360,7 @@ h2.h3 { font-size: 18px; }
    CalmCampus screens are pushed into that frame and wear Quivr's styling (the variables below
    replace the cream, sage and orange palette). Colours sampled from Quivr's public App Store
    screenshots. Illustrative, not Quivr's real build. */
-body.qv-mode { background: #E9E9EC; }
+body.qv-mode { background: #FFF7DC; }
 #quivr {
   --qv-yellow: #FFD751; --qv-teal: #18BC98; --qv-grey: #98989C; --qv-rest: #C8C8CC;
   --cream: #F8F8F8; --sand: #fff; --terracotta: #FFD751; --terracotta-deep: #3A3A3C; --sage: #FFD751; --sage-deep: #3A3A3C;
@@ -369,9 +369,6 @@ body.qv-mode { background: #E9E9EC; }
   --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
   display: flex; flex-direction: column; width: 100%; max-width: 430px; height: 100dvh; margin: 0 auto; background: #F8F8F8; color: #000;
   font-family: var(--font-body); font-size: 15px; line-height: 1.35; overflow: hidden; position: relative;
-}
-@media (min-width: 600px) {
-  #quivr { height: min(860px, calc(100dvh - 32px)); margin: 16px auto; border-radius: 38px; border: 8px solid #1C1C1E; box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2); }
 }
 #quivr :focus-visible { outline-color: #000; }
 .qv-note { flex: none; display: flex; align-items: center; gap: 10px; padding: calc(6px + env(safe-area-inset-top)) 12px 6px; background: #1C1C1E; color: #fff; }
@@ -382,13 +379,13 @@ body.qv-mode { background: #E9E9EC; }
 .qv-note .lang { min-height: 30px; padding: 0 10px; border: 1.5px solid #fff; background: transparent; color: #fff; font: 700 11px var(--font-body); border-radius: 999px; cursor: pointer; }
 .qv-note .lang.on { background: #fff; color: #000; }
 .qv-note :focus-visible { outline-color: #fff; }
-.qv-head { flex: none; display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 8px 10px; background: var(--qv-yellow); color: #fff; }
-.qv-head h1 { font-size: 19px; font-weight: 700; color: #fff; line-height: 1.2; }
+.qv-head { flex: none; display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 8px 10px; background: var(--qv-yellow); color: #000; }
+.qv-head h1 { font-size: 19px; font-weight: 700; color: #000; line-height: 1.2; }
 .qv-head.sub h1 { font-size: 18px; }
 .qv-side { width: 40px; display: grid; place-items: center; }
-.qv-back { width: 44px; height: 44px; margin-left: -6px; display: grid; place-items: center; color: #fff; border-radius: 50%; text-decoration: none; }
+.qv-back { width: 44px; height: 44px; margin-left: -6px; display: grid; place-items: center; color: #000; border-radius: 50%; text-decoration: none; }
 .qv-back .icon { stroke-width: 2.6; }
-.qv-head :focus-visible { outline-color: #fff; }
+.qv-head :focus-visible { outline-color: #000; }
 .qv-stage { position: relative; flex: 1; min-height: 0; overflow: hidden; background: #F8F8F8; }
 .qv-body, .qv-ghost { position: absolute; inset: 0; display: flex; flex-direction: column; background: #F8F8F8; }
 .qv-body.top, .qv-ghost.top { z-index: 2; box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12); }
@@ -465,3 +462,139 @@ a.qv-tab { cursor: pointer; }
 .qv-dish strong { white-space: nowrap; }
 .qv-about { justify-self: center; display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 12px; font-weight: 600; color: #6C6C70; }
 .mock-banner { border-radius: 0; box-shadow: none; border-left: 5px solid var(--sage); background: var(--cream); }
+
+/* ---------- Quivr build, round 2: stage, richer dashboard, native result ---------- */
+.qv-page { min-height: 100dvh; }
+.qv-panel { display: none; }
+.qv-status { display: none; flex: none; align-items: center; justify-content: space-between; padding: 12px 26px 2px; background: var(--qv-yellow); color: #000; font: 600 14px/1 var(--font-body); }
+#quivr { --qv-ease: cubic-bezier(0.25, 0.8, 0.25, 1); }
+#quivr .qv-status-r { display: inline-flex; align-items: center; gap: 6px; }
+@media (min-width: 600px) and (max-width: 1099px) {
+  body.qv-mode { background: radial-gradient(900px 600px at 20% 0%, #FFE9A0 0%, transparent 60%), #FFF7DC; }
+  .qv-page { display: grid; place-items: center; }
+  #quivr { height: min(860px, calc(100dvh - 32px)); margin: 16px auto; border-radius: 38px; border: 8px solid #1C1C1E; box-shadow: 0 24px 60px rgba(60, 40, 0, 0.22); }
+  .qv-status { display: flex; }
+}
+@media (max-width: 599px) { body.qv-mode { background: #F8F8F8; } }
+@media (min-width: 1100px) {
+  body.qv-mode { background: radial-gradient(1100px 700px at 12% 8%, #FFE9A0 0%, rgba(255, 233, 160, 0) 62%), radial-gradient(900px 700px at 95% 95%, #FFE08A 0%, rgba(255, 224, 138, 0) 60%), #FFF7DC; overflow: hidden; }
+  .qv-page { position: relative; display: flex; align-items: center; justify-content: center; gap: clamp(48px, 6vw, 96px); padding: 32px; height: 100dvh; min-height: 0; overflow: hidden; }
+  .qv-page::before, .qv-page::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; background: rgba(255, 215, 81, 0.2); }
+  .qv-page::before { width: 520px; height: 520px; left: -140px; bottom: -180px; }
+  .qv-page::after { width: 360px; height: 360px; right: -90px; top: -110px; background: rgba(255, 255, 255, 0.55); }
+  .qv-panel { position: relative; z-index: 1; display: block; width: min(440px, 36vw); padding: 36px 36px 28px; border-radius: 32px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 1px 0 #fff inset, 0 24px 60px rgba(120, 90, 0, 0.14); font: 15px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif; color: #000; }
+  .qv-device { position: relative; z-index: 1; flex: none; }
+  #quivr { width: 400px; height: min(780px, calc(100dvh - 64px)); max-width: none; margin: 0; border-radius: 52px; border: 10px solid #1C1C1E; box-shadow: 0 0 0 2px #3A3A3C, 0 40px 80px rgba(60, 40, 0, 0.28), 0 12px 24px rgba(0, 0, 0, 0.12); }
+  .qv-status { display: flex; }
+  .qv-note { display: none; }
+}
+.qv-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8A6A00; }
+.qv-panel h2 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, system-ui, sans-serif; margin: 6px 0 10px; font-size: 34px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; }
+.qv-lead { color: #48484A; font-size: 16px; }
+.qv-steps { list-style: none; padding: 0; margin: 22px 0 18px; display: grid; gap: 14px; }
+.qv-steps li { display: flex; gap: 14px; align-items: flex-start; }
+.qv-steps li > span:last-child { display: grid; gap: 1px; }
+.qv-steps strong { font-size: 16px; }
+.qv-steps li > span:last-child > span { color: #6C6C70; font-size: 14px; }
+.qv-n { flex: none; width: 32px; height: 32px; border-radius: 50%; background: #FFD751; display: grid; place-items: center; font-weight: 800; font-size: 15px; }
+.qv-free { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 16px; background: #FFF3C4; font-size: 14px; }
+.qv-free .icon { flex: none; margin-top: 1px; }
+.qv-panel-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+.qv-notes { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 700; color: #000; text-decoration: underline; text-underline-offset: 3px; }
+.qv-panel .langs { display: flex; gap: 6px; }
+.qv-panel .lang { min-height: 36px; padding: 0 14px; border: 1.5px solid #000; background: transparent; color: #000; font: 700 13px var(--font-body, system-ui); border-radius: 999px; cursor: pointer; }
+.qv-panel .lang.on { background: #000; color: #fff; }
+.qv-panel-note { margin-top: 14px; font-size: 12.5px; color: #6C6C70; }
+.qv-panel-disc { margin-top: 10px; padding-top: 12px; border-top: 1px solid rgba(0, 0, 0, 0.08); font-size: 12px; line-height: 1.4; color: #6C6C70; }
+.qv-panel :focus-visible { outline: 3px solid #000; outline-offset: 2px; }
+
+/* Dashboard */
+#quivr .qv-stage, #quivr .qv-body, #quivr .qv-ghost, #quivr .qv-bottom { background: #F4F4F6; }
+.qv-banner { position: relative; overflow: hidden; margin: 12px 12px 0; padding: 14px; border-radius: 18px; border: 0; background: linear-gradient(135deg, #FFF1B8 0%, #FFE27A 100%); box-shadow: 0 6px 16px rgba(190, 140, 0, 0.22), 0 1px 0 rgba(255, 255, 255, 0.6) inset; transition: transform 0.18s var(--qv-ease), box-shadow 0.18s var(--qv-ease); }
+.qv-banner > *:not(.qv-banner-art) { position: relative; }
+.qv-banner-art { position: absolute; right: 0; top: 0; width: 70%; height: 100%; fill: rgba(255, 255, 255, 0.28); pointer-events: none; }
+.qv-banner-ic { width: 44px; height: 44px; background: #fff; box-shadow: 0 2px 6px rgba(150, 110, 0, 0.25); }
+.qv-banner-text strong { font-size: 16.5px; letter-spacing: -0.01em; }
+.qv-banner-text { color: #3A3A3C; }
+.qv-banner-kicker { color: #7A5C00; }
+.qv-banner-go { flex: none; display: inline-flex; align-items: center; gap: 2px; width: 34px; height: 34px; justify-content: center; border-radius: 50%; background: #000; color: #fff; font-size: 13px; font-weight: 700; }
+.qv-banner:active { transform: scale(0.98); filter: none; box-shadow: 0 2px 6px rgba(190, 140, 0, 0.2); }
+.qv-feed { gap: 12px; padding: 14px 12px 18px; }
+.qv-card { border-radius: 18px; padding: 14px 16px; gap: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 6px 16px rgba(0, 0, 0, 0.05); position: relative; overflow: hidden; }
+.qv-kicker { display: flex; align-items: center; gap: 8px; }
+.qv-ic { width: 26px; height: 26px; border-radius: 8px; background: #FFF1B8; color: #000; display: inline-grid; place-items: center; }
+.qv-ic .icon { stroke-width: 2.2; }
+.qv-event { background: linear-gradient(160deg, #fff 55%, #FFF8DC 100%); }
+.qv-event::after { content: ""; position: absolute; right: -30px; bottom: -40px; width: 120px; height: 120px; border-radius: 50%; background: rgba(255, 215, 81, 0.22); }
+.qv-event-row { display: flex; gap: 14px; align-items: center; position: relative; z-index: 1; }
+.qv-start { flex: none; display: grid; text-align: center; padding-right: 14px; border-right: 2px solid #FFD751; }
+.qv-start strong { font-size: 30px; line-height: 1; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.qv-start span { margin-top: 4px; font-size: 11px; color: #6C6C70; font-weight: 600; }
+.qv-event-text h2 { font-size: 17px; }
+.qv-time { min-width: 44px; font-weight: 700; color: #000; }
+.qv-bar { height: 10px; margin: 8px 0 4px; background: #E6E6EA; }
+.qv-bar i { width: 0; transition: width 0.9s var(--qv-ease) 0.2s; border-radius: 999px; }
+.qv-feed > * { animation: qv-rise 0.45s var(--qv-ease) both; }
+.qv-feed > :nth-child(2) { animation-delay: 0.05s; } .qv-feed > :nth-child(3) { animation-delay: 0.1s; }
+.qv-feed > :nth-child(4) { animation-delay: 0.15s; } .qv-feed > :nth-child(5) { animation-delay: 0.2s; } .qv-feed > :nth-child(6) { animation-delay: 0.25s; }
+@keyframes qv-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes qv-fill { from { transform: scaleX(0); } to { transform: none; } }
+@keyframes qv-pop { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: none; } }
+
+/* CalmCampus screens: same app, same surfaces */
+#quivr main { padding: 16px 14px 20px; }
+#quivr .card { border-radius: 18px; border: 0; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 6px 16px rgba(0, 0, 0, 0.05); }
+#quivr .btn { border-radius: 14px; transition: transform 0.15s var(--qv-ease), background-color 0.15s; }
+#quivr .btn:active { transform: scale(0.97); }
+#quivr .btn:not(.ghost):not(.danger):not(.picked):not(.link) { background: #FFD751; border-color: #FFD751; color: #000; }
+#quivr .answers .btn:not(.link) { border-color: transparent; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 10px rgba(0, 0, 0, 0.05); }
+#quivr .answers .btn.picked { border-color: #000; }
+#quivr .progress { gap: 6px; }
+#quivr .progress i { height: 6px; background: #E2E2E6; transform-origin: left; }
+#quivr .progress i.on { animation: qv-fill 0.5s var(--qv-ease) both; }
+#quivr .question { font-size: 26px; letter-spacing: -0.015em; }
+.qv-kick { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #FFF1B8; color: #5C4600; }
+#quivr .level-head { position: relative; overflow: hidden; padding: 22px 18px 20px; border-radius: 24px; background: linear-gradient(150deg, #FFF8DC 0%, #FFE590 100%); box-shadow: 0 8px 20px rgba(190, 140, 0, 0.18); gap: 8px; animation: qv-pop 0.55s var(--qv-ease) both; }
+#quivr .level-head > * { position: relative; }
+#quivr .level-head h1 { font-size: 28px; line-height: 1.1; letter-spacing: -0.02em; }
+.qv-hero-art { position: absolute !important; right: 0; top: 0; width: 140px; height: 140px; fill: rgba(255, 255, 255, 0.4); pointer-events: none; }
+.qv-hero-ic { width: 48px; height: 48px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 2px 8px rgba(150, 110, 0, 0.25); }
+#quivr .level-head + .lead { font-size: 16px; color: #3A3A3C; animation: qv-rise 0.5s var(--qv-ease) 0.12s both; }
+#quivr .level-head ~ .card, #quivr .level-head ~ h2 { animation: qv-rise 0.5s var(--qv-ease) 0.2s both; }
+.qv-links a { color: #6C6C70; font-weight: 600; }
+@media (prefers-reduced-motion: reduce) {
+  #quivr *, #quivr *::before, #quivr *::after { animation: none !important; transition: none !important; }
+  .qv-banner:active, #quivr .btn:active { transform: none; }
+}
+.qv-tab { font-size: 10px; min-width: 0; } .qv-tab span { white-space: nowrap; }
+#quivr .answers .btn:not(.link):not(.picked):not(.ghost):not(.danger) { background: #fff; border-color: transparent; }
+#quivr .mock-banner { border-radius: 14px; }
+
+/* Round 3: no card cut through a heading at rest; disclaimer under the phone on desktop */
+.qv-under { display: none; }
+#quivr .qv-scroll { -webkit-mask-image: linear-gradient(#000 calc(100% - 26px), transparent); mask-image: linear-gradient(#000 calc(100% - 26px), transparent); }
+.qv-ghost .qv-scroll { -webkit-mask-image: none; mask-image: none; }
+.qv-feed { gap: 10px; padding: 12px 12px 44px; }
+.qv-card { padding: 12px 16px; gap: 5px; }
+.qv-banner { margin-top: 10px; padding: 12px 14px; }
+.qv-event-row { gap: 12px; }
+.qv-start strong { font-size: 28px; }
+.qv-bar { margin: 6px 0 2px; }
+#quivr main:not(:has(.qv-banner)) { padding: 14px 14px 44px; }
+.qv-about { margin-bottom: 4px; }
+@media (min-width: 1100px) {
+  .qv-device { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  #quivr { height: min(780px, calc(100dvh - 140px)); }
+  .qv-under { display: block; width: 400px; font: 12px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif; color: #5A4A1A; text-align: center; }
+  .qv-disc { display: none; }
+}
+.qv-feed { gap: 8px; padding-top: 10px; }
+.qv-card { padding: 10px 14px; gap: 4px; }
+.qv-ic { width: 22px; height: 22px; border-radius: 7px; }
+.qv-ic .icon { width: 15px; height: 15px; }
+.qv-card h2 { font-size: 15.5px; }
+.qv-start strong { font-size: 26px; }
+.qv-banner { padding: 10px 12px; }
+.qv-banner-ic { width: 40px; height: 40px; }
+.qv-disc { padding: 3px 14px 6px; font-size: 10.5px; line-height: 1.28; }
+#quivr .qv-scroll { -webkit-mask-image: linear-gradient(#000 calc(100% - 20px), transparent); mask-image: linear-gradient(#000 calc(100% - 20px), transparent); }
