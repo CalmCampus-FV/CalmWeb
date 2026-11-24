@@ -318,9 +318,9 @@ function buildFrame() {
   const page = document.createElement("div");
   page.className = "qv-page";
   page.innerHTML = `<aside class="qv-panel" id="qv-panel"></aside><div class="qv-device" id="qv-device"></div>`;
-  page.querySelector("#qv-device").insertAdjacentHTML("beforeend", `<p class="qv-under" id="qv-under"></p>`);
   host.replaceWith(page);
   page.querySelector("#qv-device").appendChild(host);
+  page.querySelector("#qv-device").insertAdjacentHTML("beforeend", `<p class="qv-under" id="qv-under"></p>`);
   $("quivr").innerHTML = `
     <div class="qv-note" id="qv-note"></div>
     <div class="qv-status" aria-hidden="true"><span>9:41</span><span class="qv-status-r"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.7" y="5" width="3" height="6" rx="1"/><rect x="9.4" y="2.5" width="3" height="8.5" rx="1"/><rect x="14" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.2" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="16" height="8" rx="2" fill="currentColor"/><rect x="22.5" y="4" width="2" height="4" rx="1" fill="currentColor" opacity=".45"/></svg></span></div>
