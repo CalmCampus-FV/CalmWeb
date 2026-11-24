@@ -983,8 +983,8 @@
         },
         {
           "p": {
-            "nl": "Geen download voor studenten en geen ontwikkelwerk voor Quivr: Quivr plaatst één banner in de app, en CalmCampus opent in de eigen browser van de Quivr-app.",
-            "en": "No download for students and no development for Quivr: Quivr places one banner in its app, and CalmCampus opens inside the Quivr app's in-app browser."
+            "nl": "Geen download voor studenten: Quivr plaatst één banner op het dashboard, en CalmCampus opent als schermen binnen de Quivr-app, in Quivr-stijl. Hoe dat technisch ingebouwd wordt, bepalen we samen met Quivr.",
+            "en": "No download for students: Quivr places one banner on the dashboard, and CalmCampus opens as screens inside the Quivr app, in Quivr's own style. How that is built in technically, we decide together with Quivr."
           }
         },
         {
@@ -1150,13 +1150,13 @@
         {
           "list": {
             "nl": [
-              "De banner in Quivr opent CalmCampus in de eigen browser van de Quivr-app.",
+              "De banner in Quivr opent CalmCampus als schermen binnen de Quivr-app.",
               "Als Quivr dat wil: één wekelijkse pushmelding of bannerherinnering, met de middelen die Quivr al heeft.",
               "De test van drie weken.",
               "De antwoorden blijven op de telefoon. Geen download voor studenten."
             ],
             "en": [
-              "The banner in Quivr opens CalmCampus inside the Quivr app's in-app browser.",
+              "The banner in Quivr opens CalmCampus as screens inside the Quivr app.",
               "Optional: one weekly push or banner reminder that Quivr sends with the tools it already has.",
               "The three-week test.",
               "Answers stay on the phone. No download for students."
@@ -1400,8 +1400,8 @@
       "blocks": [
         {
           "note": {
-            "nl": "Geen download voor studenten en geen ontwikkelwerk voor Quivr: Quivr plaatst één banner in de app, en CalmCampus opent in de eigen browser van de Quivr-app.",
-            "en": "No download for students and no development for Quivr: Quivr places one banner in its app, and CalmCampus opens inside the Quivr app's in-app browser."
+            "nl": "Geen download voor studenten: Quivr plaatst één banner op het dashboard, en CalmCampus opent als schermen binnen de Quivr-app, in Quivr-stijl. Hoe dat technisch ingebouwd wordt, bepalen we samen met Quivr.",
+            "en": "No download for students: Quivr places one banner on the dashboard, and CalmCampus opens as screens inside the Quivr app, in Quivr's own style. How that is built in technically, we decide together with Quivr."
           }
         },
         {
