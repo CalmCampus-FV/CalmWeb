@@ -12,12 +12,13 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "
 
 const app = { base: null, config: null, store: null, pickReturn: null, pageBack: null, lang: "en", ui: {}, answers: {}, confirmDelete: false, deleted: false, fellBack: false, screen: null, tabScroll: {}, advancing: false };
 /**
- * Quivr build (`dashboard: true` in the config): the page opens on a mockup of Quivr's
- * Dashboard, and CalmCampus is a web page in Quivr's in-app browser, entered through a
- * banner. The CalmCampus home is then #/home; #/ is the Dashboard.
+ * Quivr build (`dashboard: true` in the config): the page is a mockup of the Quivr app.
+ * It opens on Quivr's Dashboard; a banner under the header pushes CalmCampus screens
+ * into the same frame (Quivr's yellow header and tab bar stay), in Quivr's own styling.
+ * #/ is the Dashboard; there is no CalmCampus home, tab bar or website chrome.
  */
 const isQuivr = () => app.base?.dashboard === true;
-const HOME = () => (isQuivr() ? "#/home" : "#/");
+const HOME = () => "#/";
 const TABS = new Set(["home", "history", "support", "about"]);
 
 /** Display text goes through typography(); links never do (L keeps them raw). */
@@ -43,7 +44,12 @@ const showsExamples = () => app.store.isDemo();
  * `app.base` the config as loaded.
  */
 const hasInstitutions = () => institutionsOf(app.base).length > 0;
-const needsPick = () => hasInstitutions() && !institutionsOf(app.base).some((i) => i.id === app.store.getUni());
+const noUni = () => hasInstitutions() && !institutionsOf(app.base).some((i) => i.id === app.store.getUni());
+// The Quivr build never gates the student flow on a university: it is asked on the Hulp screen only.
+const needsPick = () => !isQuivr() && noUni();
+const scroller = () => (isQuivr() ? $("qv-scroll") : null);
+const getY = () => scroller()?.scrollTop ?? window.scrollY;
+const setY = (y) => { const sc = scroller(); if (sc) sc.scrollTop = y; else window.scrollTo(0, y); };
 function applyUni() { app.config = institutionConfig(app.base, app.store.getUni()); }
 
 /** Extra pages from the config (`pages`), reached at #/<id> (or #<id>). */
@@ -75,6 +81,7 @@ function inAppBrowser() {
 /* ---------- Shell ---------- */
 
 function renderShell() {
+  if (isQuivr()) { renderFrame(); return; }
   const c = app.config;
   const chip = c.logo?.image
     ? `<span class="uni-chip"><img src="${esc(c.logo.image)}" alt="${esc(L(c.name))}"></span>`
@@ -91,12 +98,7 @@ function renderShell() {
   const switcher = c.languages.length > 1 ? `<div class="langs" role="group" aria-label="${esc(t("more.languageHeading"))}">${shown.map(langBtn).join("")}</div>` : "";
   // A longer co-brand ("for … students") sits as a small line under the name, so the
   // header fits the smallest phones next to the language buttons.
-  // In the Quivr build the header is the (illustrative) bar of Quivr's in-app browser.
-  $("top").classList.toggle("webbar", isQuivr());
-  $("top").innerHTML = isQuivr()
-    ? `<a class="wb-close" href="#/" aria-label="${esc(t("qv.closeAria"))}">${icon("x", 20)}<span>${esc(t("qv.close"))}</span></a>
-       <div class="wb-title" role="img" aria-label="${esc(t("qv.browserLabel"))}"><strong>CalmCampus</strong><span>cc.braunf.com</span></div>${switcher}`
-    : `<div class="brand${chip.includes(" long") ? " stacked" : ""}"><a class="wordmark" href="#/">CalmCampus</a>${chip}</div>${switcher}`;
+  $("top").innerHTML = `<div class="brand${chip.includes(" long") ? " stacked" : ""}"><a class="wordmark" href="#/">CalmCampus</a>${chip}</div>${switcher}`;
   $("disclaimer").textContent = t("disclaimer");
   document.documentElement.lang = app.lang;
 
@@ -117,6 +119,7 @@ function renderShell() {
 }
 
 function renderNav(active) {
+  if (isQuivr()) return;
   if (!active) { $("nav").innerHTML = ""; return; }
   const items = [["home", "house", HOME()], ["history", "chart-no-axes-column", "#/history"], ["support", "life-buoy", "#/support"], ["about", "info", "#/about"]];
   $("nav").setAttribute("aria-label", t("nav.label"));
@@ -126,6 +129,7 @@ function renderNav(active) {
 }
 
 function syncDock() {
+  if (isQuivr()) return;
   const h = $("dock").offsetHeight;
   document.documentElement.style.setProperty("--dock-h", `${h}px`);
 }
@@ -134,7 +138,7 @@ async function setLang(lang, fromEl = null, focusSel = null) {
   app.lang = lang;
   app.store.setLang(lang);
   app.ui = await loadUi(lang);
-  refresh(fromEl, focusSel, renderShell);
+  refresh(fromEl, isQuivr() && !focusSel ? `.qv-note [data-hlang="${lang}"]` : focusSel, renderShell);
 }
 
 /* ---------- Small pieces ---------- */
@@ -151,7 +155,7 @@ function exampleTag() {
 
 /** `replace`: go back without adding a browser history entry (used inside the check-in). */
 function backLink(href, label, replace = false) {
-  return `<a class="btn ghost sm" href="${href}"${replace ? " data-replace" : ""}>${icon("arrow-left", 18)}${esc(label)}</a>`;
+  return `<a class="btn ghost sm backlink" href="${href}"${replace ? " data-replace" : ""}>${icon("arrow-left", 18)}${esc(label)}</a>`;
 }
 
 function feedbackHref() {
@@ -302,41 +306,111 @@ function phoneSection(scenarioId) {
     <p class="small">${esc(t("signals.resultNote"))}</p></div>`;
 }
 
-/* ---------- The Quivr Dashboard (illustrative mockup, Quivr build only) ---------- */
+/* ---------- The Quivr app frame and Dashboard (illustrative mockup, Quivr build only) ---------- */
 
-/** Keep the dashboard's own scroll when it is redrawn in place (language switch). */
-function renderDash() {
-  const keep = document.querySelector(".qv-scroll")?.scrollTop ?? 0;
-  const q = (k) => esc(t(`qv.${k}`));
+const qv = (k, vars) => esc(t(`qv.${k}`, vars));
+
+/** The phone frame is built once; its text parts are redrawn by renderFrame() (language switch). */
+function buildFrame() {
+  $("app")?.remove();
+  $("quivr").innerHTML = `
+    <div class="qv-note" id="qv-note"></div>
+    <header class="qv-head" id="qv-head"></header>
+    <div class="qv-stage" id="qv-stage"><div class="qv-body" id="qv-body">
+      <div class="qv-scroll" id="qv-scroll"><main id="view" tabindex="-1"></main></div>
+      <div class="qv-bottom"><div id="actions" class="actions-bar"></div><p class="qv-disc" id="qv-disc"></p></div>
+    </div></div>
+    <nav class="qv-tabs" id="qv-tabs"></nav>`;
+}
+
+function renderFrame() {
   const langs = app.base.languages.map((l) =>
     `<button class="lang${l === app.lang ? " on" : ""}" data-hlang="${l}" lang="${l}" aria-label="${esc(app.ui.lang.names?.[l] ?? l)}" aria-pressed="${l === app.lang}">${esc(l.toUpperCase())}</button>`).join("");
-  const c = (k, f) => q(`cards.${k}.${f}`);
-  const tab = (id, ic, on) => `<span class="qv-tab${on ? " on" : ""}"${on ? ' aria-current="page"' : ""}>${icon(ic, 24)}<span>${q(`tabs.${id}`)}</span></span>`;
-  $("quivr").innerHTML = `
-    <div class="qv-note"><div><strong>${q("mockNote")}</strong><span>${q("mockSub")}</span></div>
-      <div class="langs" role="group" aria-label="${esc(t("more.languageHeading"))}">${langs}</div></div>
-    <header class="qv-head"><span class="qv-side"></span><h1>${q("title")}</h1><span class="qv-side qv-bell">${icon("bell", 22)}<span class="sr">${q("bell")}</span></span></header>
-    <div class="qv-scroll">
-      <a class="qv-banner" href="#/home" data-track="frame" aria-label="${q("banner.aria")}">
-        ${icon("sprout", 22)}
-        <span class="qv-banner-text"><span class="qv-banner-kicker">${q("banner.kicker")}</span><strong>${q("banner.title")}</strong><span>${q("banner.text")}</span></span>
-        <span class="qv-banner-open" aria-hidden="true">${q("banner.open")}${icon("arrow-right", 16)}</span></a>
-      <div class="qv-feed">
-        <article class="qv-card"><p class="qv-kicker">${c("event", "kicker")}</p><p class="qv-time">${c("event", "time")}</p><h2>${c("event", "title")}</h2><p class="qv-meta">${c("event", "room")}</p></article>
-        <article class="qv-card"><p class="qv-kicker">${c("library", "kicker")}</p><h2>${c("library", "name")}</h2><p class="qv-meta">${c("library", "hours")}</p>
-          <div class="qv-bar" aria-hidden="true"><i data-w="72"></i></div><p class="qv-meta"><span class="qv-dot"></span>${c("library", "count")}</p></article>
-        <article class="qv-card"><p class="qv-kicker">${c("restaurant", "kicker")}</p><div class="qv-dish"><h2>${c("restaurant", "dish")}</h2><strong>${c("restaurant", "price")}</strong></div></article>
-        <article class="qv-card"><p class="qv-kicker">${c("news", "kicker")}</p><h2>${c("news", "title")}</h2></article>
-        <p class="qv-approx">${q("approx")}</p>
-        <a class="qv-about" href="#/quivr-view">${q("about")}${icon("arrow-right", 16)}</a>
-      </div>
-    </div>
-    <nav class="qv-tabs" aria-label="${q("tabsLabel")}">${tab("dashboard", "q-mark", true)}${tab("schedule", "clock")}${tab("library", "book-open")}${tab("restaurant", "utensils")}${tab("more", "ellipsis")}</nav>`;
-  // Widths are set here, not in a style attribute.
-  $("quivr").querySelectorAll("[data-w]").forEach((el) => { el.style.width = `${el.dataset.w}%`; });
+  $("qv-note").innerHTML = `<div><strong>${qv("mockNote")}</strong><span>${qv("mockSub")}</span></div>
+    <div class="langs" role="group" aria-label="${esc(t("more.languageHeading"))}">${langs}</div>`;
+  $("qv-disc").textContent = t("qv.disc");
+  renderHead();
+  renderTabs();
   document.documentElement.lang = app.lang;
-  const sc = document.querySelector(".qv-scroll");
-  if (sc) sc.scrollTop = keep;
+}
+
+function renderTabs() {
+  const sub = app.screen !== "dash";
+  const tab = (id, ic, on) => {
+    const inner = `${icon(ic, 24)}<span>${qv(`tabs.${id}`)}</span>`;
+    // On a CalmCampus screen the Dashboard tab is how you go back, like in the real app.
+    if (on && sub) return `<a class="qv-tab on" href="#/" data-replace aria-current="page">${inner}</a>`;
+    return `<span class="qv-tab${on ? " on" : ""}"${on ? ' aria-current="page"' : ""}>${inner}</span>`;
+  };
+  $("qv-tabs").setAttribute("aria-label", t("qv.tabsLabel"));
+  $("qv-tabs").innerHTML = tab("dashboard", "q-mark", true) + tab("schedule", "clock") + tab("library", "book-open") + tab("restaurant", "utensils") + tab("more", "ellipsis");
+}
+
+/** Where the header's back arrow goes from the current CalmCampus screen. */
+function backTarget() {
+  const [name, arg] = location.hash.replace(/^#\/?/, "").split("/");
+  if (name === "check") return Number(arg) > 0 ? `#/check/${Number(arg) - 1}` : "#/";
+  if (name === "result") return app.resultBack === "history" ? "#/history" : "#/";
+  if (name === "privacy" || name === "results") return "#/about";
+  if (name === "preview") return "#/results";
+  if (name === "pick") return app.pickReturn || "#/about";
+  if (pageOf(name)) return app.pageBack || "#/about";
+  return "#/";
+}
+
+function renderHead() {
+  if (app.screen === "dash") {
+    $("qv-head").className = "qv-head";
+    $("qv-head").innerHTML = `<span class="qv-side"></span><h1>${qv("title")}</h1><span class="qv-side qv-bell">${icon("bell", 22)}<span class="sr">${qv("bell")}</span></span>`;
+    return;
+  }
+  $("qv-head").className = "qv-head sub";
+  $("qv-head").innerHTML = `<a class="qv-back" href="${esc(backTarget())}" data-replace aria-label="${qv("back")}">${icon("chevron-left", 28)}</a><h1>CalmCampus</h1><span class="qv-side"></span>`;
+}
+
+function viewDash() {
+  const c = (k, f) => qv(`cards.${k}.${f}`);
+  return `<a class="qv-banner" href="#/check/0" data-reset data-track="frame" aria-label="${qv("banner.aria")}">
+      <span class="qv-banner-ic">${icon("sprout", 20)}</span>
+      <span class="qv-banner-text"><span class="qv-banner-kicker">${qv("banner.kicker")}</span><strong>${qv("banner.title")}</strong><span>${qv("banner.text")}</span></span>
+      ${icon("chevron-right", 20)}</a>
+    <div class="qv-feed">
+      <article class="qv-card"><p class="qv-kicker">${c("today", "kicker")}</p>
+        <ul class="qv-list"><li><span class="qv-time">${c("today", "t1")}</span><span>${c("today", "a1")}</span></li><li><span class="qv-time">${c("today", "t2")}</span><span>${c("today", "a2")}</span></li></ul></article>
+      <article class="qv-card"><p class="qv-kicker">${c("event", "kicker")}</p><h2>${c("event", "title")}</h2><p class="qv-meta">${c("event", "time")} · ${c("event", "room")}</p></article>
+      <article class="qv-card"><p class="qv-kicker">${c("library", "kicker")}</p><div class="qv-dish"><h2>${c("library", "name")}</h2><span class="qv-meta">${c("library", "hours")}</span></div>
+        <div class="qv-bar" aria-hidden="true"><i data-w="72"></i></div><p class="qv-meta"><span class="qv-dot"></span>${c("library", "count")}</p></article>
+      <article class="qv-card"><p class="qv-kicker">${c("restaurant", "kicker")}</p><div class="qv-dish"><h2>${c("restaurant", "dish")}</h2><strong>${c("restaurant", "price")}</strong></div></article>
+      <article class="qv-card"><p class="qv-kicker">${c("news", "kicker")}</p><h2>${c("news", "title")}</h2></article>
+      <a class="qv-about" href="#/quivr-view">${qv("about")}${icon("arrow-right", 14)}</a>
+    </div>`;
+}
+
+/** Moves the old screen out (or the new one in) like a native navigation push/pop, about 300 ms. */
+function ghostOf(pop) {
+  const body = $("qv-body");
+  const ghost = body.cloneNode(true);
+  ghost.removeAttribute("id");
+  ghost.querySelectorAll("[id]").forEach((n) => n.removeAttribute("id"));
+  ghost.setAttribute("aria-hidden", "true");
+  ghost.setAttribute("inert", "");
+  ghost.classList.add("qv-ghost");
+  if (pop) ghost.classList.add("top");
+  const y = $("qv-scroll").scrollTop;
+  $("qv-stage").appendChild(ghost);
+  ghost.querySelector(".qv-scroll").scrollTop = y;
+  return ghost;
+}
+
+function slide(ghost, pop) {
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches || !$("qv-body").animate) { ghost.remove(); return; }
+  const opts = { duration: 300, easing: "cubic-bezier(0.25, 0.8, 0.25, 1)" };
+  const body = $("qv-body");
+  body.classList.toggle("top", !pop);
+  const done = (pop ? ghost : body).animate(
+    pop ? [{ transform: "none" }, { transform: "translateX(100%)" }] : [{ transform: "translateX(100%)" }, { transform: "none" }], opts);
+  if (pop) body.animate([{ transform: "translateX(-28%)" }, { transform: "none" }], opts);
+  done.onfinish = done.oncancel = () => ghost.remove();
 }
 
 /* ---------- Screens ---------- */
@@ -391,6 +465,7 @@ function viewCheck(n) {
     <div class="row">${backLink(n === 0 ? HOME() : `#/check/${n - 1}`, t("checkin.back"), true)}
       <span class="small grow" style="text-align:right">${esc(t("checkin.progress", { n: n + 1, total: qs.length }))}</span></div>
     <div class="progress" aria-hidden="true">${dots}</div>
+    ${isQuivr() && n === 0 ? `<p class="qv-kick">CalmCampus</p>` : ""}
     <p class="small">${esc(t("checkin.heading"))}</p>
     <h1 class="question" id="q">${esc(Lt(q.text))}</h1>
     ${checkContext(q)}</div>`;
@@ -455,7 +530,7 @@ function viewResult(answers, { saved, example, phone, scenarioId, back } = {}) {
   const noticed = yesQs.length
     ? `<ul class="noticed">${yesQs.map((q) => `<li>${icon("check", 18)}<span>${esc(Lt(q.text))}</span></li>`).join("")}</ul>`
     : `<p class="lead">${esc(t("result.noneNoticed"))}</p>`;
-  const next = lv.service
+  const next = lv.service && c.services[lv.service]
     ? serviceCard(lv.service)
     : `<div class="card stack"><p>${esc(lv.minYes > 0 && c.advice ? Lt(c.advice) : t("result.steadyNext"))}</p><a class="btn sage" href="#/support">${esc(t("result.seeSupport"))}</a></div>`;
   return `<div class="stack">
@@ -471,7 +546,9 @@ function viewResult(answers, { saved, example, phone, scenarioId, back } = {}) {
     ${emergencyCard()}
     ${saved ? `<p class="small row">${icon("shield-check", 18)}<span>${esc(t("result.saved"))}</span></p>` : ""}
     ${saved ? nextTryCard() : ""}
-    <a class="btn ghost" href="${back ? back.href : HOME()}">${esc(back ? back.label : t("result.again"))}</a></div>`;
+    ${isQuivr() && !back ? `<a class="btn" href="#/" data-replace>${esc(t("qv.toDash"))}</a>
+      <nav class="qv-links" aria-label="CalmCampus">${[["history", "#/history"], ["support", "#/support"], ["about", "#/about"]].map(([id, h]) => `<a href="${h}">${esc(t(`nav.${id}`))}</a>`).join("")}</nav>`
+      : `<a class="btn ghost" href="${back ? back.href : HOME()}">${esc(back ? back.label : t("result.again"))}</a>`}</div>`;
 }
 
 /** Every level, how many yes answers lead to it and where it points: what a university reviews. */
@@ -537,6 +614,12 @@ function viewHistory() {
 
 function viewSupport() {
   const c = app.config;
+  if (isQuivr() && noUni()) {
+    // The university is only asked here, when the student wants to see where to get help.
+    app.pickReturn = "#/support";
+    return `<div class="stack"><h1>${esc(t("qv.supportTitle"))}</h1><p class="lead">${esc(t("qv.supportPick"))}</p>
+      <ul class="pick-list">${pickItems()}</ul>${emergencyCard()}</div>`;
+  }
   return `<div class="stack">
     <h1>${esc(t("more.supportHeading"))}</h1>
     ${Object.keys(c.services).length
@@ -609,14 +692,19 @@ function viewPrivacy() {
     <div class="card"><dl>${pts}</dl></div><p class="small">${esc(app.base.privacyPrinciples ? Lt(app.base.privacyPrinciples) : t("privacy.principles"))}</p></div>`;
 }
 
+function pickItems() {
+  const cur = app.store.getUni();
+  return institutionsOf(app.base).map((i) => {
+    const on = i.id === cur;
+    return `<li><button class="pick${on ? " on" : ""}" data-uni="${esc(i.id)}" aria-pressed="${on}"><span class="grow"><strong>${esc(Lt(i.name))}</strong>${i.hint ? `<br><span class="small">${esc(Lt(i.hint))}</span>` : ""}</span>${icon(on ? "check" : "arrow-right", 20)}</button></li>`;
+  }).join("");
+}
+
 /** "Which university are you at?": once, and again from About to change it. */
 function viewPick() {
   const cur = app.store.getUni();
   const known = institutionsOf(app.base).some((i) => i.id === cur);
-  const items = institutionsOf(app.base).map((i) => {
-    const on = i.id === cur;
-    return `<li><button class="pick${on ? " on" : ""}" data-uni="${esc(i.id)}" aria-pressed="${on}"><span class="grow"><strong>${esc(Lt(i.name))}</strong>${i.hint ? `<br><span class="small">${esc(Lt(i.hint))}</span>` : ""}</span>${icon(on ? "check" : "arrow-right", 20)}</button></li>`;
-  }).join("");
+  const items = pickItems();
   return `<div class="stack">
     ${known ? `<div>${backLink(app.pickReturn || "#/about", t("checkin.back"))}</div>` : ""}
     <h1>${esc(t("pick.title"))}</h1>
@@ -733,7 +821,7 @@ function viewPage(pg) {
 function refresh(fromEl = null, focusSel = null, alsoRender = null) {
   const key = fromEl?.closest("[data-keep]")?.dataset.keep;
   const before = key ? document.querySelector(`[data-keep="${key}"]`).getBoundingClientRect().top : null;
-  const y = window.scrollY;
+  const y = getY();
   // Measure first, then change the header or banner (Safari has no scroll anchoring),
   // and keep the page at least as tall as it was, so a section that shrinks at the
   // bottom of the page does not pull everything up.
@@ -742,8 +830,8 @@ function refresh(fromEl = null, focusSel = null, alsoRender = null) {
   alsoRender?.();
   route({ inPlace: true });
   const anchor = key && document.querySelector(`[data-keep="${key}"]`);
-  if (anchor) window.scrollTo(0, window.scrollY + anchor.getBoundingClientRect().top - before);
-  else window.scrollTo(0, y);
+  if (anchor) setY(getY() + anchor.getBoundingClientRect().top - before);
+  else setY(y);
   const f = focusSel && document.querySelector(focusSel);
   if (f) {
     if (!f.matches("a, button")) f.setAttribute("tabindex", "-1");
@@ -756,28 +844,22 @@ function route(opts) {
   const hash = location.hash.replace(/^#\/?/, "");
   const [name, arg] = hash.split("/");
   if (name === "more") { location.replace("#/about"); return; }
+  if (isQuivr() && name === "home") { location.replace("#/"); return; }
   const dash = isQuivr() && !name;
   if ((!name || name === "home") && isPreview() && !isQuivr() && !app.store.isWelcomed()) { location.replace("#/welcome"); return; }
   if (!dash && needsPick() && ["", "home", "check", "result", "history", "support", "results", "preview"].includes(name || "")) { location.replace("#/pick"); return; }
-  if (dash) {
-    if (!inPlace) { if (TABS.has(app.screen)) app.tabScroll[app.screen] = window.scrollY; app.screen = "dash"; }
-    document.body.classList.add("on-dash");
-    renderDash();
-    if (!inPlace) { window.scrollTo(0, 0); }
-    return;
-  }
-  document.body.classList.remove("on-dash");
   // Remember where each tab was scrolled, so coming back to it (from Privacy, a
   // result or a preview) lands where you left it instead of at the top.
-  if (!inPlace && TABS.has(app.screen)) app.tabScroll[app.screen] = window.scrollY;
+  if (!inPlace && TABS.has(app.screen)) app.tabScroll[app.screen] = getY();
   const from = app.screen;
-  if (!inPlace) app.screen = name || "home";
+  if (!inPlace) app.screen = dash ? "dash" : name || "home";
   // The preview line is hidden on the welcome screen and during the check-in.
   const bare = (s) => s === "welcome" || s === "check";
-  if (from !== app.screen && (bare(from) || bare(app.screen) || from === "dash")) renderShell();
+  if (!isQuivr() && from !== app.screen && (bare(from) || bare(app.screen) || from === "dash")) renderShell();
   const view = $("view");
   let html = "", nav = "home";
-  if (name === "welcome") { nav = null; html = viewWelcome(); }
+  if (dash) { nav = null; html = viewDash(); }
+  else if (name === "welcome") { nav = null; html = viewWelcome(); }
   else if (name === "pick") {
     if (!inPlace && from !== "pick") app.pickReturn = ["about", "results", "support"].includes(from) ? `#/${from}` : null;
     nav = needsPick() ? null : "about"; html = viewPick();
@@ -810,16 +892,22 @@ function route(opts) {
   else if (name === "privacy") { nav = "about"; html = viewPrivacy(); }
   else html = viewHome();
   if (name !== "about") { app.confirmDelete = false; app.deleted = false; }
+  const depth = dash ? 0 : 1;
+  const ghost = isQuivr() && !inPlace && app.depth !== undefined && app.depth !== depth ? ghostOf(depth === 0) : null;
+  if (isQuivr()) app.depth = depth;
   view.innerHTML = html;
+  view.querySelectorAll("[data-w]").forEach((el) => { el.style.width = `${el.dataset.w}%`; });
   $("actions").innerHTML = name === "check" ? checkAnswers(Number(arg))
     : name === "welcome" ? `<button class="btn" data-welcome>${esc(t("welcome.start"))}${icon("arrow-right", 20)}</button>` : "";
   renderNav(nav);
   syncDock();
+  if (isQuivr()) { renderHead(); renderTabs(); }
   if (!inPlace) {
     view.style.minHeight = "";
     const back = TABS.has(app.screen) && from !== "check" && from !== app.screen ? app.tabScroll[app.screen] : 0;
-    window.scrollTo(0, back || 0);
+    setY(back || 0);
     view.focus({ preventScroll: true });
+    if (ghost) slide(ghost, depth === 0);
   }
 }
 
@@ -856,7 +944,8 @@ function onClick(ev) {
     if (isPreview()) app.store.markTried("uni");
     applyUni();
     renderShell();
-    location.replace(app.pickReturn || HOME());
+    const dest = app.pickReturn || HOME();
+    if (location.hash === dest) route({ inPlace: true }); else location.replace(dest);
     return;
   }
   if (el.dataset.welcome !== undefined) {
@@ -967,11 +1056,11 @@ async function init() {
     if (params.get("demo") === "1" && !app.store.isDemo()) app.store.setDemo(true, demoEntries(config));
     if (params.get("demo") === "0") app.store.setDemo(false);
   }
-  if (isQuivr()) { document.body.classList.add("qv-mode"); if (isPreview()) app.store.setWelcomed(); }
+  if (isQuivr()) { document.body.classList.add("qv-mode"); if (isPreview()) app.store.setWelcomed(); buildFrame(); }
   renderShell();
   document.addEventListener("click", onClick);
   window.addEventListener("hashchange", route);
-  new ResizeObserver(syncDock).observe($("dock"));
+  if (!isQuivr()) new ResizeObserver(syncDock).observe($("dock"));
   route();
   // In-app browsers often have no service worker: the app then simply works online.
   if (navigator.serviceWorker && (location.protocol === "https:" || location.hostname === "localhost")) {

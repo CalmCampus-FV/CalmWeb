@@ -292,8 +292,8 @@
     "change": "Wijzigen"
   },
   "qv": {
-    "mockNote": "Mockup: hoe dit er in de Quivr-app zou kunnen uitzien",
-    "mockSub": "Geen echte Quivr-build. Quivr heeft met niets ingestemd.",
+    "mockNote": "Mockup: hoe dit er in de Quivr-app zou kunnen uitzien.",
+    "mockSub": "Geen echte Quivr-build.",
     "title": "Dashboard",
     "bell": "Meldingen",
     "tabsLabel": "Quivr-tabbladen",
@@ -307,9 +307,9 @@
     "banner": {
       "kicker": "CalmCampus",
       "title": "Wekelijkse check-in",
-      "text": "4 vragen, minder dan een minuut. Privé: blijft op je telefoon.",
+      "text": "4 vragen, minder dan een minuut. Je antwoorden blijven op je telefoon.",
       "open": "Open",
-      "aria": "CalmCampus: wekelijkse check-in van 4 vragen, minder dan een minuut. Privé, blijft op je telefoon. Opent in de browser van Quivr."
+      "aria": "CalmCampus: wekelijkse check-in van 4 vragen, minder dan een minuut. Je antwoorden blijven op je telefoon."
     },
     "cards": {
       "event": {
@@ -319,7 +319,7 @@
         "room": "Lokaal 3.02"
       },
       "library": {
-        "kicker": "BIBLIOTHEEK",
+        "kicker": "BIBMONITOR",
         "name": "Centrale bibliotheek",
         "hours": "Open tot 22:00",
         "count": "216 van 300 plaatsen bezet"
@@ -332,13 +332,21 @@
       "news": {
         "kicker": "NIEUWS",
         "title": "Nieuwe openingsuren tijdens de examenperiode"
+      },
+      "today": {
+        "kicker": "VANDAAG",
+        "t1": "09:00",
+        "a1": "Wiskunde, auditorium B",
+        "t2": "13:30",
+        "a2": "Groepswerk, lokaal 2.14"
       }
     },
     "example": "Voorbeeld",
-    "approx": "Illustratief. Kleuren en indeling volgen openbare screenshots van Quivr. De inhoud van de kaarten is verzonnen. De banner en de in-app browser zijn getekend: we hebben geen officiële screenshot daarvan. De andere tabbladen zijn niet actief.",
     "about": "Uitleg voor Quivr",
-    "close": "Sluit",
-    "closeAria": "Sluit de in-app browser en ga terug naar het Quivr-dashboard",
-    "browserLabel": "In-app browser (illustratief)"
+    "back": "Terug naar het dashboard",
+    "disc": "CalmCampus stelt geen diagnose. We zijn studenten, geen zorgverleners.",
+    "toDash": "Terug naar het dashboard",
+    "supportTitle": "Hulp",
+    "supportPick": "Kies je universiteit om te zien waar je terechtkunt. De nummers voor noodgevallen staan hieronder altijd klaar."
   }
 }

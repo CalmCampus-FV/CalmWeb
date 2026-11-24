@@ -292,14 +292,14 @@
     "change": "Change"
   },
   "qv": {
-    "mockNote": "Mockup: how this could look in the Quivr app",
-    "mockSub": "Not a real Quivr build. Quivr has not agreed to anything.",
+    "mockNote": "Mockup: how this could look in the Quivr app.",
+    "mockSub": "Not a real Quivr build.",
     "title": "Dashboard",
     "bell": "Notifications",
     "tabsLabel": "Quivr tabs",
     "tabs": {
       "dashboard": "Dashboard",
-      "schedule": "Timetable",
+      "schedule": "Schedule",
       "library": "Library",
       "restaurant": "Restaurant",
       "more": "More"
@@ -307,9 +307,9 @@
     "banner": {
       "kicker": "CalmCampus",
       "title": "Weekly check-in",
-      "text": "4 questions, less than a minute. Private: stays on your phone.",
+      "text": "4 questions, less than a minute. Your answers stay on your phone.",
       "open": "Open",
-      "aria": "CalmCampus: weekly check-in of 4 questions, less than a minute. Private, stays on your phone. Opens in Quivr's in-app browser."
+      "aria": "CalmCampus: weekly check-in of 4 questions, less than a minute. Your answers stay on your phone."
     },
     "cards": {
       "event": {
@@ -319,7 +319,7 @@
         "room": "Room 3.02"
       },
       "library": {
-        "kicker": "LIBRARY",
+        "kicker": "LIBRARY MONITOR",
         "name": "Central library",
         "hours": "Open until 22:00",
         "count": "216 of 300 seats taken"
@@ -332,13 +332,21 @@
       "news": {
         "kicker": "NEWS",
         "title": "New opening hours during the exam period"
+      },
+      "today": {
+        "kicker": "TODAY",
+        "t1": "09:00",
+        "a1": "Mathematics, lecture hall B",
+        "t2": "13:30",
+        "a2": "Group work, room 2.14"
       }
     },
     "example": "Example",
-    "approx": "Illustrative. Colours and layout follow Quivr's public screenshots. The card content is made up. The banner and the in-app browser are drawn: we have no official screenshot of them. The other tabs are not active. Newer English Play Store screenshots show an Events tab instead of Restaurant; this Dutch mockup follows the Dutch App Store screenshots.",
     "about": "Notes for Quivr",
-    "close": "Close",
-    "closeAria": "Close the in-app browser and return to the Quivr dashboard",
-    "browserLabel": "In-app browser (illustrative)"
+    "back": "Back to the dashboard",
+    "disc": "CalmCampus does not diagnose. We are students, not medical professionals.",
+    "toDash": "Back to the dashboard",
+    "supportTitle": "Support",
+    "supportPick": "Pick your university to see where you can go. The emergency numbers are always below."
   }
 }
