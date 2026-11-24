@@ -318,6 +318,7 @@ function buildFrame() {
   const page = document.createElement("div");
   page.className = "qv-page";
   page.innerHTML = `<aside class="qv-panel" id="qv-panel"></aside><div class="qv-device" id="qv-device"></div>`;
+  page.querySelector("#qv-device").insertAdjacentHTML("beforeend", `<p class="qv-under" id="qv-under"></p>`);
   host.replaceWith(page);
   page.querySelector("#qv-device").appendChild(host);
   $("quivr").innerHTML = `
@@ -337,6 +338,7 @@ function renderFrame() {
   $("qv-note").innerHTML = `<div><strong>${qv("mockNote")}</strong><span>${qv("mockSub")}</span></div>
     <div class="langs" role="group" aria-label="${esc(t("more.languageHeading"))}">${langs}</div>`;
   $("qv-disc").textContent = t("qv.disc");
+  $("qv-under").textContent = t("qv.disc");
   const langBtns = `<div class="langs" role="group" aria-label="${qv("stage.langs")}">${langs}</div>`;
   const steps = [0, 1, 2].map((i) => `<li><span class="qv-n">${i + 1}</span><span><strong>${qv(`stage.steps.${i}.t`)}</strong><span>${qv(`stage.steps.${i}.d`)}</span></span></li>`).join("");
   $("qv-panel").innerHTML = `<p class="qv-eyebrow">${qv("stage.eyebrow")}</p><h2>${qv("stage.title")}</h2><p class="qv-lead">${qv("stage.lead")}</p>
