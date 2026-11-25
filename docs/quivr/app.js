@@ -55,8 +55,11 @@ function applyUni() { app.config = institutionConfig(app.base, app.store.getUni(
 /** Extra pages from the config (`pages`), reached at #/<id> (or #<id>). */
 const pageOf = (id) => (Array.isArray(app.base?.pages) ? app.base.pages : []).find((pg) => pg.id === id);
 
+/** Folder of the app files: "" at /quivr/, "../" on the static English entry at /quivr/en/. */
+const ROOT = document.querySelector('meta[name="cc-root"]')?.content || "";
+
 async function loadUi(lang) {
-  const res = await fetch(`i18n/${lang}.json`);
+  const res = await fetch(`${ROOT}i18n/${lang}.json`);
   if (!res.ok) throw new Error(`i18n ${lang}`);
   return res.json();
 }
@@ -134,10 +137,23 @@ function syncDock() {
   document.documentElement.style.setProperty("--dock-h", `${h}px`);
 }
 
+/** Keeps the share and description tags in the reader's language (crawlers use the static /en/ page). */
+function syncShareMeta() {
+  const sh = app.base?.share;
+  if (!sh) return;
+  const set = (sel, v) => { const el = document.head.querySelector(sel); if (el && v) el.setAttribute("content", v); };
+  const d = loc(sh.description, app.lang, app.base.defaultLanguage), a = loc(sh.imageAlt, app.lang, app.base.defaultLanguage);
+  set('meta[name="description"]', d); set('meta[property="og:description"]', d); set('meta[name="twitter:description"]', d);
+  set('meta[property="og:image:alt"]', a);
+  set('meta[property="og:locale"]', app.lang === "en" ? "en_GB" : "nl_BE");
+  set('meta[property="og:locale:alternate"]', app.lang === "en" ? "nl_BE" : "en_GB");
+}
+
 async function setLang(lang, fromEl = null, focusSel = null) {
   app.lang = lang;
   app.store.setLang(lang);
   app.ui = await loadUi(lang);
+  syncShareMeta();
   refresh(fromEl, isQuivr() && !focusSel ? `${deskMq()?.matches ? ".qv-panel" : ".qv-note"} [data-hlang="${lang}"]` : focusSel, renderShell);
 }
 
@@ -184,7 +200,7 @@ function installTip() {
     const url = app.config.publicUrl;
     if (!url) return "";
     const shown = url.replace(/^https:\/\//, "").replace(/\/$/, "");
-    const qr = app.config.qr ? `<img class="qr" src="${esc(app.config.qr)}" width="132" height="132" alt="${esc(t("install.qrAlt", { url: shown }))}">` : "";
+    const qr = app.config.qr ? `<img class="qr" src="${esc(ROOT + app.config.qr)}" width="132" height="132" alt="${esc(t("install.qrAlt", { url: shown }))}">` : "";
     return `<div class="card install desktop">${qr}<div class="grow"><h2 class="h3">${esc(t("install.desktopTitle"))}</h2><p>${esc(t("install.desktopBody", { url: shown }))}</p></div></div>`;
   }
   const steps = app.ui.install[p].map((s) => `<li>${esc(typo(s))}</li>`).join("");
@@ -354,13 +370,13 @@ function renderFrame() {
 function renderTabs() {
   const sub = app.screen !== "dash";
   const tab = (id, ic, on) => {
-    const inner = `${icon(ic, 24)}<span>${qv(`tabs.${id}`)}</span>`;
+    const inner = `${ic ? icon(ic, 24) : '<span class="qv-q" aria-hidden="true">Q</span>'}<span>${qv(`tabs.${id}`)}</span>`;
     // On a CalmCampus screen the Dashboard tab is how you go back, like in the real app.
     if (on && sub) return `<a class="qv-tab on" href="#/" data-replace aria-current="page">${inner}</a>`;
     return `<span class="qv-tab${on ? " on" : ""}"${on ? ' aria-current="page"' : ""}>${inner}</span>`;
   };
   $("qv-tabs").setAttribute("aria-label", t("qv.tabsLabel"));
-  $("qv-tabs").innerHTML = tab("dashboard", "q-mark", true) + tab("schedule", "clock") + tab("library", "book-open") + tab("restaurant", "utensils") + tab("more", "ellipsis");
+  $("qv-tabs").innerHTML = tab("dashboard", null, true) + tab("schedule", "clock") + tab("library", "book-open") + tab("restaurant", "utensils") + tab("more", "ellipsis");
 }
 
 /** Where the header's back arrow goes from the current CalmCampus screen. */
@@ -371,6 +387,7 @@ function backTarget() {
   if (name === "privacy" || name === "results") return "#/about";
   if (name === "preview") return "#/results";
   if (name === "pick") return app.pickReturn || "#/about";
+  if (name === "support" && arg) return "#/support";
   if (pageOf(name)) return app.pageBack || "#/about";
   return "#/";
 }
@@ -633,14 +650,30 @@ function viewHistory() {
     ${lists}</div>`;
 }
 
-function viewSupport() {
-  const c = app.config;
-  if (isQuivr() && noUni()) {
-    // The university is only asked here, when the student wants to see where to get help.
-    app.pickReturn = "#/support";
-    return `<div class="stack"><h1>${esc(t("qv.supportTitle"))}</h1><p class="lead">${esc(t("qv.supportPick"))}</p>
-      <ul class="pick-list">${pickItems()}</ul>${emergencyCard()}</div>`;
+function supportDirectory() {
+  const insts = institutionsOf(app.base);
+  const row = (i, light) => `<li><a class="pick${light ? " light" : ""}" href="#/support/${esc(i.id)}"><span class="grow"><strong>${esc(Lt(i.name))}</strong>${i.hint ? `<br><span class="small">${esc(Lt(i.hint))}</span>` : ""}</span>${icon("arrow-right", 20)}</a></li>`;
+  const main = insts.filter((i) => i.id !== "other"), other = insts.filter((i) => i.id === "other");
+  return `<div class="stack"><h1>${esc(t("qv.supportTitle"))}</h1><p class="lead">${esc(t("qv.supportLead"))}</p>
+    <h2>${esc(t("qv.supportWhere"))}</h2>
+    <ul class="pick-list">${main.map((i) => row(i, false)).join("")}${other.map((i) => row(i, true)).join("")}</ul>${emergencyCard()}</div>`;
+}
+
+function viewSupport(arg) {
+  // On the Quivr demo Support is a directory of Flanders institutions, not a picker gate:
+  // nothing is stored, and each row simply opens that institution's services.
+  if (isQuivr()) {
+    const inst = institutionsOf(app.base).find((i) => i.id === arg);
+    if (!inst) return supportDirectory();
+    const keep = app.config;
+    app.config = institutionConfig(app.base, inst.id);
+    try { return supportPage(); } finally { app.config = keep; }
   }
+  return supportPage();
+}
+
+function supportPage() {
+  const c = app.config;
   return `<div class="stack">
     <h1>${esc(t("more.supportHeading"))}</h1>
     ${Object.keys(c.services).length
@@ -908,7 +941,7 @@ function route(opts) {
     nav = "about";
   } else if (name === "results") { nav = "about"; html = viewResults(); if (isPreview()) app.store.markTried("results"); }
   else if (name === "history") { nav = "history"; html = viewHistory(); }
-  else if (name === "support") { nav = "support"; html = viewSupport(); if (isPreview()) app.store.markTried("support"); }
+  else if (name === "support") { nav = "support"; html = viewSupport(arg); if (isPreview()) app.store.markTried("support"); }
   else if (name === "about") { nav = "about"; html = viewAbout(); }
   else if (name === "privacy") { nav = "about"; html = viewPrivacy(); }
   else html = viewHome();
@@ -1055,7 +1088,7 @@ function watchForUpdates() {
     location.reload();
   };
   navigator.serviceWorker.addEventListener("controllerchange", () => { if (hadController) reloadWhenSafe(); });
-  navigator.serviceWorker.register("sw.js").then((reg) => {
+  navigator.serviceWorker.register(`${ROOT}sw.js`).then((reg) => {
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") reg.update().catch(() => {}); });
   }).catch(() => {});
 }
@@ -1063,14 +1096,17 @@ function watchForUpdates() {
 async function init() {
   const params = new URLSearchParams(location.search);
   const id = resolveUniversityId(location.search, document.querySelector('meta[name="cc-university"]')?.content);
-  const { config, fellBack } = await loadConfig(id);
+  const { config, fellBack } = await loadConfig(id, fetch, ROOT);
   app.base = config; app.fellBack = fellBack;
   let storage = null;
   try { storage = window.localStorage; } catch { storage = null; }
   app.store = createStore(storage, config.id);
   applyUni();
-  app.lang = pickLanguage(config, { search: location.search, stored: app.store.getLang(), browser: navigator.languages || [navigator.language] });
+  // A static language entry (/quivr/en/) opens in its own language unless ?lang= says otherwise.
+  const pageLang = document.querySelector('meta[name="cc-lang"]')?.content;
+  app.lang = pickLanguage(config, { search: params.has("lang") || !pageLang ? location.search : `?lang=${encodeURIComponent(pageLang)}`, stored: app.store.getLang(), browser: navigator.languages || [navigator.language] });
   app.ui = await loadUi(app.lang);
+  syncShareMeta();
   if (isPreview()) {
     if (!app.store.isDemo()) app.store.setDemo(true, demoEntries(config));
   } else {

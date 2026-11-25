@@ -6,9 +6,9 @@ export function resolveUniversityId(search, metaValue) {
 }
 
 /** Load a university config; fall back to default if it is missing. */
-export async function loadConfig(id, fetchFn = fetch) {
+export async function loadConfig(id, fetchFn = fetch, root = "") {
   const get = async (name) => {
-    const res = await fetchFn(`config/universities/${name}.json`);
+    const res = await fetchFn(`${root}config/universities/${name}.json`);
     if (!res.ok) throw new Error(`config ${name}: ${res.status}`);
     return res.json();
   };

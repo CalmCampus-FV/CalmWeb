@@ -1699,8 +1699,14 @@
   ],
   "share": {
     "title": "CalmCampus × Quivr: preview",
-    "description": "Een wekelijkse check-in van vier vragen, in minder dan een minuut, met de hulp van je eigen universiteit. Een preview gemaakt om door Quivr te laten bekijken: geen Quivr-functie.",
+    "description": {
+      "nl": "Een wekelijkse check-in van vier vragen, in minder dan een minuut, met de hulp van je eigen universiteit. Een preview gemaakt om door Quivr te laten bekijken: geen Quivr-functie.",
+      "en": "A weekly check-in of four questions, in less than a minute, with the help of your own university. A preview made for Quivr to review: not a Quivr feature."
+    },
     "image": "share.png",
-    "imageAlt": "CalmCampus × Quivr: preview. Een wekelijkse check-in van minder dan een minuut, gemaakt om door Quivr te laten bekijken."
+    "imageAlt": {
+      "nl": "CalmCampus × Quivr: preview. Een wekelijkse check-in van minder dan een minuut, gemaakt om door Quivr te laten bekijken.",
+      "en": "CalmCampus × Quivr: preview. A weekly check-in of less than a minute, made for Quivr to review."
+    }
   }
 }

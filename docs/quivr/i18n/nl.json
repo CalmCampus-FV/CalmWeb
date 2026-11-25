@@ -350,7 +350,8 @@
     "disc": "We zijn studenten, geen zorgverleners. CalmCampus stelt geen diagnose en behandelt niet. We raden sterk aan om met een huisarts of de studentenbegeleiding te praten.",
     "toDash": "Terug naar het dashboard",
     "supportTitle": "Hulp",
-    "supportPick": "Kies je universiteit om te zien waar je terechtkunt. De nummers voor noodgevallen staan hieronder altijd klaar.",
+    "supportLead": "Studenten kunnen terecht bij de studentendienst van hun eigen instelling, vaak Stuvo genoemd. De nummers voor noodgevallen staan hieronder altijd klaar.",
+    "supportWhere": "Instellingen in Vlaanderen",
     "stage": {
       "eyebrow": "CalmCampus × Quivr",
       "title": "CalmCampus in de Quivr-app",

@@ -350,7 +350,8 @@
     "disc": "We are students, not medical professionals. CalmCampus does not diagnose or treat. We strongly suggest speaking to a doctor or student support.",
     "toDash": "Back to the dashboard",
     "supportTitle": "Support",
-    "supportPick": "Pick your university to see where you can go. The emergency numbers are always below.",
+    "supportLead": "Students can go to the student services of their own institution, often called Stuvo. The emergency numbers are always below.",
+    "supportWhere": "Institutions in Flanders",
     "stage": {
       "eyebrow": "CalmCampus × Quivr",
       "title": "CalmCampus inside the Quivr app",
