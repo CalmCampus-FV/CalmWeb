@@ -1,11 +1,11 @@
 # CalmWeb
 
-[![CI](https://github.com/lumenworksco/_CalmWeb/actions/workflows/ci.yml/badge.svg)](https://github.com/lumenworksco/_CalmWeb/actions/workflows/ci.yml)
+[![CI](https://github.com/CalmCampus-FV/CalmWeb/actions/workflows/ci.yml/badge.svg)](https://github.com/CalmCampus-FV/CalmWeb/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 ![Stack: plain HTML/CSS/JS](https://img.shields.io/badge/stack-plain%20HTML%2FCSS%2FJS-blue.svg)
 ![No trackers](https://img.shields.io/badge/trackers-none-brightgreen.svg)
 
-**The web side of [CalmCampus](https://github.com/lumenworksco/CalmCampus)**, a privacy-first wellness companion for university students: the pitch site, the impact report and the evidence dossier behind their claims. Live at [**cc.braunf.com**](https://cc.braunf.com/).
+**The web side of [CalmCampus](https://github.com/CalmCampus-FV/CalmCampus)**, a privacy-first wellness companion for university students: the pitch site, the impact report and the evidence dossier behind their claims. Live at [**cc.braunf.com**](https://cc.braunf.com/).
 
 <p align="center">
   <img src="docs/assets/og-image.png" width="600" alt="CalmCampus: Stop burnout before it starts">
@@ -16,15 +16,15 @@
 | Path | What it is |
 |---|---|
 | [`docs/`](docs/) | The site. Plain HTML/CSS/JS, no build step: `index.html` (pitch), `report.html` (impact report), `CalmCampus-One-Pager.pdf`, shared `tokens.css`, and the public form pages (`f/`, `forms/`) |
-| [`docs/demo/`](docs/demo/) | The general preview of the app, linked from the home page as "Try the demo", live at [cc.braunf.com/demo](https://cc.braunf.com/demo/). Build output of [`web/`](https://github.com/lumenworksco/CalmCampus/tree/main/web) on `main` in the CalmCampus repo: change it there, then copy `web/dist/` here. Do not edit it in this repo |
-| [`docs/epfl/`](docs/epfl/) | The EPFL reviewer preview of the app, live at [cc.braunf.com/epfl](https://cc.braunf.com/epfl/). Build output of [`web/`](https://github.com/lumenworksco/CalmCampus/tree/epfl-web-demo/web) in the CalmCampus repo: change it there, then copy `web/dist/epfl/` here. Do not edit it in this repo |
+| [`docs/demo/`](docs/demo/) | The general preview of the app, linked from the home page as "Try the demo", live at [cc.braunf.com/demo](https://cc.braunf.com/demo/). Build output of [`web/`](https://github.com/CalmCampus-FV/CalmCampus/tree/main/web) on `main` in the CalmCampus repo: change it there, then copy `web/dist/` here. Do not edit it in this repo |
+| [`docs/epfl/`](docs/epfl/) | The EPFL reviewer preview of the app, live at [cc.braunf.com/epfl](https://cc.braunf.com/epfl/). Build output of [`web/`](https://github.com/CalmCampus-FV/CalmCampus/tree/epfl-web-demo/web) in the CalmCampus repo: change it there, then copy `web/dist/epfl/` here. Do not edit it in this repo |
 | [`admin/`](admin/) | The private forms admin: builder, settings, sharing, results. Served from its own origin |
 | [`worker/`](worker/) | Cloudflare Worker that receives form submissions, so respondents never talk to the database directly |
 | [`supabase/`](supabase/) | Database schema, row-level security and its tests |
 | [`tests/`](tests/), [`scripts/`](scripts/) | Unit tests, the dev server and the site checks |
 | [`research/`](research/) | Evidence dossier (PDF), source index (`index.csv`, one row per cited paper), notes and research log |
 
-The iOS app, the on-device model and the design mockups live in the [CalmCampus](https://github.com/lumenworksco/CalmCampus) repo.
+The iOS app, the on-device model and the design mockups live in the [CalmCampus](https://github.com/CalmCampus-FV/CalmCampus) repo.
 
 ## Forms
 

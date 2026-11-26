@@ -4,13 +4,13 @@ This repo is the static CalmCampus website and its research material. It collect
 
 ## Reporting a vulnerability
 
-Please **do not open a public issue**. Use GitHub's private reporting instead: go to the [Security tab](https://github.com/lumenworksco/_CalmWeb/security/advisories/new) and choose *Report a vulnerability*.
+Please **do not open a public issue**. Use GitHub's private reporting instead: go to the [Security tab](https://github.com/CalmCampus-FV/CalmWeb/security/advisories/new) and choose *Report a vulnerability*.
 
 Include what you found, how to reproduce it, and the impact. You can expect an initial response within a week.
 
 ## Scope
 
-In scope: the site in `docs/` (for example injected scripts, trackers, unsafe links, or anything that could collect visitor data) and the deployment setup. For the app, see the [CalmCampus security policy](https://github.com/lumenworksco/CalmCampus/security/policy).
+In scope: the site in `docs/` (for example injected scripts, trackers, unsafe links, or anything that could collect visitor data) and the deployment setup. For the app, see the [CalmCampus security policy](https://github.com/CalmCampus-FV/CalmCampus/security/policy).
 
 Only the version on `main` (what is live at cc.braunf.com) is supported.
 
