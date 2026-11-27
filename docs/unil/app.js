@@ -163,7 +163,7 @@ function renderHealth() {
     ${appBar("Santé et bien-être", { back: true })}
     <div class="app-body pad">
       <p class="small-cap">Avec CalmCampus</p>
-      <p>Un point d’une minute par semaine, et un guide vers l’aide de l’UNIL. Le but&#8239;: repérer tôt une période plus difficile et vous orienter vers l’aide de l’UNIL.</p>
+      <p>Un point de moins d’une minute par semaine, et un guide vers l’aide de l’UNIL. Le but&#8239;: vous aider à faire le point sur comment vous allez et à trouver du soutien à l’UNIL.</p>
       ${state.done
         ? `<p class="done-note">Point de la semaine fait. Le prochain vous sera proposé la semaine prochaine.</p>`
         : `<button type="button" class="app-btn wide" data-act="open">Faire le point de la semaine</button>`}
@@ -191,10 +191,10 @@ function renderHealth() {
           <li>Le sommeil ajoute du contexte. Ce sont vos réponses qui comptent.</li>
           <li>Si vous refusez l’accès aux données, les quatre réponses suffisent.</li>
           <li>Une fois par semaine au plus. Vous pouvez toujours répondre «&#8239;Plus tard&#8239;».</li>
-          <li>CalmCampus ne remplace pas un avis médical. Il aide à repérer tôt une période plus difficile et à vous orienter vers l’aide de l’UNIL.</li>
+          <li>CalmCampus ne remplace pas un avis médical. C’est un check-in hebdomadaire qui vous aide à faire le point sur comment vous allez et à trouver du soutien à l’UNIL.</li>
         </ul>
       </details>
-      <p class="cc-disc">CalmCampus est un prototype. Nous ne sommes pas des professionnels de santé. En cas de besoin, parlez à un médecin ou aux services de l’UNIL.</p>
+      <p class="cc-disc">CalmCampus est un prototype. Nous sommes des étudiant·es, pas des professionnel·les de santé. CalmCampus ne pose pas de diagnostic et ne soigne pas. Nous vous conseillons vivement de parler à un médecin ou aux services de l’UNIL.</p>
     </div>`;
 }
 
@@ -263,7 +263,7 @@ function renderThanks() {
       ${extra}
       ${noData}
       <button type="button" class="app-btn wide" data-act="close">Fermer</button>
-      <p class="cc-disc">CalmCampus est un prototype. Nous ne sommes pas des professionnels de santé. En cas de besoin, parlez à un médecin ou aux services de l’UNIL.</p>
+      <p class="cc-disc">CalmCampus est un prototype. Nous sommes des étudiant·es, pas des professionnel·les de santé. CalmCampus ne pose pas de diagnostic et ne soigne pas. Nous vous conseillons vivement de parler à un médecin ou aux services de l’UNIL.</p>
     </div>`;
 }
 
