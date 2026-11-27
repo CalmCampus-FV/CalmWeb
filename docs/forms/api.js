@@ -1,4 +1,4 @@
-// Browser client for the ingest Worker. Same-origin (cc.braunf.com/api/*): no third parties,
+// Browser client for the ingest Worker. Same-origin (form.calmcampus.app/api/*, and cc.braunf.com/api/* for old links): no third parties,
 // no cookies, no custom headers that identify the visitor.
 async function call(path, body) {
   const res = await fetch('/api' + path, { method: body ? 'POST' : 'GET', credentials: 'omit', referrerPolicy: 'no-referrer',
