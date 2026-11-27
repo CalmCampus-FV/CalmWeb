@@ -1,0 +1,27 @@
+name: Demo sync
+
+# The university demos in docs/quivr, docs/demo, docs/epfl and docs/unil are copies of
+# published/<demo>/ in CalmCampus-FV/CalmUni. This fails when they drift apart.
+# CalmUni is public, so no secret is needed.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          repository: CalmCampus-FV/CalmUni
+          path: .calmuni
+      - name: docs/<demo>/ matches CalmUni published/<demo>/
+        run: CALMUNI_DIR=.calmuni bash scripts/sync-demos.sh --check

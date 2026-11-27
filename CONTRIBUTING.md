@@ -1,6 +1,6 @@
 # Contributing to CalmWeb
 
-Thanks for helping. This repo is the CalmCampus website and its evidence base, so accuracy matters more than volume. Small, focused changes are easiest to review. For the app itself, see the [CalmCampus](https://github.com/CalmCampus-FV/CalmCampus) repo.
+Thanks for helping. This repo is the CalmCampus website and its evidence base, so accuracy matters more than volume. Small, focused changes are easiest to review. For the app itself, see the [CalmApp](https://github.com/CalmCampus-FV/CalmApp) repo; for the university demos, [CalmUni](https://github.com/CalmCampus-FV/CalmUni).
 
 ## Before you start
 

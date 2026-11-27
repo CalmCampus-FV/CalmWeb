@@ -5,7 +5,7 @@
 ![Stack: plain HTML/CSS/JS](https://img.shields.io/badge/stack-plain%20HTML%2FCSS%2FJS-blue.svg)
 ![No trackers](https://img.shields.io/badge/trackers-none-brightgreen.svg)
 
-**The web side of [CalmCampus](https://github.com/CalmCampus-FV/CalmCampus)**, a privacy-first wellness companion for university students: the marketing site (hub, universities, companies, app), the impact report and the evidence dossier behind their claims. Live at [**cc.braunf.com**](https://cc.braunf.com/).
+**The website of CalmCampus**, a privacy-first wellness companion for university students: the marketing site (hub, universities, companies, app), the impact report and the evidence dossier behind their claims. Live at [**cc.braunf.com**](https://cc.braunf.com/).
 
 <p align="center">
   <img src="docs/assets/og-image.png" width="600" alt="CalmCampus: A weekly check-in that stays on your phone">
@@ -16,15 +16,25 @@
 | Path | What it is |
 |---|---|
 | [`docs/`](docs/) | The site. Plain HTML/CSS/JS, no build step: `index.html` (hub), `universities/`, `companies/` and `app/` (one `index.html` each), `report.html` (impact report), shared `tokens.css`, and the public form pages (`f/`, `forms/`) |
-| [`docs/demo/`](docs/demo/) | The general preview of the app, linked from the home page as "Try the demo", live at [cc.braunf.com/demo](https://cc.braunf.com/demo/). Build output of [`web/`](https://github.com/CalmCampus-FV/CalmCampus/tree/main/web) on `main` in the CalmCampus repo: change it there, then copy `web/dist/` here. Do not edit it in this repo |
-| [`docs/epfl/`](docs/epfl/) | The EPFL reviewer preview of the app, live at [cc.braunf.com/epfl](https://cc.braunf.com/epfl/). Build output of [`web/`](https://github.com/CalmCampus-FV/CalmCampus/tree/epfl-web-demo/web) in the CalmCampus repo: change it there, then copy `web/dist/epfl/` here. Do not edit it in this repo |
+| [`docs/quivr/`](docs/quivr/), [`docs/demo/`](docs/demo/), [`docs/epfl/`](docs/epfl/), [`docs/unil/`](docs/unil/) | The university demos, live at [/quivr/](https://cc.braunf.com/quivr/), [/demo/](https://cc.braunf.com/demo/) (the general preview, "Try the demo" on the home page), [/epfl/](https://cc.braunf.com/epfl/) and [/unil/](https://cc.braunf.com/unil/). **Published copies only: the source is [CalmUni](https://github.com/CalmCampus-FV/CalmUni)** (`web/` and `published/<demo>/`). Change them there, then run `bash scripts/sync-demos.sh` here. Never edit them in this repo, and never move or rename them: these links have been sent to universities |
 | [`admin/`](admin/) | The private forms admin: builder, settings, sharing, results. Served from its own origin |
 | [`worker/`](worker/) | Cloudflare Worker that receives form submissions, so respondents never talk to the database directly |
 | [`supabase/`](supabase/) | Database schema, row-level security and its tests |
 | [`tests/`](tests/), [`scripts/`](scripts/) | Unit tests, the dev server and the site checks |
 | [`research/`](research/) | Evidence dossier (PDF), source index (`index.csv`, one row per cited paper), notes and research log |
 
-The iOS app, the on-device model and the design mockups live in the [CalmCampus](https://github.com/CalmCampus-FV/CalmCampus) repo.
+Related repositories: the iOS app is [CalmApp](https://github.com/CalmCampus-FV/CalmApp), university demos are [CalmUni](https://github.com/CalmCampus-FV/CalmUni), company demos are [CalmBiz](https://github.com/CalmCampus-FV/CalmBiz), and the on-device model research and design mockups are archived in [CalmCampus](https://github.com/CalmCampus-FV/CalmCampus).
+
+## Demos from CalmUni
+
+cc.braunf.com is this repo's GitHub Pages site, so the demos must be served from here to keep their addresses. [CalmUni](https://github.com/CalmCampus-FV/CalmUni) is where they are built and kept (`published/<demo>/`). To publish a change:
+
+```bash
+bash scripts/sync-demos.sh        # copies every published/<demo>/ from CalmUni main into docs/<demo>/
+git checkout -b sync-demos && git add docs && git commit -m "Sync demos from CalmUni" && git push -u origin sync-demos
+```
+
+Open a PR and squash-merge once CI is green. The **Demo sync** workflow (`.github/workflows/demo-sync.yml`, on every PR, on `main` and daily) fails when `docs/<demo>/` differs from CalmUni, so a missed sync shows up. It reads the public CalmUni repo and needs no secret. Publishing straight from a CalmUni Action would need a cross-repo token secret, so it is deliberately not set up.
 
 ## Forms
 
