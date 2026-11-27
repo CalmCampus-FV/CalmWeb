@@ -46,7 +46,7 @@ export function noticeFor(form) {
     ['Where it goes', 'Stored on a server in the EU. Unlike the app, which keeps its data on your phone, this form has to send it to us.'],
     ['Who sees it', s.who || 'The CalmCampus team.'],
     ['How long', `We keep it for ${s.retention_days || 90} days, then delete it automatically.`],
-    ['Your rights', `You’ll get a deletion code when you send. Use it at any time to delete your answers (cc.braunf.com/f/), or email ${contact}. You can also ask us what we hold about you.`],
+    ['Your rights', `You’ll get a deletion code when you send. Use it at any time to delete your answers (form.calmcampus.app/f/), or email ${contact}. You can also ask us what we hold about you.`],
   ];
   return {
     promise: anon ? 'No account, no email, no tracking. We can’t tell who you are.' : 'This one isn’t anonymous: we’ll know who you are, and you choose what to share.',
@@ -439,7 +439,7 @@ export function mountForm(root, form, opts = {}) {
           h('p', { class: 'cc-lead', text: s.thanks || 'That helps more than you might think. Take a breath, you’re done.' }),
           res.preview && h('p', { class: 'cc-warn', text: 'Preview only: nothing was sent.' }),
           res.deleteToken && h('div', {}, h('p', { text: 'Your deletion code. Keep it somewhere safe: it’s the only way to delete your answers yourself.' }), h('div', { class: 'cc-token', text: res.deleteToken }),
-            h('p', { class: 'cc-warn' }, 'To delete later, go to ', h('a', { href: '/f/', text: 'cc.braunf.com/f/' }), ' and paste it in.')),
+            h('p', { class: 'cc-warn' }, 'To delete later, go to ', h('a', { href: 'https://form.calmcampus.app/f/', text: 'form.calmcampus.app/f/' }), ' and paste it in.')),
           redirect && h('p', {}, h('a', { href: redirect, rel: 'noopener', text: 'Continue →' }))),
         h('div', { class: 'cc-split-b' },
           follow, crisis && h('p', { class: 'cc-crisis', text: crisis }),
