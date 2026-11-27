@@ -1,8 +1,9 @@
-name: Demo sync
+name: Source sync
 
-# The university demos in docs/quivr, docs/demo, docs/epfl and docs/unil are copies of
-# published/<demo>/ in CalmCampus-FV/CalmUni. This fails when they drift apart.
-# CalmUni is public, so no secret is needed.
+# Frozen copies served at cc.braunf.com, each with its source in another repo (both public,
+# so no secret is needed). This fails when a copy drifts from its source:
+#   docs/quivr, docs/demo, docs/epfl, docs/unil  <- CalmCampus-FV/CalmUni published/<demo>/  (scripts/sync-demos.sh)
+#   docs/f, docs/forms                           <- CalmCampus-FV/CalmForms docs/f, docs/forms (scripts/sync-forms.sh)
 on:
   push:
     branches: [main]
@@ -15,7 +16,7 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  demos:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -25,3 +26,14 @@ jobs:
           path: .calmuni
       - name: docs/<demo>/ matches CalmUni published/<demo>/
         run: CALMUNI_DIR=.calmuni bash scripts/sync-demos.sh --check
+
+  forms:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          repository: CalmCampus-FV/CalmForms
+          path: .calmforms
+      - name: docs/f and docs/forms match CalmForms
+        run: CALMFORMS_DIR=.calmforms bash scripts/sync-forms.sh --check
