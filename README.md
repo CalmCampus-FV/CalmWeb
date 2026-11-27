@@ -5,7 +5,7 @@
 ![Stack: plain HTML/CSS/JS](https://img.shields.io/badge/stack-plain%20HTML%2FCSS%2FJS-blue.svg)
 ![No trackers](https://img.shields.io/badge/trackers-none-brightgreen.svg)
 
-**The web side of [CalmCampus](https://github.com/CalmCampus-FV/CalmCampus)**, a privacy-first wellness companion for university students: the pitch site, the impact report and the evidence dossier behind their claims. Live at [**cc.braunf.com**](https://cc.braunf.com/).
+**The web side of [CalmCampus](https://github.com/CalmCampus-FV/CalmCampus)**, a privacy-first wellness companion for university students: the marketing site (hub, universities, companies, app), the impact report and the evidence dossier behind their claims. Live at [**cc.braunf.com**](https://cc.braunf.com/).
 
 <p align="center">
   <img src="docs/assets/og-image.png" width="600" alt="CalmCampus: Stop burnout before it starts">
@@ -15,7 +15,7 @@
 
 | Path | What it is |
 |---|---|
-| [`docs/`](docs/) | The site. Plain HTML/CSS/JS, no build step: `index.html` (pitch), `report.html` (impact report), `CalmCampus-One-Pager.pdf`, shared `tokens.css`, and the public form pages (`f/`, `forms/`) |
+| [`docs/`](docs/) | The site. Plain HTML/CSS/JS, no build step: `index.html` (hub), `universities/`, `companies/` and `app/` (one `index.html` each), `report.html` (impact report), `CalmCampus-One-Pager.pdf`, shared `tokens.css`, and the public form pages (`f/`, `forms/`) |
 | [`docs/demo/`](docs/demo/) | The general preview of the app, linked from the home page as "Try the demo", live at [cc.braunf.com/demo](https://cc.braunf.com/demo/). Build output of [`web/`](https://github.com/CalmCampus-FV/CalmCampus/tree/main/web) on `main` in the CalmCampus repo: change it there, then copy `web/dist/` here. Do not edit it in this repo |
 | [`docs/epfl/`](docs/epfl/) | The EPFL reviewer preview of the app, live at [cc.braunf.com/epfl](https://cc.braunf.com/epfl/). Build output of [`web/`](https://github.com/CalmCampus-FV/CalmCampus/tree/epfl-web-demo/web) in the CalmCampus repo: change it there, then copy `web/dist/epfl/` here. Do not edit it in this repo |
 | [`admin/`](admin/) | The private forms admin: builder, settings, sharing, results. Served from its own origin |
