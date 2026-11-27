@@ -5,7 +5,7 @@
 ![Stack: plain HTML/CSS/JS](https://img.shields.io/badge/stack-plain%20HTML%2FCSS%2FJS-blue.svg)
 ![No trackers](https://img.shields.io/badge/trackers-none-brightgreen.svg)
 
-**The website of CalmCampus**, a privacy-first wellness companion for university students: the marketing site (hub, universities, companies, app), the impact report and the evidence dossier behind their claims. Live at [**cc.braunf.com**](https://cc.braunf.com/).
+**The website of CalmCampus**, a privacy-first wellness companion for university students: the marketing site (hub, universities, companies, app), the impact report and the evidence dossier behind their claims. Live at [**calmcampus.app**](https://calmcampus.app/) (cc.braunf.com redirects there, path preserved).
 
 <p align="center">
   <img src="docs/assets/og-image.png" width="600" alt="CalmCampus: A weekly check-in that stays on your phone">
@@ -16,7 +16,7 @@
 | Path | What it is |
 |---|---|
 | [`docs/`](docs/) | The site. Plain HTML/CSS/JS, no build step: `index.html` (hub), `universities/`, `companies/` and `app/` (one `index.html` each), `report.html` (impact report), shared `tokens.css`, and frozen copies of the public form pages (`f/`, `forms/`; source: [CalmForms](https://github.com/CalmCampus-FV/CalmForms), sync with `bash scripts/sync-forms.sh`, never edit here) |
-| [`docs/quivr/`](docs/quivr/), [`docs/demo/`](docs/demo/), [`docs/epfl/`](docs/epfl/), [`docs/unil/`](docs/unil/) | The university demos, live at [/quivr/](https://cc.braunf.com/quivr/), [/demo/](https://cc.braunf.com/demo/) (the general preview, "Try the demo" on the home page), [/epfl/](https://cc.braunf.com/epfl/) and [/unil/](https://cc.braunf.com/unil/). **Published copies only: the source is [CalmUni](https://github.com/CalmCampus-FV/CalmUni)** (`web/` and `published/<demo>/`). Change them there, then run `bash scripts/sync-demos.sh` here. Never edit them in this repo, and never move or rename them: these links have been sent to universities |
+| [`docs/quivr/`](docs/quivr/), [`docs/demo/`](docs/demo/), [`docs/epfl/`](docs/epfl/), [`docs/unil/`](docs/unil/) | The university demos, live at [/quivr/](https://calmcampus.app/quivr/), [/demo/](https://calmcampus.app/demo/) (the general preview, "Try the demo" on the home page), [/epfl/](https://calmcampus.app/epfl/) and [/unil/](https://calmcampus.app/unil/) (their main address is now [uni.calmcampus.app](https://uni.calmcampus.app/)). **Published copies only: the source is [CalmUni](https://github.com/CalmCampus-FV/CalmUni)** (`web/` and `published/<demo>/`). Change them there, then run `bash scripts/sync-demos.sh` here. Never edit them in this repo, and never move or rename them: these links have been sent to universities |
 | [`scripts/`](scripts/) | The site check and the two sync scripts (`sync-demos.sh`, `sync-forms.sh`) |
 | [`research/`](research/) | Evidence dossier (PDF), source index (`index.csv`, one row per cited paper), notes and research log |
 
@@ -24,7 +24,7 @@ Related repositories: the forms platform is [CalmForms](https://github.com/CalmC
 
 ## Demos from CalmUni
 
-cc.braunf.com is this repo's GitHub Pages site, so the demos must be served from here to keep their addresses. [CalmUni](https://github.com/CalmCampus-FV/CalmUni) is where they are built and kept (`published/<demo>/`). To publish a change:
+calmcampus.app is this repo's GitHub Pages site, and the links already sent on cc.braunf.com redirect here with the same path, so the demo copies must stay here to keep those links working. [CalmUni](https://github.com/CalmCampus-FV/CalmUni) is where they are built and kept (`published/<demo>/`). To publish a change:
 
 ```bash
 bash scripts/sync-demos.sh        # copies every published/<demo>/ from CalmUni main into docs/<demo>/
@@ -35,7 +35,7 @@ Open a PR and squash-merge once CI is green. The **Source sync** workflow (`.git
 
 ## Forms
 
-The forms platform (builder, public forms, admin, Worker, database) moved to **[CalmForms](https://github.com/CalmCampus-FV/CalmForms)** with its history; see its FORMS.md. The form links already sent (`cc.braunf.com/f/<slug>`) keep working: this repo serves frozen copies of `docs/f/` and `docs/forms/`, and the Cloudflare Worker routes on cc.braunf.com are unchanged. The **Source sync** workflow fails when those copies drift from CalmForms; fix it with `bash scripts/sync-forms.sh` and a PR.
+The forms platform (builder, public forms, admin, Worker, database) moved to **[CalmForms](https://github.com/CalmCampus-FV/CalmForms)** with its history; see its FORMS.md. The form links already sent (`cc.braunf.com/f/<slug>`) keep working: this repo serves frozen copies of `docs/f/` and `docs/forms/`, and the Cloudflare Worker keeps its routes on cc.braunf.com (the cc.braunf.com redirect sends /f/* and /forms/* to form.calmcampus.app and leaves /api/* alone). New form links use form.calmcampus.app. The **Source sync** workflow fails when those copies drift from CalmForms; fix it with `bash scripts/sync-forms.sh` and a PR.
 
 ## Run it locally
 
@@ -53,7 +53,7 @@ GitHub Pages serves `main` from `/docs`, with the domain set in [`docs/CNAME`](d
 
 The forms Worker and admin are deployed from CalmForms, see its FORMS.md.
 
-Planned (not live): the site moves to `calmcampus.app` (then `docs/CNAME` changes), with cc.braunf.com kept as a fallback through a Cloudflare redirect that preserves the path. Until Florian adds the DNS records, `docs/CNAME` stays `cc.braunf.com`. Even after the move, keep `docs/quivr`, `docs/demo`, `docs/epfl`, `docs/unil`, `docs/f` and `docs/forms` here so every link already sent still resolves at the same path.
+Domains: `docs/CNAME` is `calmcampus.app` (a Pages site has one custom domain). cc.braunf.com is kept as a fallback by Cloudflare redirect rules in the braunf.com zone: `/f/*` and `/forms/*` go to form.calmcampus.app, everything else except `/api/*` goes to calmcampus.app, path and query string preserved. Keep `docs/quivr`, `docs/demo`, `docs/epfl`, `docs/unil`, `docs/f` and `docs/forms` here so every link already sent still resolves at the same path.
 
 ## Checks
 
