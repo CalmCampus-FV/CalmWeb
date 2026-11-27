@@ -13,7 +13,7 @@
   "preview": true,
   "defaultLanguage": "fr",
   "languages": ["fr", "en"],
-  "publicUrl": "https://cc.braunf.com/epfl/",
+  "publicUrl": "https://uni.calmcampus.app/epfl/",
   "qr": "config/qr/epfl.svg",
   "feedback": {
     "email": "contact@calm.braunf.com",

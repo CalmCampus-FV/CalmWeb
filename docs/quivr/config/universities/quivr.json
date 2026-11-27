@@ -29,7 +29,7 @@
     "nl": "Je antwoorden blijven op je telefoon en worden daar verwerkt. Niemand anders heeft ze: niet Quivr, niet de universiteit en niet het CalmCampus-team.",
     "en": "Your answers stay on your phone and are processed there. Nobody else has them: not Quivr, not the university, and not the CalmCampus team."
   },
-  "publicUrl": "https://cc.braunf.com/quivr/",
+  "publicUrl": "https://uni.calmcampus.app/quivr/",
   "qr": "config/qr/quivr.svg",
   "feedback": {
     "email": "contact@calm.braunf.com",
