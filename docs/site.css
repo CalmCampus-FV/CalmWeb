@@ -98,7 +98,7 @@ p { text-wrap: pretty; }
 .phone-step { font-size: 13px; font-weight: 600; color: var(--sage-700); }
 .phone-progress { display: flex; gap: 6px; margin-bottom: 34px; }
 .phone-progress i { flex: 1; height: 5px; border-radius: 99px; background: var(--neutral-300); }
-.phone-progress i:first-child { background: var(--sage); }
+.phone-progress i:first-child, .phone-progress i.done { background: var(--sage); }
 .phone-q { font-family: var(--font-heading); font-size: 28px; line-height: 1.1; margin-bottom: 28px; }
 .phone-scale { display: flex; gap: 8px; }
 .phone-scale span {
