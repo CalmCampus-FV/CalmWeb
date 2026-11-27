@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cc.braunf.com/sitemap.xml
+Sitemap: https://calmcampus.app/sitemap.xml

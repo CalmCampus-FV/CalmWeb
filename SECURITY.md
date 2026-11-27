@@ -12,7 +12,7 @@ Include what you found, how to reproduce it, and the impact. You can expect an i
 
 In scope: the site in `docs/` (for example injected scripts, trackers, unsafe links, or anything that could collect visitor data) and the deployment setup. For the app, see the [CalmApp](https://github.com/CalmCampus-FV/CalmApp) repo; for the university demos served under `/quivr/`, `/demo/`, `/epfl/` and `/unil/`, the [CalmUni](https://github.com/CalmCampus-FV/CalmUni) repo.
 
-Only the version on `main` (what is live at cc.braunf.com) is supported.
+Only the version on `main` (what is live at calmcampus.app) is supported.
 
 ## Crisis resources
 
